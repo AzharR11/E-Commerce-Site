@@ -1,0 +1,96 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'S3 bucket configured for site hosting, with CloudFront distribution'
+
+Parameters: #allows user to pass values into the template at the time of stack creation or update
+  BucketName:
+    Type: String
+    Description: 'Please provide the bucket name'
+
+Resources: #defines which resources will be created 
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Ref BucketName
+      VersioningConfiguration: #allows versioning to be configured 
+        Status: Enabled
+      WebsiteConfiguration: #specifies the index document for the static website
+        IndexDocument: index.html
+      PublicAccessBlockConfiguration: #configures public access settings for the bucket
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+
+  S3BucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      Bucket: !Ref S3Bucket #references the value of the bucket resource defined
+      PolicyDocument:
+        Id: Mypolicy
+        Version: '2012-10-17'
+        Statement: #The policy allows public read access to objects in the bucket
+          - Sid: PublicReadGetObject
+            Action: 's3:GetObject'
+            Effect: Allow
+            Principal: '*'
+            Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*' #Allows you to substitute the string in this case the ${S3Bucket} will be replaced with the actual bucket name 
+
+  CloudFrontDistribution:
+    Type: 'AWS::CloudFront::Distribution'
+    Properties:
+      DistributionConfig:
+        Enabled: true  # Enable the CloudFront distribution
+        DefaultRootObject: index.html
+        Aliases:
+        - azr11.com	
+        - www.azr11.com
+        Origins:
+        - DomainName: !Sub '${BucketName}.s3-website-${AWS::Region}.amazonaws.com'
+          Id: S3Origin
+          CustomOriginConfig:
+            HTTPPort: 80
+            HTTPSPort: 443
+            OriginProtocolPolicy: http-only
+          OriginPath: ''
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ForwardedValues:
+            QueryString: false
+          ViewerProtocolPolicy: redirect-to-https
+        ViewerCertificate:
+          AcmCertificateArn: !Ref SSLCertificate
+          SslSupportMethod: sni-only          
+
+  SSLCertificate:
+    Type: 'AWS::CertificateManager::Certificate'
+    Properties:
+      DomainName: azr11.com
+      SubjectAlternativeNames:
+        - www.azr11.com
+      ValidationMethod: DNS
+
+  HostedZone:
+    Type: 'AWS::Route53::HostedZone'
+    Properties:
+      Name: azr11.com  
+
+  MainDomainRecord:
+    Type: 'AWS::Route53::RecordSet'
+    Properties:
+      HostedZoneId: !Ref HostedZone
+      Name: azr11.com
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+
+  WWWSubDomainRecord:
+    Type: 'AWS::Route53::RecordSet'
+    Properties:
+      HostedZoneId: !Ref HostedZone
+      Name: www.azr11.com
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+
