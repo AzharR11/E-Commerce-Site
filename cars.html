@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JDM Cars - Cars</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-overlay"></div>
+        <div class="header-content">
+        <h1>JDM Cars</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cars.html">Cars</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div id="cart-icon" onclick="redirectToCheckout()" onmouseover="showCartDropdown()" onmouseout="hideCartDropdown()">🛒</div>
+                <div class="cart-dropdown" id="cartDropdown"></div>
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <main>
+        <section id="product-listings">
+            <!-- Product listings will be dynamically generated here -->
+        </section>
+    </main>
+    <footer>
+        <div class="footer-overlay"></div>
+        <div class="footer-content">
+        <p>&copy; 2024 JDM Cars. Azhar Rashid.</p>
+    </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,499 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: relative;
+    background-image: url('Images/Night.jpg');
+    background-size: cover; /* or contain, depending on how you want the image to fit */
+    background-position:center;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden; /* Ensure the overlay covers the entire header */
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.384); /* Semi-transparent black */
+    z-index: 0; /* Ensure the overlay is behind the text */
+}
+
+.header-content {
+    position: relative;
+    z-index: 1; /* Ensure the text is above the overlay */
+}
+
+h1{
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Add a black outline */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #ffffff; /* Text color */
+    background-color: none; /* Background color */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Border color */
+    border-radius: 20px; /* Border radius */
+    padding: 10px; /* Padding */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+}
+
+nav ul li a:hover {
+    background-color: #006b79; /* Change background color on hover */
+    color: #ffffff; /* Change text color on hover */
+}
+
+#cart-icon {
+    font-size: 27px; /* Increase the font size */
+    right: 20px; /* Distance from the right edge */
+    top: 30px;  /* Add some space to the right */
+    cursor: pointer; /* Add cursor pointer to indicate interactivity */
+    float: right; /* Align to the right */
+    position: absolute;
+}
+
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%; /* Adjust based on your layout */
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 9999; /
+}
+
+.cart-dropdown.show {
+    display: block;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    position: relative;
+    background-image: url('Images/Night.jpg');
+    background-size: cover; /* or contain, depending on how you want the image to fit */
+    background-position:center;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden; /* Ensure the overlay covers the entire header */
+}
+
+.footer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.384); /* Semi-transparent black */
+    z-index: 0; /* Ensure the overlay is behind the text */
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1; /* Ensure the text is above the overlay */
+}
+
+.background-container {
+    position: relative;
+    overflow: hidden; /* Prevent image overflow */
+    height: 100vh; /* Set the height to 100% of the viewport height */
+}
+
+.background-image {
+    width: 100%; /* Set the width to fill the container */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place the image behind other content */
+}
+
+@media (max-width: 768px) {
+    .background-image {
+        width: auto; /* Reset width to maintain aspect ratio */
+        height: 100%; /* Set height to fill the container */
+    }
+}
+
+.quantity-input {
+    width: 50px; /* Adjust the width as needed */
+    padding: 5px;
+    margin-right: 10px; /* Add some spacing between the input field and the button */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+}
+
+.add-to-cart-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3;
+}
+
+.product img {
+    width: 350px; /* Set the width to your desired size */
+    height: 200px; /* Set the height to your desired size */
+    object-fit: cover; /* Ensure the image fills the specified dimensions */
+}
+
+.product {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px; /* Add margin to the bottom of each product */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Add margin between rows */
+}
+
+@media screen and (max-width: 768px) {
+    .product-row {
+        flex-direction: column; /* Display products in a single column */
+    }
+}
+
+.overlay {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* Allow vertical scrolling for overlay content */
+    padding: 20px; /* Add padding to prevent content from touching edges */
+    box-sizing: border-box; 
+}
+
+.overlay h1 {
+    font-family: 'Arial', sans-serif; /* Specify the desired font family */
+    font-size: 36px; /* Adjust the font size */
+    font-weight: bold; /* Specify the font weight */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a text shadow for better visibility */
+}
+
+.overlay p {
+    font-family: 'Arial', sans-serif; /* Specify the desired font family */
+    font-size: 18px; /* Adjust the font size */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add a text shadow for better visibility */
+}
+
+.overlay .btn {
+    font-family: 'Arial', sans-serif; /* Specify the desired font family */
+    font-size: 16px; /* Adjust the font size */
+    font-weight: bold; /* Specify the font weight */
+    text-decoration: none; /* Remove underline */
+    color: white; /* Text color */
+    background-color: #007bff; /* Button background color */
+    border: 2px solid #007bff; /* Button border */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Button border radius */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+}
+
+.overlay .btn:hover {
+    background-color: #0056b3; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+}
+
+@keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+.home-page-text {
+    animation: slideIn 1s ease-in-out forwards;
+  }
+
+@keyframes FadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.home-button{
+    animation: FadeIn 1s ease-in-out forwards;
+    opacity: 0; /* Add a delay of 1 second */
+    animation-delay: 1.5s;
+}
+
+#contact-form {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#contact-form h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
+    transition: border-bottom-color 0.3s ease;
+}
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: #007bff; /* Change border color on focus */
+}
+
+#contact-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#contact-form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#contact-form button:hover {
+    background-color: #555;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.order-summary {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add some spacing between the sections */
+}
+
+.order-summary h2 {
+    margin: 10px; /* Remove default margin */
+}
+.order-item-header {
+    display: flex;
+    flex-direction: row; /* Display headers in a row */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-item-header span {
+    font-weight: bold;
+    flex: 1; /* Distribute space evenly among the spans */
+    margin-left: 3%;
+    padding: 10px; /* Add some padding for spacing */
+}
+
+.order-item {
+    display: flex;
+    flex-direction: row; /* Change flex direction to row */
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.order-item:last-child {
+    border-bottom: none; /* Remove border for the last item */
+}
+
+.order-item span {
+    flex: 1; /* Distribute space evenly among the spans */
+    padding: 7px; /* Add some padding for spacing */
+}
+
+.order-item .action {
+    flex: 0.5; /* Adjust width of action column */
+}
+
+.remove-item-btn {
+    background-color: #f44336; /* Red color */
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-item-btn:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+.order-item .item-quantity {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.checkout-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+.checkout-section {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Arrange items side by side */
+    gap: 20px; /* Add gap between sections */
+}
+
+.checkout-form h2 {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.contact-info,
+.card-details {
+    flex: 1; /* Each section takes up equal space */
+    margin-bottom: 10px;
+}
+
+.checkout-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+    text-align: left;
+}
+
+.checkout-form input[type="text"],
+.checkout-form input[type="email"],
+.checkout-form textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
+    transition: border-bottom-color 0.3s ease;
+}
+
+.checkout-form input[type="text"]:focus,
+.checkout-form input[type="email"]:focus,
+.checkout-form textarea:focus {
+    outline: none;
+    border-color: #007bff; /* Change border color on focus */
+}
+
+.cvv-expiry {
+    display: flex; /* Display CVV and expiry date inputs in a row */
+    flex-direction: row;
+}
+
+.cvv-expiry label,
+.cvv-expiry input[type="text"] {
+    flex: 1; /* Make labels and inputs evenly share the available space */
+}
+
+.cvv-expiry input[type="text"]:last-child {
+    margin-right: 10; /* Remove margin for the last input to prevent extra spacing */
+}
+
+.checkout-buttons {
+    margin-top: 20px; /* Add margin to separate from sections */
+    text-align: center;
+}
+
+.checkout-form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-form button:hover {
+    background-color: #555;
+}
