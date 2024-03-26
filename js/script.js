@@ -16,7 +16,7 @@ const cart = [];
 function generateProductHTML(product) {
     return `
     <div class="product">
-        <img src="Images/${product.image}" alt="${product.name}">
+        <img src="../images/${product.image}" alt="${product.name}">
         <h2>${product.name}</h2>
         <p>${product.price} / ${product.mileage}</p>
         <div class="product-actions">
