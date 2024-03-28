@@ -5,22 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="header-overlay"></div>
         <div class="header-content">
-        <h1>Checkout</h1>
+        <h1 class ="header-title">Checkout</h1>
+        <body>
+            <i class="fas fa-user icon" id="account-icon"></i>
+            <i class="fas fa-shopping-cart icon" id="cart-icon" onclick="redirectToCheckout()" onmouseover="showCartDropdown()" onmouseout="hideCartDropdown()"></i>
+        <div class="cart-dropdown" id="cartDropdown"></div>
+       </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="cars.html">Cars</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <div id="cart-icon" onclick="redirectToCheckout()" onmouseover="showCartDropdown()" onmouseout="hideCartDropdown()">🛒</div>
-                <div class="cart-dropdown" id="cartDropdown"></div>
             </ul>
         </nav>
-    </div>
     </header>
     <main>
         <div class="container">

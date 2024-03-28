@@ -28,16 +28,74 @@ header {
 
 .header-content {
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
     z-index: 1; /* Ensure the text is above the overlay */
+}
+.search-bar {
+    flex: 1; /* Take remaining space */
+    display: flex;
+    align-items: center;
+    justify-content:center; /* Center horizontally */
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 700px) {
+    .search-bar {
+        justify-content: center; /* Align items to the start for smaller screens */
+    }
+
+    .search-bar input[type="text"] {
+        max-width: 150px; /* Adjust max width for smaller screens */
+    }
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #006b79;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.search-bar button:hover {
+    background-color: #044047;
+}
+
+.header-content .icon {
+    margin-right: 10px; /* Adjust the spacing between icons */
+    font-size: 20px; /* Adjust the icon size */
+    cursor: pointer; /* Add cursor pointer to indicate interactivity */
+    float: right; /* Align to the right */
 }
 
 h1{
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Add a black outline */
 }
 
+.header-title{
+    float: left; /* Align */
+    position: absolute;
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
+    z-index: 1;
+    position: relative;
 }
 
 nav ul li {
@@ -60,10 +118,24 @@ nav ul li a:hover {
     color: #ffffff; /* Change text color on hover */
 }
 
+.icon:hover {
+    color: #006b79; /* Change the color to the desired glow color */
+    transition: color 0.3s ease; /* Smooth transition effect */
+    /* Add any additional styling for the glow effect */
+    /* For example, you can add box-shadow */
+}
+
+#account-icon {
+    font-size: 22px; /* Increase the font size */
+    right: 90px; /* Distance from the right edge */ /* Add some space to the right */
+    cursor: pointer; /* Add cursor pointer to indicate interactivity */
+    float: right; /* Align to the right */
+    position: absolute;
+}
+
 #cart-icon {
-    font-size: 27px; /* Increase the font size */
-    right: 20px; /* Distance from the right edge */
-    top: 30px;  /* Add some space to the right */
+    font-size: 22px; /* Increase the font size */
+    right: 10px; /* Distance from the right edge */ /* Add some space to the right */
     cursor: pointer; /* Add cursor pointer to indicate interactivity */
     float: right; /* Align to the right */
     position: absolute;
@@ -150,19 +222,65 @@ footer {
     border-radius: 5px; /* Add border radius for rounded corners */
 }
 
-.add-to-cart-btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.sort-dropdown {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-end;
+    font-size: 22px; /* Increase the font size */
+    position: relative;
 }
 
+.dropdown-label {
+    flex: 1; /* Take up remaining space */
+    text-align: center; /* Center the text */
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.add-to-cart-btn {
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for better spacing */
+    font-size: 16px;
+    font-weight: bold; /* Bold text */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    text-transform: uppercase; /* Uppercase text */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+}
+
+/* Hover state */
 .add-to-cart-btn:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Focus state (when button is selected) */
+.add-to-cart-btn:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Add blue border on focus */
+}
+
+/* Disabled state */
+.add-to-cart-btn:disabled {
+    background-color: #ccc; /* Light gray background when disabled */
+    color: #666; /* Dark gray text when disabled */
+    cursor: not-allowed; /* Change cursor to indicate button is disabled */
+}
+
+.car-list {
+    opacity: 0; /* Initially hide the car list */
+    animation: fadeIn 1s forwards; /* Apply fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .product img {
@@ -172,6 +290,7 @@ footer {
 }
 
 .product {
+    margin-top: 20px;
     padding: 20px;
     text-align: center;
     margin-bottom: 20px; /* Add margin to the bottom of each product */

@@ -29,7 +29,7 @@ function generateProductHTML(product) {
 // Function to render product listings on the page
 function renderProductListings() {
     const productContainer = document.getElementById("product-listings");
-    
+    productContainer.innerHTML = '';
     // Iterate over products in groups of 3
     for (let i = 0; i < products.length; i += 3) {
         // Create a div for each row
@@ -47,9 +47,31 @@ function renderProductListings() {
         productContainer.appendChild(row);
     }
 }
-// Call renderProductListings function when the page loads
+
+function handleSorting() {
+    const selectedAttribute = document.getElementById('sort-by').value;
+
+    let sortedProducts;
+    if (selectedAttribute === 'price-low-to-high') {
+        sortedProducts = products.slice().sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+    } else if (selectedAttribute === 'price-high-to-low') {
+        sortedProducts = products.slice().sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+    } else if (selectedAttribute === 'mileage-low-to-high') {
+        sortedProducts = products.slice().sort((a, b) => parseFloat(a.mileage) - parseFloat(b.mileage));
+    } else if (selectedAttribute === 'mileage-high-to-low') {
+        sortedProducts = products.slice().sort((a, b) => parseFloat(b.mileage) - parseFloat(a.mileage));
+    } else {
+        // Default sorting option or invalid selection
+        sortedProducts = products.slice();
+    }
+
+    renderProductListings(sortedProducts);
+}
 document.addEventListener("DOMContentLoaded", function() {
-    renderProductListings();
+    renderProductListings(products); // Initial rendering of product listings
+
+// Call renderProductListings function when the page loads
+document.getElementById('sort-by').addEventListener('change', handleSorting);
 });
 
 // Function to handle adding product to cart (to be implemented)
@@ -89,7 +111,7 @@ function updateCartUI() {
     // Get the cart icon element
     const cartIcon = document.getElementById('cart-icon');
     // Update the number of items in the cart
-    cartIcon.innerText = `🛒 ${cart.length}`;
+    cartIcon.innerText = ` ${cart.length}`;
     updateOrderSummary();
     updateTotalPrice();
 }
