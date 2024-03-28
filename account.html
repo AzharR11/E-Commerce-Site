@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-overlay"></div>
+        <div class="header-content">
+        <h1 class="header-title" id="form-title">Login</h1>
+        </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cars.html">Cars</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    </header>
+    <main>
+        <div class="account-form-container">
+            <h2>Welcome Back!</h2>
+            <form id="login-form" class="account-form">
+                <h3>Login</h3>
+                <label for="email">Email</label>
+                <input type="email" class="account-form-input" name="email" required><br><br>
+                <label for="email">Password</label>
+                <input type="text" class="account-form-input" name="password" required><br><br>
+                <button type="submit" class="account-form-submit">Login</button>
+            </form>
+            <form id="signup-form" class="account-form" style="display: none;">
+                <h3>Sign Up</h3>
+                <label for="name">Full Name</label>
+                <input type="text" class="account-form-input" name="name" required><br><br>
+                <label for="email">Email</label>
+                <input type="email" class="account-form-input" name="email" required><br><br>
+                <label for="email">Password</label>
+                <input type="text" class="account-form-input" name="password" required><br><br>
+                <button type="submit" class="account-form-submit" >Sign Up</button>
+            </form>
+            <div class="toggle-form">
+                <p>New to JDM Cars? <a href="#" onclick="toggleForm()">Sign up here</a></p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-overlay"></div>
+        <div class="footer-content">
+        <p>&copy; 2024 JDM Cars. Azhar Rashid.</p>
+    </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -247,3 +247,37 @@ function hideCartDropdown() {
     cartDropdown.classList.remove('show');
 }
 
+function redirectToAccountPage() {
+    window.location.href = "account.html"; // Replace "login.html" with the path to your login/signup page
+}
+
+function toggleForm() {
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const toggleLink = document.querySelector('.toggle-form a');
+    const formTitle = document.getElementById('form-title');
+
+    if (loginForm.style.display === 'none') {
+        loginForm.style.display = 'block';
+        signupForm.style.display = 'none';
+        toggleLink.textContent = 'New to JDM Cars? Sign up here';
+        formTitle.textContent = 'Login';
+    } else {
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+        toggleLink.textContent = 'Already have an account? Login here';
+        formTitle.textContent = 'Sign Up';
+    }
+}
+
+// Function to handle login form submission
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Fetch form data and perform login logic here
+});
+
+// Function to handle signup form submission
+document.getElementById('signup-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Fetch form data and perform signup logic here
+});

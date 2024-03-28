@@ -616,3 +616,79 @@ footer {
 .checkout-form button:hover {
     background-color: #555;
 }
+
+.account-form-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.account-form-container h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.account-form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.account-form-container input[type="text"],
+.account-form-container input[type="email"],
+.account-form-container textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
+    transition: border-bottom-color 0.3s ease;
+}
+.account-form-container input[type="text"]:focus,
+.account-form-container input[type="email"]:focus,
+.account-form-container textarea:focus {
+    outline: none;
+    border-color: #007bff; /* Change border color on focus */
+}
+
+.account-form-container textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* Form submit button */
+.account-form-submit {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Form submit button hover effect */
+.account-form-submit:hover {
+    background-color: #555;
+}
+
+/* Form toggle link */
+.toggle-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.toggle-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.toggle-link a:hover {
+    text-decoration: underline;
+}
