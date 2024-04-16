@@ -75,6 +75,36 @@ header {
     background-color: #044047;
 }
 
+.search-results {
+    position: absolute;
+    top: calc(100% + 10px); /* Position below the search input */ /* Position at the left edge of the viewport */
+    width: 100%;
+    max-width: 500px; /* Take up full width */
+    max-height: calc(100vh - 120px); /* Limit maximum height to viewport height minus header height */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    background-color: #fff; /* Background color */
+    border: 1px solid #ccc; /* Border */
+    border-top: none; /* Remove top border to avoid double border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    display: none; /* Hide initially */
+    z-index:9999;
+}
+
+.search-item {
+    padding: 10px;
+    cursor: pointer;
+    color: #333; /* Set text color */
+    border-bottom: 1px solid #ccc;
+}
+
+.search-item:last-child {
+    border-bottom: none; /* Remove border for last item */
+}
+
+.search-item:hover {
+    background-color: #f0f0f0;
+}
+
 .header-content .icon {
     margin-right: 10px; /* Adjust the spacing between icons */
     font-size: 20px; /* Adjust the icon size */
@@ -91,10 +121,15 @@ h1{
     position: absolute;
 }
 
+nav {
+    position: relative; /* Ensure that nav is positioned relative */
+    z-index: 1; /* Set a z-index value for the nav */
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
-    z-index: 1;
+    z-index: 1000;
     position: relative;
 }
 
@@ -299,6 +334,16 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.product a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+}
+
+.product a:hover {
+    text-decoration: none; /* Remove underline on hover */
+    color: inherit; /* Inherit text color on hover */
+}
+
 .product-row {
     display: flex;
     justify-content: space-between;
@@ -309,6 +354,36 @@ footer {
     .product-row {
         flex-direction: column; /* Display products in a single column */
     }
+}
+
+
+.product-details {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.product-image {
+    flex: 1 0 auto; /* Let the image grow and shrink as needed */
+    max-width: 50%; /* Set maximum width to 50% of the container */
+    margin-right: 20px; /* Adjust margin between image and text */
+}
+
+#product-image img {
+    max-width: 700px; /* Adjust the maximum width of the image as needed */
+    height: auto;
+}
+
+.product-info {
+    flex: 1 0 50%; /* Let the info block grow and shrink as needed, initial width is 50% */
+}
+
+#product-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#product-description {
+    margin-bottom: 10px;
 }
 
 .overlay {

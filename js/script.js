@@ -9,7 +9,49 @@ const products = [
     { id: 8, name: "Nissan 180SX", price: "£40,000", mileage: "50,000 miles" ,  image: "180SX.jpg" },
     { id: 9, name: "Mitsubishi EVO X", price: "£50,000", mileage: "50,000 miles" ,  image: "EVO.avif" }
 ];
+/*
+function searchProducts() {
+    const searchInput = document.getElementById("search-input").value.toLowerCase().trim();
+    const filteredProducts = products.filter(product => {
+        return product.name.toLowerCase().includes(searchInput);
+    });
 
+    renderSearchResults(filteredProducts);
+}
+
+// Function to render search results
+function renderSearchResults(filteredProducts) {
+    const searchResultsContainer = document.getElementById("search-results");
+    searchResultsContainer.innerHTML = ''; // Clear previous search results
+
+    // Iterate over filtered products and create HTML elements to display them
+    filteredProducts.forEach(product => {
+        const searchItem = document.createElement("div");
+        searchItem.classList.add("search-item");
+        searchItem.textContent = product.name; // Display product name
+
+        // Add click event listener to each search item
+        searchItem.addEventListener("click", () => {
+            // Redirect to the product page with the selected product's ID
+            window.location.href = `product.html?id=${product.id}`;
+        });
+
+        searchResultsContainer.appendChild(searchItem);
+    });
+
+    // Show or hide the search results container based on whether there are matching items
+    if (filteredProducts.length > 0) {
+        searchResultsContainer.style.display = "block";
+    } else {
+        searchResultsContainer.style.display = "none";
+    }
+}
+
+// Add event listener to the search input field
+const searchInput = document.getElementById("search-input");
+searchInput.addEventListener("input", searchProducts);
+
+*/
 const cart = [];
 
 // Function to generate HTML for product listings
@@ -24,6 +66,55 @@ function generateProductHTML(product) {
             <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
         </div>    
     </div>`;
+}
+
+function generateProductHTML(product) {
+    return `
+    <div class="product">
+        <a href="product.html?id=${product.id}"> <!-- Add link to individual product page -->
+            <img src="images/${product.image}" alt="${product.name}">
+            <h2>${product.name}</h2>
+            <p>${product.price} / ${product.mileage}</p>
+        </a>
+        <div class="product-actions">
+            <input type="number" class="quantity-input" data-product-id="${product.id}" value="1" min="1">
+            <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
+        </div>    
+    </div>`;
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Extract the product ID from the URL
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get('id');
+
+    // Fetch product details based on the ID
+    const product = getProductById(productId);
+
+    // Update the product details on the page
+    if (product) {
+        document.getElementById('product-image').innerHTML = `<img src="images/${product.image}" alt="${product.name}">`;
+        document.getElementById('product-name').textContent = product.name;
+        document.getElementById('product-description').textContent = product.description; // Set product description
+    }
+});
+
+// Function to fetch product details by ID (replace this with your actual data source)
+function getProductById(productId) {
+    // Example: Fetch product details from an array of products
+    const products = [
+        { id: 1, name: "Nissan Skyline GT-R (R34)", price: "£150,000", mileage: "50,000 miles" ,  image: "R34.webp" },
+        { id: 2, name: "Nissan 400Z Veilside", price: "£65,000", mileage: "50,000 miles" ,  image: "400Z.jpg", description: "Officially called the FFZ400 and lovingly dubbed “Han’s 400Z”, the custom Z shares many similarities to VeilSide’s FD Mazda RX-7 driven by Han in the third Fast and Furious film. The iconic orange and black color scheme returns, and it’s even paired with the same VeilSide Andrew Forged wheels, this time in 20-inch diameter. The whole thing also rides on adjustable air suspension, ensuring the car has perpetually perfect fitment.<br><br>Looking at the body kit itself, the Z’s sheet metal has been modified significantly to give it a distinct, aggressive look. This includes new bumpers, a new diffuser, and a host of black aero bits in the form of front air curtains, fender vents, and side skirts that extend up into the rear quarter panel. There’s also a light widening applied to the car’s body, which features faux rivets and panel gaps to give the look of bolt-on over-fenders. Other nice details include fluted exhaust tips, a drag-style lip spoiler with endplates, a black hood accent similar to Nissan’s Z Customized Proto concept, and a wavy texture on the window trim inspired by the forging pattern of a katana.<br><br>Inside, the cabin features custom suede Bride seats, suede upholstery on the door cards, and a textured suede horn button on the steering wheel, all in black. There’s no word on how much power the Z makes, but we do know there will be a new exhaust and an ECU tune, which should help to boost the stock 400 hp (406 PS / 298 kW) and 350 lb-ft (475 Nm) of torque by a noticeable amount."},
+        { id: 3, name: "Nissan GT-R NISMO (R35)", price: "£200,000", mileage: "50,000 miles" ,  image: "R35.webp" },
+        { id: 4, name: "Nissan 350Z", price: "£30,000", mileage: "50,000 miles" ,  image: "350Z.jpg" },
+        { id: 5, name: "Mazda RX-7 Veilside", price: "£90,000", mileage: "50,000 miles" ,  image: "RX7.jpg" },
+        { id: 6, name: "Toyota Supra Top-Secret (MK4)", price: "£80,000", mileage: "50,000 miles", image: "SupraMK4.jpg" },
+        { id: 7, name: "Honda NSX-R", price: "£45,000", mileage: "50,000 miles" ,  image: "NSX.jpg" },
+        { id: 8, name: "Nissan 180SX", price: "£40,000", mileage: "50,000 miles" ,  image: "180SX.jpg" },
+        { id: 9, name: "Mitsubishi EVO X", price: "£50,000", mileage: "50,000 miles" ,  image: "EVO.avif" }
+    ];
+
+    return products.find(product => product.id === parseInt(productId));
 }
 
 // Function to render product listings on the page
