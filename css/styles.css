@@ -52,13 +52,13 @@ header {
 }
 
 /* Media query for smaller screens */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
     .search-bar {
         justify-content: center; /* Align items to the start for smaller screens */
     }
 
     .search-bar input[type="text"] {
-        max-width: 150px; /* Adjust max width for smaller screens */
+        max-width: 250px; /* Adjust max width for smaller screens */
     }
 }
 
@@ -218,7 +218,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.384); /* Semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.495); /* Semi-transparent black */
     z-index: 0; /* Ensure the overlay is behind the text */
 }
 
@@ -227,8 +227,25 @@ footer {
     z-index: 1; /* Ensure the text is above the overlay */
 }
 
+.footer-sections-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust column size as needed */
+    grid-gap: 10px; /* Adjust gap between grid items */
+}
+
+.footer-sections-container-2{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
 .footer-section {
-    margin-bottom: 30px;
+    flex-basis: calc(33.33% - 20px); /* Set each section to occupy roughly one-third of the container width, minus margin */
+    margin-bottom: 20px; /* Add space between sections */
+}
+
+.footer-section:last-child {
+    margin-right: 0; /* Remove margin from the last section */
 }
 
 .footer-section h3 {
@@ -278,6 +295,28 @@ footer {
 .footer-section.social-media ul li a:hover {
     color: #ccc;
 }
+
+.footer-section.app-store img {
+    width: 200px; /* Set the width of download icons */
+}
+
+.footer-section.app-store{
+    display: flex;
+    align-items: center;
+}
+
+.payment-icon-container {
+    background-color: #000000; /* Solid background color */
+    display: inline-flex; /* Adjust display property */
+    justify-content: center;
+    align-items: center;
+
+}
+
+.footer-section.payment-methods i {
+    margin: 0 5px; /* Adjust margin to create a gap between icons */
+}
+
 
 .background-container {
     position: relative;

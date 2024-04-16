@@ -15,7 +15,6 @@
         <div class="search-bar">
             <input type="text" id="search-input" placeholder="Search for products...">
             <div id="search-results" class="search-results"></div> <!-- Container for search results -->
-            <button id="search-button"><i class="fas fa-search"></i></button>
         </div>
         <body>
             <i class="fas fa-user icon" id="account-icon" onclick="redirectToAccountPage()"></i>
@@ -52,6 +51,7 @@
     <footer>
         <div class="footer-overlay"></div>
         <div class="footer-content">
+        <div class="footer-sections-container">
             <div class="footer-section contact-info">
             <h3>Contact Us</h3>
             <p>123 Main Street, City, Country</p>
@@ -62,9 +62,19 @@
             <h3>Quick Links</h3>
             <ul>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Services</a></li>
                 <li><a href="#">Products</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
                 <li><a href="#">FAQs</a></li>
+            </ul>
+        </div>
+        <div class="footer-section customer-service">
+            <h3>Customer Service</h3>
+            <ul>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Deliveries</a></li>
+                <li><a href="#">Where is my order?</a></li>
+                <li><a href="#">Returns information </a></li>
             </ul>
         </div>
         <div class="footer-section social-media">
@@ -76,6 +86,22 @@
                 <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
             </ul>
         </div>
+    </div>
+    <div class="footer-sections-container-2">
+        <div class="footer-section app-store">
+            <h3>Download Our App</h3>
+            <a href="#"><img src="images/app-store-icon.png" alt="App Store"></a>
+        </div>
+        <div class="footer-section payment-methods">
+            <div class="payment-icon-container">
+            <i class="fab fa-cc-visa fa-3x"></i>
+            <i class="fab fa-cc-mastercard fa-3x"></i>
+            <i class="fab fa-cc-amex fa-3x"></i>
+            <i class="fab fa-cc-paypal fa-3x"></i>
+            <i class="fab fa-cc-apple-pay fa-3x"></i>
+        </div>
+        </div>
+    </div>
         <p>&copy; 2024 JDM Cars. Azhar Rashid.</p>
     </div>
     </footer>
