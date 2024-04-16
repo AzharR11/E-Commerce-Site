@@ -22,7 +22,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.384); /* Semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.400); /* Semi-transparent black */
     z-index: 0; /* Ensure the overlay is behind the text */
 }
 
@@ -218,7 +218,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.495); /* Semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.450); /* Semi-transparent black */
     z-index: 0; /* Ensure the overlay is behind the text */
 }
 
@@ -460,7 +460,7 @@ footer {
 }
 
 #product-image img {
-    max-width: 768px; /* Adjust the maximum width of the image as needed */
+    max-width: 700px; /* Adjust the maximum width of the image as needed */
     height: auto;
 }
 
