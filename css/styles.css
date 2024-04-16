@@ -227,6 +227,58 @@ footer {
     z-index: 1; /* Ensure the text is above the overlay */
 }
 
+.footer-section {
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ccc;
+}
+
+.footer-section.social-media ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-section.social-media ul li:last-child {
+    margin-right: 0;
+}
+
+.footer-section.social-media ul li a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-section.social-media ul li a:hover {
+    color: #ccc;
+}
+
 .background-container {
     position: relative;
     overflow: hidden; /* Prevent image overflow */
@@ -369,7 +421,7 @@ footer {
 }
 
 #product-image img {
-    max-width: 700px; /* Adjust the maximum width of the image as needed */
+    max-width: 768px; /* Adjust the maximum width of the image as needed */
     height: auto;
 }
 
