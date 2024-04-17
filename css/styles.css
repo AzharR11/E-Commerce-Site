@@ -62,19 +62,6 @@ header {
     }
 }
 
-.search-bar button {
-    padding: 5px 10px;
-    background-color: #006b79;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.search-bar button:hover {
-    background-color: #044047;
-}
-
 .search-results {
     position: absolute;
     top: calc(100% + 10px); /* Position below the search input */ /* Position at the left edge of the viewport */
@@ -234,7 +221,6 @@ footer {
 }
 
 .footer-sections-container-2{
-    display: flex;
     justify-content:center;
     align-items: center;
 }
@@ -297,12 +283,7 @@ footer {
 }
 
 .footer-section.app-store img {
-    width: 200px; /* Set the width of download icons */
-}
-
-.footer-section.app-store{
-    display: flex;
-    align-items: center;
+    width: 350px; /* Set the width of download icons */
 }
 
 .payment-icon-container {
@@ -395,7 +376,7 @@ footer {
     cursor: not-allowed; /* Change cursor to indicate button is disabled */
 }
 
-.car-list {
+.fade-animation {
     opacity: 0; /* Initially hide the car list */
     animation: fadeIn 1s forwards; /* Apply fade-in animation */
 }
@@ -857,4 +838,8 @@ footer {
 
 .toggle-link a:hover {
     text-decoration: underline;
+}
+
+.commitment-section img {
+    max-width: 450px;
 }
