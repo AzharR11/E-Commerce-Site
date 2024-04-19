@@ -7,7 +7,7 @@ body {
 
 header {
     position: relative;
-    background-image: url('../images/night.jpg');
+    background-image: url('../images/Night.jpg');
     background-size: cover; /* or contain, depending on how you want the image to fit */
     background-position:top;
     color: #fff;
