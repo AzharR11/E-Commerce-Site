@@ -7,9 +7,9 @@ body {
 
 header {
     position: relative;
-    background-image: url('../images/Night.jpg');
+    background-image: url('../images/night.jpg');
     background-size: cover; /* or contain, depending on how you want the image to fit */
-    background-position:center;
+    background-position:top;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -22,7 +22,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.400); /* Semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.450); /* Semi-transparent black */
     z-index: 0; /* Ensure the overlay is behind the text */
 }
 
@@ -58,9 +58,21 @@ header {
     }
 
     .search-bar input[type="text"] {
-        max-width: 250px; /* Adjust max width for smaller screens */
+        max-width: 280px; /* Adjust max width for smaller screens */
     }
 }
+
+@media screen and (max-width: 500px) {
+    /* Add styles specific to iPhones and other mobile devices */
+    .search-bar {
+        justify-content: center;
+    }
+
+    .search-bar input[type="text"] {
+        max-width: 120px;
+    }
+}
+
 
 .search-results {
     position: absolute;
@@ -163,26 +175,6 @@ nav ul li a:hover {
     position: absolute;
 }
 
-.cart-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%; /* Adjust based on your layout */
-    right: 0;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    padding: 10px;
-    color: #000;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 9999; /
-}
-
-.cart-dropdown.show {
-    display: block;
-}
-
 main {
     padding: 20px;
     text-align: center;
@@ -261,6 +253,8 @@ footer {
 
 .footer-section ul li a:hover {
     color: #ccc;
+    text-decoration: underline;
+    text-underline-offset: 5px;
 }
 
 .footer-section.social-media ul li {
@@ -284,14 +278,6 @@ footer {
 
 .footer-section.app-store img {
     width: 350px; /* Set the width of download icons */
-}
-
-.payment-icon-container {
-    background-color: #000000; /* Solid background color */
-    display: inline-flex; /* Adjust display property */
-    justify-content: center;
-    align-items: center;
-
 }
 
 .footer-section.payment-methods i {
@@ -537,7 +523,42 @@ footer {
     animation-delay: 1.5s;
 }
 
+.contact-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: center; /* Center the items horizontally */
+    max-width: 1100px; /* Set the maximum width of the container */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.company-address {
+    flex: 1;
+    background-image: url('../images/form.avif');
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (alpha) to control darkness */
+    background-blend-mode: overlay; 
+    background-size: cover; /* Cover the entire background */
+    background-position: center; 
+    color: #fff; /* Text color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.company-address img {
+    max-width: 300px;
+}
+
+.company-address h3 {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Add a black outline */
+    margin-top: 75px;
+}
+
+.company-address p {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Add a black outline */
+}
+
 #contact-form {
+    flex: 1;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -550,6 +571,11 @@ footer {
     color: #333;
     font-size: 24px;
     margin-bottom: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
 }
 
 #contact-form label {
@@ -677,6 +703,45 @@ footer {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
+}
+.checkout-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkout-header img {
+    width: 300px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.checkout-header p{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+    .checkout-section {
+        display: flex;
+        flex-direction: column; /* Change to column layout for smaller screens */
+    }
+
+    .checkout-section label {
+        margin-bottom: 10px; /* Increase spacing between labels */
+    }
+
+    .cvv-expiry .input-row {
+        margin-bottom: 10px; /* Increase spacing between input rows */
+    }
+
+    .cvv-expiry {
+        display: flex;
+        flex-direction: column; /* Change to column layout for CVV and Expiry Date */
+    }
+
+    .cvv-expiry .input-row {
+        margin-bottom: 10px; /* Increase spacing between CVV and Expiry Date */
+    }
 }
 
 .checkout-form {
@@ -841,5 +906,6 @@ footer {
 }
 
 .commitment-section img {
+    border-radius: 10px;
     max-width: 450px;
 }

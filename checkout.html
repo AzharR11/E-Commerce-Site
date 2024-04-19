@@ -11,11 +11,10 @@
     <header>
         <div class="header-overlay"></div>
         <div class="header-content">
-        <h1 class ="header-title">Checkout</h1>
+        <h1 class ="header-title">JDM Cars</h1>
         <body>
             <i class="fas fa-user icon" id="account-icon" onclick="redirectToAccountPage()"></i>
-            <i class="fas fa-shopping-cart icon" id="cart-icon" onclick="redirectToCheckout()" onmouseover="showCartDropdown()" onmouseout="hideCartDropdown()"></i>
-        <div class="cart-dropdown" id="cartDropdown"></div>
+            <i class="fas fa-shopping-cart icon" id="cart-icon" onclick="redirectToCheckout()"></i>
        </div>
         <nav>
             <ul>
@@ -50,31 +49,40 @@
                     <span id="totalPrice">£0.00</span>
                 </div>
             </div>
+        <div class="checkout-header">
+            <p>Express Checkout</P>
+            <img src="images/apple-pay.png" alt="Apple Pay">
+            <p>or</p>
+        </div>
         <form action="confirm.html" method="post" class="checkout-form">
         <div class="checkout-section">
             <div class="contact-info">
                 <h2>Contact Details</h2>
                 <label for="name">Full Name *</label>
-                <input type="text" id="full-name" name="full-name" required>
+                <input placeholder="Full Name" type="text" id="full-name" name="full-name" required>
                 <label for="email">Email *</label>
-                <input type="email" id="email" name="email" required>
+                <input placeholder="Eg. example@mail.com" type="email" id="email" name="email" required>
                 <label for="phone">Mobile Number *</label>
-                <input type="text" id="mobile-number" name="mobile-number" required>
+                <input placeholder="Eg. +1 800 000000" type="text" id="mobile-number" name="mobile-number" required>
            </div>
             <div class="card-details">
                 <h2>Card Details</h2>
-                <label for="card-name">Name on Card</label>
-                <input type="text" id="card-name" name="card-name" required>
-                <label for="card-number">Card Number</label>
-                <input type="text" id="card-number" name="card-number" required>
+                <label for="card-name">Name on Card *</label>
+                <input placeholder="Eg. Mr. John Doe" type="text" id="card-name" name="card-name" required>
+                <label for="card-number">Card Number * 
+                    <i class="fab fa-cc-visa fa-lg"></i>
+                    <i class="fab fa-cc-mastercard fa-lg"></i>
+                    <i class="fab fa-cc-amex fa-lg"></i>
+                </label>
+                <input placeholder="0000 0000 0000" type="text" id="card-number" name="card-number" required>
                 <div class="cvv-expiry">
                     <div class="input-row">
-                        <label for="expiry-date">Expiry Date</label>
-                        <input type="text" id="expiry-date" name="expiry-date" required>
+                        <label for="expiry-date">Expiry Date *</label>
+                        <input placeholder="MM/YY" type="text" id="expiry-date" name="expiry-date" required>
                     </div>
                     <div class="input-row">
-                        <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" required>
+                        <label for="cvv">CVV *</label>
+                        <input placeholder="***" type="text" id="cvv" name="cvv" required>
                     </div>
                 </div>
             </div>
@@ -142,13 +150,11 @@
             <a href="#"><img src="images/app-store-icon.png" alt="App Store"></a>
         </div>
         <div class="footer-section payment-methods">
-            <div class="payment-icon-container">
             <i class="fab fa-cc-visa fa-2x"></i>
             <i class="fab fa-cc-mastercard fa-2x"></i>
             <i class="fab fa-cc-amex fa-2x"></i>
             <i class="fab fa-cc-paypal fa-2x"></i>
             <i class="fab fa-cc-apple-pay fa-2x"></i>
-        </div>
         </div>
     </div>
         <p>&copy; 2024 JDM Cars. Azhar Rashid.</p>

@@ -11,14 +11,13 @@
     <header>
         <div class="header-overlay"></div>
         <div class="header-content">
-        <h1 class ="header-title">Contact Us</h1>
+        <h1 class ="header-title">JDM Cars</h1>
         <div class="search-bar">
             <input type="text" id="search-input" placeholder="Search for products...">
         </div>
         <body>
             <i class="fas fa-user icon" id="account-icon" onclick="redirectToAccountPage()"></i>
-            <i class="fas fa-shopping-cart icon" id="cart-icon" onclick="redirectToCheckout()" onmouseover="showCartDropdown()" onmouseout="hideCartDropdown()"></i>
-        <div class="cart-dropdown" id="cartDropdown"></div>
+            <i class="fas fa-shopping-cart icon" id="cart-icon" onclick="redirectToCheckout()"></i>
        </div>
         <nav>
             <ul>
@@ -31,22 +30,35 @@
     </header>
     <main>
         <div class="fade-animation">
+        <div class="contact-container">
+            <div class="company-address">
+                <div class="address">
+                    <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+                    <p>123 Main Street, City, Country</p>
+                </div>
+                <div class="phone">
+                    <h3><i class="fas fa-phone"></i> Phone</h3>
+                    <p>+123 456 789</p>
+                </div>
+                <div class="email">
+                    <h3><i class="far fa-envelope"></i> Email</h3>
+                    <p>info@example.com</p>
+                </div>
+            </div>
         <section id="contact-form">
-            <h2>Get in Touch</h2>
+            <h2>Send Us A Message</h2>
             <form action="submit_form.php" method="post">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required><br><br>
-                
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required><br><br>
-                
-                <label for="message">Message</label><br>
-                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-                
-                <button type="submit">Submit</button>
+                <label for="name">Name * </label>
+                <input placeholder="Full Name" type="text" id="name" name="name" required><br><br>
+                <label for="email">Email *</label>
+                <input placeholder="Eg. example@mail.com" type="email" id="email" name="email" required><br><br> 
+                <label for="message">Message *</label><br>
+                <textarea placeholder="Write Us A Message" id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+                <button type="submit">Send Message</button>
             </form>
         </section>
         </div>
+    </div>
     </main>
     <footer>
         <div class="footer-overlay"></div>
@@ -93,13 +105,11 @@
             <a href="#"><img src="images/app-store-icon.png" alt="App Store"></a>
         </div>
         <div class="footer-section payment-methods">
-            <div class="payment-icon-container">
             <i class="fab fa-cc-visa fa-2x"></i>
             <i class="fab fa-cc-mastercard fa-2x"></i>
             <i class="fab fa-cc-amex fa-2x"></i>
             <i class="fab fa-cc-paypal fa-2x"></i>
             <i class="fab fa-cc-apple-pay fa-2x"></i>
-        </div>
         </div>
     </div>
         <p>&copy; 2024 JDM Cars. Azhar Rashid.</p>

@@ -246,7 +246,7 @@ function displayCartItems() {
 
         // Update total price based on stored cart data
         const totalPriceElement = document.getElementById('totalPrice');
-        totalPriceElement.textContent = `£${totalPrice.toFixed(2)}`;
+        totalPriceElement.textContent = `£${totalPrice.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
     }
 }
 // Call the function to display cart items when the page loads
@@ -299,44 +299,6 @@ function updateTotalPrice() {
         totalPriceElement.textContent = `£${calculateTotalPrice()}`; // Update the content of the total price element
     }
 }
-function showCartDropdown() {
-    const cartDropdown = document.getElementById('cartDropdown');
-    // Clear previous content
-    cartDropdown.innerHTML = '';
-
-    // Count the quantity of each unique item in the cart
-    const itemCounts = {};
-    cart.forEach(item => {
-        itemCounts[item.name] = (itemCounts[item.name] || 0) + 1;
-    });
-
-    // Populate dropdown with item quantities
-    for (const itemName in itemCounts) {
-        const quantity = itemCounts[itemName];
-        const itemElement = document.createElement('div');
-        itemElement.textContent = `${itemName} - x${quantity}`;
-        cartDropdown.appendChild(itemElement);
-    }
-
-    // Calculate total price
-    let totalPrice = 0;
-    cart.forEach(item => {
-        totalPrice += parseFloat(item.price) * itemCounts[item.name];
-    });
-
-    // Display total price
-    const totalElement = document.createElement('div');
-    totalElement.textContent = `Total Price: £${totalPrice.toFixed(2)}`;
-    cartDropdown.appendChild(totalElement);
-
-    // Show dropdown by adding a class
-    cartDropdown.classList.add('show');
-}
-function hideCartDropdown() {
-    const cartDropdown = document.getElementById('cartDropdown');
-    // Hide dropdown by removing the 'show' class
-    cartDropdown.classList.remove('show');
-}
 
 function redirectToAccountPage() {
     window.location.href = "account.html"; // Replace "login.html" with the path to your login/signup page
@@ -372,3 +334,4 @@ document.getElementById('signup-form').addEventListener('submit', function(event
     event.preventDefault();
     // Fetch form data and perform signup logic here
 });
+
