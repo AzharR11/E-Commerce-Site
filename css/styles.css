@@ -74,11 +74,17 @@ header {
         max-width: 300px; /* Adjust max width for smaller screens */
     }
 
-    .icon {
+    #account-icon,
+    #cart-icon {
         margin-left: 0;
         margin-right: 10px;
-        margin-bottom: 10px; /* Adjust margin as needed */
+        margin-bottom: 10px;
+        font-size: 10px; /* Adjust margin as needed */
       }
+
+    nav ul li {
+        padding-top: 10px;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -104,7 +110,8 @@ header {
         max-width: 130px;
     }
 
-    .icon {
+    #account-icon,
+    #cart-icon {
         margin-left: 0;
         margin-right: 10px;
         margin-bottom: 10px;
@@ -163,6 +170,24 @@ header {
     z-index: 1; /* Ensure it stays above other elements */
 }
 
+.header-logo2 {
+    width: 200px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute; /* Position absolutely */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    top: 10px; /* Adjust the top position to your preference */
+    z-index: 20; /* Ensure it stays above other elements, including the overlay */
+}
+
+.header-content2{
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Distribute items along the main axis */
+    padding: 40px; /* Add padding to create space around elements */
+    height: auto; /* Allow the header height to adjust based on its content */
+}
+
 nav {
     position: relative; /* Ensure that nav is positioned relative */
     z-index: 1; /* Set a z-index value for the nav */
@@ -204,15 +229,15 @@ nav ul li a:hover {
 }
 
 #account-icon {
-    font-size: 22px; /* Increase the font size */
-    right: 90px; /* Distance from the right edge */ /* Add some space to the right */
+    font-size: 20px; /* Increase the font size */
+    right: 80px; /* Distance from the right edge */ /* Add some space to the right */
     cursor: pointer; /* Add cursor pointer to indicate interactivity */
     float: right; /* Align to the right */
     position: absolute;
 }
 
 #cart-icon {
-    font-size: 22px; /* Increase the font size */
+    font-size: 20px; /* Increase the font size */
     right: 10px; /* Distance from the right edge */ /* Add some space to the right */
     cursor: pointer; /* Add cursor pointer to indicate interactivity */
     float: right; /* Align to the right */
