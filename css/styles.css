@@ -47,29 +47,72 @@ header {
     outline: none;
     padding: 5px;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     border-radius: 5px;
 }
 
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+    }
+
+    .header-logo {
+        max-width:155px;
+        height: auto;
+        position: static;
+        margin-bottom: 10px;
+    }
+
     .search-bar {
-        justify-content: center; /* Align items to the start for smaller screens */
+        justify-content: center;
+        margin-bottom: 10px; 
+        width: 100%;/* Align items to the start for smaller screens */
     }
 
     .search-bar input[type="text"] {
-        max-width: 280px; /* Adjust max width for smaller screens */
+        max-width: 300px; /* Adjust max width for smaller screens */
     }
+
+    .icon {
+        margin-left: 0;
+        margin-right: 10px;
+        margin-bottom: 10px; /* Adjust margin as needed */
+      }
 }
 
 @media screen and (max-width: 500px) {
     /* Add styles specific to iPhones and other mobile devices */
+    .header-content {
+        flex-direction: column;
+    }
+
+    .header-logo {
+        max-width:120px;
+        height: auto;
+        position: static;
+        margin-bottom: 10px;
+    }
+
     .search-bar {
         justify-content: center;
+        margin-bottom: 10px;
+        width: 100%;
     }
 
     .search-bar input[type="text"] {
-        max-width: 100px;
+        max-width: 180px;
+    }
+
+    .icon {
+        margin-left: 0;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-size: 10px; /* Adjust margin as needed */
+      }
+
+    nav ul li {
+        padding-top: 10px;
     }
 }
 
@@ -142,14 +185,15 @@ nav ul li a {
     background-color: none; /* Background color */
     text-decoration: none; /* Remove underline */
     border: none; /* Border color */
-    border-radius: 20px; /* Border radius */
+    border-radius: 10px; /* Border radius */
     padding: 10px; /* Padding */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
 }
 
 nav ul li a:hover {
-    background-color: #3CB3F5; /* Change background color on hover */
-    color: #ffffff; /* Change text color on hover */
+    color: #3CB3F5;
+    transition: color 0.3s ease;
+    box-shadow: 0 0 10px #3CB3F5; /* Add glow effect on hover */ /* Change background color on hover */ /* Change text color on hover */
 }
 
 .icon:hover {

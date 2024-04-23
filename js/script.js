@@ -72,7 +72,14 @@ function getProductById(productId) {
         { id: 9, name: "Mitsubishi EVO X", price: "£50,000", mileage: "50,000 miles" ,  image: "EVO.avif" }
     ];
 
-    return products.find(product => product.id === parseInt(productId));
+    const product = products.find(product => product.id === parseInt(productId));
+
+    // Replace '\n' characters with '<br>' tags
+    if (product.description) {
+        product.description = product.description.replace(/\n/g, "<br>");
+    }
+
+    return product;
 }
 
 // Function to render product listings on the page
@@ -240,8 +247,9 @@ document.addEventListener('input', function(event) {
     }
 });
 
-const form = document.querySelector("#contact-form");
-form.addEventListener("submit", (event) => {
+document.addEventListener("DOMContentLoaded", function () {
+const form1 = document.querySelector("#contact-form");
+form1.addEventListener("submit", function  (event) {
   // prevent the form submit from refreshing the page
   event.preventDefault();
 
@@ -271,9 +279,53 @@ form.addEventListener("submit", (event) => {
         "Email sent successfully!";
     })
     .catch((error) => {
+    console.error("Error:", error);
       document.getElementById("result-text").innerText =
         "An unkown error occured.";
     });
+});
+
+const form2 = document.querySelector("#checkout-form"); // Update the selector to target the correct form ID
+form2.addEventListener("submit", function (event) {
+  // prevent the form submit from refreshing the page
+  event.preventDefault();
+
+  // Retrieve form field values
+  const { name, email, number, address, address2, city, postcode } = event.target;
+
+  // Use your API endpoint URL you copied from the previous step
+  const endpoint =
+    "https://6fno0qpx3d.execute-api.us-east-1.amazonaws.com/default/checkout-email";
+  // We use JSON.stringify here so the data can be sent as a string via HTTP
+  const body = JSON.stringify({
+    fullName: name.value,
+    senderEmail: email.value,
+    mobileNumber: number.value,
+    deliveryAddress: address.value,
+    deliveryAddress2: address2.value,
+    cityTown: city.value,
+    zipPostcode: postcode.value
+  });
+  const requestOptions = {
+    method: "POST",
+    body,
+  };
+
+  // Send data to API endpoint
+  fetch(endpoint, requestOptions)
+    .then((response) => {
+      if (!response.ok) throw new Error("Error in fetch");
+      return response.json();
+    })
+    .then((response) => {
+      document.getElementById("result-text").innerText =
+        "Email sent successfully!";
+    })
+    .catch((error) => {
+      document.getElementById("result-text").innerText =
+        "An unknown error occurred.";
+    });
+});
 });
 
 // Function to redirect to the checkout page
