@@ -82,6 +82,7 @@ function getProductById(productId) {
     return product;
 }
 
+
 // Function to render product listings on the page
 function renderProductListings() {
     const productContainer = document.getElementById("product-listings");
@@ -103,7 +104,6 @@ function renderProductListings() {
         productContainer.appendChild(row);
     }
 }
-
 
 function handleSorting() {
     const selectedAttribute = document.getElementById('sort-by').value;
@@ -328,6 +328,40 @@ form2.addEventListener("submit", function (event) {
 });
 });
 
+let slideIndex = 0;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    const slides = document.querySelectorAll('.image-container img');
+    const dotsContainer = document.querySelector('.dot-container');
+
+    if (n >= slides.length) { slideIndex = 0 }
+    if (n < 0) { slideIndex = slides.length - 1 }
+
+    slides.forEach(slide => slide.style.display = "none");
+
+    // Create dots dynamically
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => currentSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+
+    slides[slideIndex].style.display = "block";
+    const dots = document.querySelectorAll('.dot');
+    dots[slideIndex].classList.add('active');
+}
+
 // Function to redirect to the checkout page
 function redirectToCheckout() {
     const totalPrice = calculateTotalPrice();
@@ -352,38 +386,6 @@ function redirectToAccountPage() {
     window.location.href = "account.html"; // Replace "login.html" with the path to your login/signup page
 }
 
-function toggleForm() {
-    const loginForm = document.getElementById('login-form');
-    const signupForm = document.getElementById('signup-form');
-    const toggleLink = document.querySelector('.toggle-form a');
-    const formTitle = document.getElementById('form-title');
-
-    if (loginForm.style.display === 'none') {
-        loginForm.style.display = 'block';
-        signupForm.style.display = 'none';
-        toggleLink.textContent = 'New to JDM Cars? Sign up here';
-        formTitle.textContent = 'Login';
-    } else {
-        loginForm.style.display = 'none';
-        signupForm.style.display = 'block';
-        toggleLink.textContent = 'Already have an account? Login here';
-        formTitle.textContent = 'Sign Up';
-    }
-}
-
-// Function to handle login form submission
-document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    // Fetch form data and perform login logic here
-});
-
-// Function to handle signup form submission
-document.getElementById('signup-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    // Fetch form data and perform signup logic here
-});
-
-/*
 function searchProducts() {
     const searchInput = document.getElementById("search-input").value.toLowerCase().trim();
     const filteredProducts = products.filter(product => {
@@ -392,7 +394,7 @@ function searchProducts() {
 
     renderSearchResults(filteredProducts);
 }
-
+/*
 // Function to render search results
 function renderSearchResults(filteredProducts) {
     const searchResultsContainer = document.getElementById("search-results");
@@ -424,6 +426,36 @@ function renderSearchResults(filteredProducts) {
 // Add event listener to the search input field
 const searchInput = document.getElementById("search-input");
 searchInput.addEventListener("input", searchProducts);
-
 */
+
+function toggleForm() {
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const toggleLink = document.querySelector('.toggle-form a');
+    const formTitle = document.getElementById('form-title');
+
+    if (loginForm.style.display === 'none') {
+        loginForm.style.display = 'block';
+        signupForm.style.display = 'none';
+        toggleLink.textContent = 'New to JDM Cars? Sign up here';
+        formTitle.textContent = 'Login';
+    } else {
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+        toggleLink.textContent = 'Already have an account? Login here';
+        formTitle.textContent = 'Sign Up';
+    }
+}
+
+// Function to handle login form submission
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Fetch form data and perform login logic here
+});
+
+// Function to handle signup form submission
+document.getElementById('signup-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Fetch form data and perform signup logic here
+});
 

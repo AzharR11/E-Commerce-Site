@@ -11,9 +11,10 @@
     <header>
         <div class="header-overlay"></div>
         <div class="header-content">
-        <img src="images/logo.png" class ="header-logo">
+        <a href="index.html"><img src="images/logo.png" class ="header-logo"></a>
         <div class="search-bar">
             <input type="text" id="search-input" placeholder="Search for products...">
+            <div id="search-results" class="search-results"></div>
         </div>
         <body>
             <i class="fas fa-user icon" id="account-icon" onclick="redirectToAccountPage()"></i>
@@ -21,7 +22,7 @@
        </div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="home.html">Home</a></li>
                 <li><a href="cars.html">Cars</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -35,16 +36,23 @@
                 <h2>About Us</h2>
                 <p>Welcome to JDM Cars, your ultimate destination for enthusiasts of Japanese Domestic Market (JDM) vehicles. At JDM Cars, we are passionate about bringing the thrill of authentic JDM automobiles to enthusiasts around the world. <br><br> Our mission is to curate a comprehensive collection of JDM vehicles, parts, and accessories, providing enthusiasts with access to the iconic cars they love. From legendary classics to cutting-edge imports, we celebrate the rich heritage and innovation of the JDM automotive culture. <br><br> Driven by our dedication to quality and authenticity, we strive to deliver exceptional customer service and a seamless shopping experience. Whether you're a seasoned collector, a performance enthusiast, or simply appreciate the artistry of JDM engineering, we invite you to explore our collection and join us in celebrating the spirit of JDM.      </div>
         </section>
-        <section class="commitment-section">
-            <div class="commitment-section">
+        <div class="slideshow-container">
+            <div class="image-container">
                 <img src="images/garage1.jpg" alt="Garage1">
                 <img src="images/garage2.jpg" alt="Garage2">
                 <img src="images/garage3.jpg" alt="Garage3">
-                <h2>Our Commitment</h2>
-                <p>At JDM Cars, our commitment extends beyond providing top-quality products. We are dedicated to fostering a community of passionate enthusiasts who share our love for JDM automobiles. With a focus on customer satisfaction and community engagement, we strive to create an inclusive and welcoming environment where enthusiasts can connect, learn, and celebrate their shared passion for Japanese Domestic Market vehicles</p>
                 <img src="images/garage4.jpg" alt="Garage4">
                 <img src="images/garage5.jpg" alt="Garage5">
                 <img src="images/garage6.jpg" alt="Garage6">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div class="dot-container"></div>
+        <section class="commitment-section">
+            <div class="commitment-section">
+                <h2>Our Commitment</h2>
+                <p>At JDM Cars, our commitment extends beyond providing top-quality products. We are dedicated to fostering a community of passionate enthusiasts who share our love for JDM automobiles. With a focus on customer satisfaction and community engagement, we strive to create an inclusive and welcoming environment where enthusiasts can connect, learn, and celebrate their shared passion for Japanese Domestic Market vehicles</p>
             </div>
         </section>
         </div>
