@@ -141,8 +141,6 @@ header {
     top: calc(100% + 10px); /* Position below the search input */ /* Position at the left edge of the viewport */
     width: 100%;
     max-width: 500px; /* Take up full width */
-    max-height: calc(100vh - 120px); /* Limit maximum height to viewport height minus header height */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
     background-color: #fff; /* Background color */
     border: 1px solid #ccc; /* Border */
     border-top: none; /* Remove top border to avoid double border */

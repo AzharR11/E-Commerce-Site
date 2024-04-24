@@ -1,3 +1,29 @@
+function handleSorting() {
+    const selectedAttribute = document.getElementById('sort-by').value;
+
+    let sortedProducts;
+    if (selectedAttribute === 'price-low-to-high') {
+        sortedProducts = products.slice().sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+    } else if (selectedAttribute === 'price-high-to-low') {
+        sortedProducts = products.slice().sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+    } else if (selectedAttribute === 'mileage-low-to-high') {
+        sortedProducts = products.slice().sort((a, b) => parseFloat(a.mileage) - parseFloat(b.mileage));
+    } else if (selectedAttribute === 'mileage-high-to-low') {
+        sortedProducts = products.slice().sort((a, b) => parseFloat(b.mileage) - parseFloat(a.mileage));
+    } else {
+        // Default sorting option or invalid selection
+        sortedProducts = products.slice();
+    }
+
+    renderProductListings(sortedProducts);
+}
+document.addEventListener("DOMContentLoaded", function() {
+    renderProductListings(products); // Initial rendering of product listings
+
+// Call renderProductListings function when the page loads
+document.getElementById('sort-by').addEventListener('change', handleSorting);
+});
+
 const products = [
     { id: 1, name: "Nissan Skyline GT-R (R34)", price: "£150,000", mileage: "50,000 miles" ,  image: "R34.webp" },
     { id: 2, name: "Nissan 400Z Veilside", price: "£65,000", mileage: "50,000 miles" ,  image: "400Z.jpg" },
@@ -104,32 +130,6 @@ function renderProductListings() {
         productContainer.appendChild(row);
     }
 }
-
-function handleSorting() {
-    const selectedAttribute = document.getElementById('sort-by').value;
-
-    let sortedProducts;
-    if (selectedAttribute === 'price-low-to-high') {
-        sortedProducts = products.slice().sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-    } else if (selectedAttribute === 'price-high-to-low') {
-        sortedProducts = products.slice().sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-    } else if (selectedAttribute === 'mileage-low-to-high') {
-        sortedProducts = products.slice().sort((a, b) => parseFloat(a.mileage) - parseFloat(b.mileage));
-    } else if (selectedAttribute === 'mileage-high-to-low') {
-        sortedProducts = products.slice().sort((a, b) => parseFloat(b.mileage) - parseFloat(a.mileage));
-    } else {
-        // Default sorting option or invalid selection
-        sortedProducts = products.slice();
-    }
-
-    renderProductListings(sortedProducts);
-}
-document.addEventListener("DOMContentLoaded", function() {
-    renderProductListings(products); // Initial rendering of product listings
-
-// Call renderProductListings function when the page loads
-document.getElementById('sort-by').addEventListener('change', handleSorting);
-});
 
 // Function to handle adding product to cart (to be implemented)
 function addToCart(productId) {
@@ -247,121 +247,6 @@ document.addEventListener('input', function(event) {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-const form1 = document.querySelector("#contact-form");
-form1.addEventListener("submit", function  (event) {
-  // prevent the form submit from refreshing the page
-  event.preventDefault();
-
-  const { name, email, message } = event.target;
-
-	// Use your API endpoint URL you copied from the previous step
-  const endpoint =
-    "https://he3lqre0n0.execute-api.us-east-1.amazonaws.com/default/send-contact-email";
-  // We use JSON.stringify here so the data can be sent as a string via HTTP
-	const body = JSON.stringify({
-    senderName: name.value,
-    senderEmail: email.value,
-    message: message.value
-  });
-  const requestOptions = {
-    method: "POST",
-    body
-  };
-
-  fetch(endpoint, requestOptions)
-    .then((response) => {
-      if (!response.ok) throw new Error("Error in fetch");
-      return response.json();
-    })
-    .then((response) => {
-      document.getElementById("result-text").innerText =
-        "Email sent successfully!";
-    })
-    .catch((error) => {
-    console.error("Error:", error);
-      document.getElementById("result-text").innerText =
-        "An unkown error occured.";
-    });
-});
-
-const form2 = document.querySelector("#checkout-form"); // Update the selector to target the correct form ID
-form2.addEventListener("submit", function (event) {
-  // prevent the form submit from refreshing the page
-  event.preventDefault();
-
-  // Retrieve form field values
-  const { name, email, number, address, address2, city, postcode } = event.target;
-
-  // Use your API endpoint URL you copied from the previous step
-  const endpoint =
-    "https://6fno0qpx3d.execute-api.us-east-1.amazonaws.com/default/checkout-email";
-  // We use JSON.stringify here so the data can be sent as a string via HTTP
-  const body = JSON.stringify({
-    fullName: name.value,
-    senderEmail: email.value,
-    mobileNumber: number.value,
-    deliveryAddress: address.value,
-    deliveryAddress2: address2.value,
-    cityTown: city.value,
-    zipPostcode: postcode.value
-  });
-  const requestOptions = {
-    method: "POST",
-    body,
-  };
-
-  // Send data to API endpoint
-  fetch(endpoint, requestOptions)
-    .then((response) => {
-      if (!response.ok) throw new Error("Error in fetch");
-      return response.json();
-    })
-    .then((response) => {
-      document.getElementById("result-text").innerText =
-        "Email sent successfully!";
-    })
-    .catch((error) => {
-      document.getElementById("result-text").innerText =
-        "An unknown error occurred.";
-    });
-});
-});
-
-let slideIndex = 0;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    const slides = document.querySelectorAll('.image-container img');
-    const dotsContainer = document.querySelector('.dot-container');
-
-    if (n >= slides.length) { slideIndex = 0 }
-    if (n < 0) { slideIndex = slides.length - 1 }
-
-    slides.forEach(slide => slide.style.display = "none");
-
-    // Create dots dynamically
-    dotsContainer.innerHTML = '';
-    for (let i = 0; i < slides.length; i++) {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        dot.addEventListener('click', () => currentSlide(i));
-        dotsContainer.appendChild(dot);
-    }
-
-    slides[slideIndex].style.display = "block";
-    const dots = document.querySelectorAll('.dot');
-    dots[slideIndex].classList.add('active');
-}
-
 // Function to redirect to the checkout page
 function redirectToCheckout() {
     const totalPrice = calculateTotalPrice();
@@ -386,54 +271,7 @@ function redirectToAccountPage() {
     window.location.href = "account.html"; // Replace "login.html" with the path to your login/signup page
 }
 
-function searchProducts() {
-    const searchInput = document.getElementById("search-input").value.toLowerCase().trim();
-    const filteredProducts = products.filter(product => {
-        return product.name.toLowerCase().includes(searchInput);
-    });
 
-    renderSearchResults(filteredProducts);
-}
-/*
-// Function to render search results
-function renderSearchResults(filteredProducts) {
-    const searchResultsContainer = document.getElementById("search-results");
-    searchResultsContainer.innerHTML = ''; // Clear previous search results
-
-    // Iterate over filtered products and create HTML elements to display them
-    filteredProducts.forEach(product => {
-        const searchItem = document.createElement("div");
-        searchItem.classList.add("search-item");
-        searchItem.textContent = product.name; // Display product name
-
-        // Add click event listener to each search item
-        searchItem.addEventListener("click", () => {
-            // Redirect to the product page with the selected product's ID
-            window.location.href = `product.html?id=${product.id}`;
-        });
-
-        searchResultsContainer.appendChild(searchItem);
-    });
-
-    // Show or hide the search results container based on whether there are matching items
-    if (filteredProducts.length > 0) {
-        searchResultsContainer.style.display = "block";
-    } else {
-        searchResultsContainer.style.display = "none";
-    }
-}
-
-// Add event listener to the search input field
-const searchInput = document.getElementById("search-input");
-searchInput.addEventListener("input", searchProducts);
-*/
-
-
-// Function to handle login form submission
-document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    // Fetch form data and perform login logic here
-});
 
 
 
