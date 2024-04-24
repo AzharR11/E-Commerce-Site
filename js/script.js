@@ -62,7 +62,7 @@ function getProductById(productId) {
     // Example: Fetch product details from an array of products
     const products = [
         { id: 1, name: "Nissan Skyline GT-R (R34)", price: "£150,000", mileage: "50,000 miles" ,  image: "R34.webp", description: "The R34 Skyline GT-R was introduced in January 1999, featuring several improvements over its predecessor. Notably, it was shorter and had a reduced front overhang. The valve covers were painted glossy red, distinguishing it from previous models. One significant addition to the R34 GT-R was the inclusion of a 5.8 LCD multifunction display on the dashboard, providing various live readings of engine and vehicle statistics. The V·Spec model expanded on this with additional features like intake and exhaust gas temperatures. Responding to customer feedback about the R33's size, Nissan made the R34 GT-R shorter. Both the V·Spec and standard models came equipped with the ATTESA E-TS Pro system and an Active LSD at the rear, with the V·Spec boasting firmer suspension and lower ground clearance. Similar to previous generations, Nissan introduced an R34 V·Spec N1 model, a homologation special sold without certain amenities like air conditioning and audio equipment. A limited number were produced, primarily for racing teams and tuning garages. In October 2000, Nissan unveiled the V·Spec II, offering increased suspension stiffness and larger rear brake rotors. The V·Spec II N1 variant featured similar enhancements, along with a carbon fiber bonnet. In May 2001, the M·Spec variant debuted, featuring Ripple control dampers, revised suspension, and a leather interior with heated front seats. In February 2002, Nissan released the final production models of the R34 GT-R: the Skyline GT-R V·Spec II Nür and the Skyline GT-R M·Spec Nür, named after the Nürburgring racetrack. These models featured an improved RB26DETT engine, upgraded turbochargers, and distinctive interior trim. Overall, the R34 Skyline GT-R represented a culmination of Nissan's engineering prowess, delivering enhanced performance and driving experience compared to its predecessors." },
-        { id: 2, name: "Nissan 400Z Veilside", price: "£65,000", mileage: "50,000 miles" ,  image: "400Z.jpg", description: "Officially called the FFZ400 and lovingly dubbed “Han’s 400Z”, the custom Z shares many similarities to VeilSide’s FD Mazda RX-7 driven by Han in the third Fast and Furious film. The iconic orange and black color scheme returns, and it’s even paired with the same VeilSide Andrew Forged wheels, this time in 20-inch diameter. The whole thing also rides on adjustable air suspension, ensuring the car has perpetually perfect fitment.<br/> Looking at the body kit itself, the Z’s sheet metal has been modified significantly to give it a distinct, aggressive look. This includes new bumpers, a new diffuser, and a host of black aero bits in the form of front air curtains, fender vents, and side skirts that extend up into the rear quarter panel. There’s also a light widening applied to the car’s body, which features faux rivets and panel gaps to give the look of bolt-on over-fenders. Other nice details include fluted exhaust tips, a drag-style lip spoiler with endplates, a black hood accent similar to Nissan’s Z Customized Proto concept, and a wavy texture on the window trim inspired by the forging pattern of a katana.\n Inside, the cabin features custom suede Bride seats, suede upholstery on the door cards, and a textured suede horn button on the steering wheel, all in black. There’s no word on how much power the Z makes, but we do know there will be a new exhaust and an ECU tune, which should help to boost the stock 400 hp (406 PS / 298 kW) and 350 lb-ft (475 Nm) of torque by a noticeable amount."},
+        { id: 2, name: "Nissan 400Z Veilside", price: "£65,000", mileage: "50,000 miles" ,  image: "400Z.jpg", description: "Officially called the FFZ400 and lovingly dubbed “Han’s 400Z”, the custom Z shares many similarities to VeilSide’s FD Mazda RX-7 driven by Han in the third Fast and Furious film. The iconic orange and black color scheme returns, and it’s even paired with the same VeilSide Andrew Forged wheels, this time in 20-inch diameter. The whole thing also rides on adjustable air suspension, ensuring the car has perpetually perfect fitment.\nLooking at the body kit itself, the Z’s sheet metal has been modified significantly to give it a distinct, aggressive look. This includes new bumpers, a new diffuser, and a host of black aero bits in the form of front air curtains, fender vents, and side skirts that extend up into the rear quarter panel. There’s also a light widening applied to the car’s body, which features faux rivets and panel gaps to give the look of bolt-on over-fenders. Other nice details include fluted exhaust tips, a drag-style lip spoiler with endplates, a black hood accent similar to Nissan’s Z Customized Proto concept, and a wavy texture on the window trim inspired by the forging pattern of a katana.\nInside, the cabin features custom suede Bride seats, suede upholstery on the door cards, and a textured suede horn button on the steering wheel, all in black. There’s no word on how much power the Z makes, but we do know there will be a new exhaust and an ECU tune, which should help to boost the stock 400 hp (406 PS / 298 kW) and 350 lb-ft (475 Nm) of torque by a noticeable amount."},
         { id: 3, name: "Nissan GT-R NISMO (R35)", price: "£200,000", mileage: "50,000 miles" ,  image: "R35.webp" },
         { id: 4, name: "Nissan 350Z", price: "£30,000", mileage: "50,000 miles" ,  image: "350Z.jpg" },
         { id: 5, name: "Mazda RX-7 Veilside", price: "£90,000", mileage: "50,000 miles" ,  image: "RX7.jpg" },
@@ -74,7 +74,7 @@ function getProductById(productId) {
 
     const product = products.find(product => product.id === parseInt(productId));
 
-    // Replace '\n' characters with '<br>' tags and wrap the description with '<p>' tags
+    // Wrap the description with <p> tags and replace '\n' characters with '<br>' tags
     if (product.description) {
         product.description = "<p>" + product.description.replace(/\n/g, "<br>") + "</p>";
     }
@@ -428,24 +428,6 @@ const searchInput = document.getElementById("search-input");
 searchInput.addEventListener("input", searchProducts);
 */
 
-function toggleForm() {
-    const loginForm = document.getElementById('login-form');
-    const signupForm = document.getElementById('signup-form');
-    const toggleLink = document.querySelector('.toggle-form a');
-    const formTitle = document.getElementById('form-title');
-
-    if (loginForm.style.display === 'none') {
-        loginForm.style.display = 'block';
-        signupForm.style.display = 'none';
-        toggleLink.textContent = 'New to JDM Cars? Sign up here';
-        formTitle.textContent = 'Login';
-    } else {
-        loginForm.style.display = 'none';
-        signupForm.style.display = 'block';
-        toggleLink.textContent = 'Already have an account? Login here';
-        formTitle.textContent = 'Sign Up';
-    }
-}
 
 // Function to handle login form submission
 document.getElementById('login-form').addEventListener('submit', function(event) {
@@ -453,9 +435,5 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     // Fetch form data and perform login logic here
 });
 
-// Function to handle signup form submission
-document.getElementById('signup-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    // Fetch form data and perform signup logic here
-});
+
 
