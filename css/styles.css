@@ -425,7 +425,7 @@ footer {
 }
 
 .add-to-cart-btn {
-    background-color: #007bff; /* Blue background */
+    background-color: #333; /* Blue background */
     color: #fff; /* White text */
     border: none;
     border-radius: 5px; /* Rounded corners */
@@ -440,7 +440,7 @@ footer {
 
 /* Hover state */
 .add-to-cart-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #555; /* Darker blue on hover */
 }
 
 /* Focus state (when button is selected) */
@@ -693,7 +693,7 @@ footer {
 #contact-form input[type="email"]:focus,
 #contact-form textarea:focus {
     outline: none;
-    border-color: #007bff; /* Change border color on focus */
+    border-color: #3CB3F5; /* Change border color on focus */
 }
 
 #contact-form textarea {
@@ -886,7 +886,7 @@ footer {
 .checkout-form input[type="email"]:focus,
 .checkout-form textarea:focus {
     outline: none;
-    border-color: #007bff; /* Change border color on focus */
+    border-color: #3CB3F5; /* Change border color on focus */
 }
 
 .cvv-expiry {
@@ -958,7 +958,7 @@ footer {
 .account-form-container input[type="email"]:focus,
 .account-form-container textarea:focus {
     outline: none;
-    border-color: #007bff; /* Change border color on focus */
+    border-color: #3CB3F5; /* Change border color on focus */
 }
 
 .account-form-container textarea {
@@ -989,7 +989,7 @@ footer {
 }
 
 .toggle-link a {
-    color: #007bff;
+    color: #3CB3F5;
     text-decoration: none;
 }
 
@@ -997,13 +997,11 @@ footer {
     text-decoration: underline;
 }
 
-.about-content {
-    position: relative;
-    max-width: 80%; 
-    margin: 0 auto;
-}
-
-.commitment-section {
+.about-content,
+.commitment-section,
+.intro-content,
+.soon-content,
+.feature {
     position: relative;
     max-width: 80%; 
     margin: 0 auto;
@@ -1024,6 +1022,15 @@ footer {
 
 .image-container img {
     width: 100%;
+}
+
+.textbox {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .prev, .next {
@@ -1064,5 +1071,7 @@ footer {
 }
 
 .active {
-    background-color: #717171;
+    background-color: #3CB3F5;
 }
+
+

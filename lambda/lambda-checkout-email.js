@@ -5,16 +5,28 @@ exports.handler = async function (event) {
   console.log('EVENT: ', event);
 
   // Extract the properties from the event body
-  const { name, email, number, address, address2, city, postcode } = JSON.parse(event.body);
+  const { fullName, senderEmail, mobileNumber, deliveryAddress, deliveryAddress2, cityTown, zipPostcode, cart} = JSON.parse(event.body);
+
+  let totalPrice = 0;
+  cart.forEach(item => {
+   totalPrice += parseFloat(item.price.replace('£', '').replace(',', '')) * item.quantity;
+  })
 
   // Construct the email body with order details
-  const emailBody = `Here are your order details:\n\
+  let emailBody = `Here are your order details:\n\
     
-    Delivery Address:\n
-    Address Line 1: ${address}
-    Address Line 2: ${address2}
-    City: ${city}
-    Postcode: ${postcode}`;
+  Delivery Address:\n
+  ${deliveryAddress}
+  ${deliveryAddress2}
+  ${cityTown}
+  ${zipPostcode}\n\n
+  Cart Items:\n`;
+
+  cart.forEach(item => {
+    emailBody += `- (${item.quantity}x) ${item.name}: ${item.price}\n`;
+  });
+
+  emailBody += `\nTotal: £${totalPrice.toLocaleString(undefined, { maximumFractionDigits: 2 })}`;
 
   const params = {
     Destination: {
@@ -27,7 +39,7 @@ exports.handler = async function (event) {
         },
       },
       Subject: {
-        Data: `Order Details for ${name}`,
+        Data: `Order Details for ${fullName}`,
       },
     },
     Source: "jdmcarscontact11@gmail.com",

@@ -36,8 +36,9 @@
                 <h2>About Us</h2>
                 <p>Welcome to JDM Cars, your ultimate destination for enthusiasts of Japanese Domestic Market (JDM) vehicles. At JDM Cars, we are passionate about bringing the thrill of authentic JDM automobiles to enthusiasts around the world. <br><br> Our mission is to curate a comprehensive collection of JDM vehicles, parts, and accessories, providing enthusiasts with access to the iconic cars they love. From legendary classics to cutting-edge imports, we celebrate the rich heritage and innovation of the JDM automotive culture. <br><br> Driven by our dedication to quality and authenticity, we strive to deliver exceptional customer service and a seamless shopping experience. Whether you're a seasoned collector, a performance enthusiast, or simply appreciate the artistry of JDM engineering, we invite you to explore our collection and join us in celebrating the spirit of JDM.      </div>
         </section>
+        
         <div class="slideshow-container">
-            <div class="image-container">
+            <div class="image-container" id="slideshow1">
                 <img src="images/garage1.jpg" alt="Garage1">
                 <img src="images/garage2.jpg" alt="Garage2">
                 <img src="images/garage3.jpg" alt="Garage3">
@@ -45,10 +46,12 @@
                 <img src="images/garage5.jpg" alt="Garage5">
                 <img src="images/garage6.jpg" alt="Garage6">
             </div>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <div class="textbox" id="textbox1"></div>
+            <a class="prev" onclick="plusSlides(-1, 'slideshow1')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'slideshow1')">&#10095;</a>
         </div>
-        <div class="dot-container"></div>
+        <div class="dot-container" id="dot-container1"></div>
+
         <section class="commitment-section">
             <div class="commitment-section">
                 <h2>Our Commitment</h2>

@@ -30,9 +30,63 @@
         </nav>
     </header>
     <main>
+        <div class="fade-animation">
+        <section class="intro">
+            <div class="intro-content">
+                <h2>Exciting New Arrivals Await!</h2>
+                <p>Get ready to be amazed by our upcoming products. Stay tuned for the latest updates and exclusive previews.</p>
+                <a href="#" class="btn">Explore Now</a>
+            </div>
+        </section>
+        <section class="coming-soon">
+            <div class="soon-content">
+                <h2>Coming Soon...</h2>
+                <p>Be the first to experience our latest additions! Our team is working tirelessly to bring you a range of innovative cars that will elevate your experience. From cutting-edge technology to stylish designs, we have something special in store for you. Keep an eye out for updates as we prepare to unveil these exciting new arrivals.</p>
+            </div>
+        </section>
 
+        <div class="slideshow-container">
+            <div class="image-container" id="slideshow1">
+                <img src="images/SupraMK5.jpg" alt="Toyota GR Supra GT4 '100 Edition' ">
+                <img src="images/Eclipse.jpg" alt="Mitsubishi Eclipse GS">
+                <img src="images/garage3.jpg" alt="Garage3">
+                <img src="images/garage4.jpg" alt="Garage4">
+                <img src="images/garage5.jpg" alt="Garage5">
+                <img src="images/garage6.jpg" alt="Garage6">
+            </div>
+            <div class="textbox" id="textbox1"></div>
+            <a class="prev" onclick="plusSlides(-1, 'slideshow1')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'slideshow1')">&#10095;</a>
+        </div>
+        <div class="dot-container" id="dot-container1"></div>
 
+        <section class="features">
+            <div class="feature">
+                <h2>Why Choose Us?</h2>
+                <h3>Fast Shipping</h3>
+                <p>With our express shipping options, you'll receive your order in no time.</p>
+            </div>
+            <div class="feature">
+                <h3>24/7 Customer Support</h3>
+                <p>Our dedicated support team is available around the clock to assist you with any queries or concerns.</p>
+            </div>
+            <div class="feature">
+                <h3>Still not convinced?</h3>
+                <p>Check out our reviews</p>
+            </div>
+        </section>
+
+        <div class="slideshow-container">
+            <div class="image-container" id="slideshow2">
+                <img src="images/Night.jpg" alt="night">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'slideshow2')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'slideshow2')">&#10095;</a>
+        </div>
+        <div class="dot-container" id="dot-container2"></div>
+        </div>
     </main>
+
     <footer>
         <div class="footer-overlay"></div>
         <div class="footer-content">
@@ -93,5 +147,6 @@
     </footer>
     <script src="js/script.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/slideshow.js"></script>
 </body>
 </html>
