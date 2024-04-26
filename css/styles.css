@@ -54,7 +54,7 @@ header {
 }
 
 .search-bar input[type="text"]:focus {
-    border-color: #3CB3F5; /* Change border color when focused */
+    border-color: rgba(0, 123, 255, 0.5); /* Change border color when focused */
 }
 
 .search-bar input[type="text"]::placeholder {
@@ -435,6 +435,7 @@ footer {
     cursor: pointer;
     transition: background-color 0.3s ease; /* Smooth transition on hover */
     text-transform: uppercase; /* Uppercase text */
+    text-decoration: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
 }
 
@@ -701,18 +702,36 @@ footer {
     resize: vertical;
 }
 
-#contact-form button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
+.cars-button,
+#contact-form button,
+.checkout-form button,
+.account-form-submit {
+    background-color: #333; /* Blue background */
+    color: #fff; /* White text */
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for better spacing */
     font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#contact-form button:hover {
+.cars-button:hover,
+#contact-form button:hover,
+.checkout-form button:hover,
+.account-form-submit:hover {
     background-color: #555;
+}
+
+.cars-button:focus,
+#contact-form button:focus,
+.checkout-form button:focus,
+.account-form-submit:focus 
+ {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Add blue border on focus */
 }
 
 .container {
@@ -908,19 +927,6 @@ footer {
     text-align: center;
 }
 
-.checkout-form button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.checkout-form button:hover {
-    background-color: #555;
-}
-
 .account-form-container {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -966,22 +972,6 @@ footer {
     resize: vertical;
 }
 
-/* Form submit button */
-.account-form-submit {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-/* Form submit button hover effect */
-.account-form-submit:hover {
-    background-color: #555;
-}
-
 /* Form toggle link */
 .toggle-link {
     text-align: center;
@@ -1001,10 +991,12 @@ footer {
 .commitment-section,
 .intro-content,
 .soon-content,
-.feature {
+.feature,
+.review-content {
     position: relative;
     max-width: 80%; 
     margin: 0 auto;
+    margin-top: 80px;
 }
 
 .slideshow-container {
@@ -1012,6 +1004,7 @@ footer {
     max-width: 80%; /* Adjust the width as needed */
     margin: 0 auto; /* Center the slideshow horizontally */
     overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .image-container {
@@ -1025,7 +1018,7 @@ footer {
 }
 
 .textbox {
-    border: 1px solid #ccc;
+    border: 1px solid #bbb;
     padding: 10px;
     margin-top: 5px;
     font-size: 15px;
@@ -1073,5 +1066,7 @@ footer {
 .active {
     background-color: #3CB3F5;
 }
+
+
 
 

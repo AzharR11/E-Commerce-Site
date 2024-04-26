@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (product) {
         document.getElementById('product-image').innerHTML = `<img src="images/${product.image}" alt="${product.name}">`;
         document.getElementById('product-name').textContent = product.name;
-        document.getElementById('product-mileage').textContent = product.mileage;
+        document.getElementById('product-stats').innerHTML = `${product.price} / ${product.mileage}`;
         document.getElementById('product-description').textContent = product.description; // Set product description
     }
 });
