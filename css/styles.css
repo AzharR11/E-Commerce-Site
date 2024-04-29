@@ -531,25 +531,35 @@ footer {
     }
 }
 
+.product-container {
+    display: flex;
+    margin-top: 20px;
+    padding: 20px;
+    margin-bottom: 20px; /* Add margin to the bottom of each product */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
 
 .product-details {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    flex: 1 1 auto; /* Let the text container grow or shrink as needed */
+    padding: 20px;
 }
 
 .product-image {
-    flex: 1 0 auto; /* Let the image grow and shrink as needed */
-    max-width: 50%; /* Set maximum width to 50% of the container */
-    margin-right: 10px; /* Adjust margin between image and text */
+    flex: 0 0 auto; /* Let the image shrink or grow as needed */
+    padding: 20px;
+    text-align:center; /* Adjust margin between image and text */
 }
 
 #product-image img {
-    max-width: 700px; /* Adjust the maximum width of the image as needed */
+    max-width: 100%;
     height: auto;
 }
 
 .product-info {
-    flex: 1 0 50%; /* Let the info block grow and shrink as needed, initial width is 50% */
+    flex: 1 1 auto;
+    padding: 20px;
 }
 
 #product-name {
@@ -559,6 +569,22 @@ footer {
 
 #product-description {
     margin-bottom: 10px;
+}
+
+@media screen and (min-width: 769px) {
+    .product-container {
+        flex-direction: row;
+    }
+
+    .product-image {
+        order: -1; /* Move the image to the left */
+        flex: 0 0 50%;
+    }
+
+    .product-info {
+        flex: 1 1 0;
+    }
+
 }
 
 @media screen and (max-width: 500px) {
@@ -663,7 +689,6 @@ footer {
 
 .contact-container {
     display: flex;
-    align-items: stretch;
     justify-content: center; /* Center the items horizontally */
     max-width: 1100px; /* Set the maximum width of the container */
     margin: 0 auto; /* Center the container horizontally */
@@ -1029,6 +1054,17 @@ footer {
 
 .toggle-link a:hover {
     text-decoration: underline;
+}
+
+.about-container,
+.home-container {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px; /* Add margin to the bottom of each product */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .about-content,
