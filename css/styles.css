@@ -7,7 +7,7 @@ body {
 
 header {
     position: relative;
-    background-image: url('../images/Night.jpg');
+    background-color: #000;
     background-size: cover; /* or contain, depending on how you want the image to fit */
     background-position:top;
     color: #fff;
@@ -276,7 +276,7 @@ main {
 
 footer {
     position: relative;
-    background-image: url('../images/Night.jpg');
+    background-color: #000;
     background-size: cover; /* or contain, depending on how you want the image to fit */
     background-position:center;
     color: #fff;
@@ -379,25 +379,48 @@ footer {
 }
 
 
-.background-container {
+.video-container {
     position: relative;
-    overflow: hidden; /* Prevent image overflow */
-    height: 100vh; /* Set the height to 100% of the viewport height */
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.background-image {
-    width: 100%; /* Set the width to fill the container */
-    height: auto; /* Maintain aspect ratio */
+#video-bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Place the image behind other content */
+    top: 40%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%) ; /* Adjust the scale value as needed */
+}
+
+#toggle-sound {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    font-weight: bold; /* Specify the font weight */
+    color: white; /* Text color */
+    background-color: transparent;
+    border-radius: 5px;
 }
 
 @media (max-width: 768px) {
-    .background-image {
-        width: auto; /* Reset width to maintain aspect ratio */
-        height: 100%; /* Set height to fill the container */
+    #video-bg {
+        width: 100%;
+        height: auto;
+        object-fit: cover;  /* Set height to fill the container */
+    }
+}
+
+@media (max-width: 500px) {
+    #video-bg {
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* Ensures video fills the container while maintaining aspect ratio */
     }
 }
 
@@ -517,7 +540,7 @@ footer {
 .product-image {
     flex: 1 0 auto; /* Let the image grow and shrink as needed */
     max-width: 50%; /* Set maximum width to 50% of the container */
-    margin-right: 20px; /* Adjust margin between image and text */
+    margin-right: 10px; /* Adjust margin between image and text */
 }
 
 #product-image img {
@@ -536,6 +559,27 @@ footer {
 
 #product-description {
     margin-bottom: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    .product-details {
+        display: flex;
+        flex-direction: column; /* Display items vertically */
+    }
+    .product-image {
+        flex: none; /* Prevent the image from growing or shrinking */
+        max-width: 100%; /* Set maximum width to 100% of the container */
+        margin-bottom: 20px; /* Adjust margin between image and text */
+    }
+
+    #product-image img {
+        width: 100%; /* Ensure the image fills its container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .product-info {
+        flex: none; /* Prevent the text from growing or shrinking */
+    }
 }
 
 .overlay {
@@ -994,14 +1038,14 @@ footer {
 .feature,
 .review-content {
     position: relative;
-    max-width: 80%; 
+    max-width: 90%; 
     margin: 0 auto;
     margin-top: 80px;
 }
 
 .slideshow-container {
     position: relative;
-    max-width: 80%; /* Adjust the width as needed */
+    max-width: 90%; /* Adjust the width as needed */
     margin: 0 auto; /* Center the slideshow horizontally */
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

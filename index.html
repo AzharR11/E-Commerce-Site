@@ -5,19 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JDM Cars - Home</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div class="background-container">
-        <img src="images/banner_image.jpg" alt="Background Image" class="background-image">
+    <div class="video-container">
+        <video autoplay muted loop id="video-bg">
+            <source src="images/video.mp4" type="video/mp4">
+        </video>
         <div class="overlay">
             <div class="home-page-text">
-            <h1>Welcome to JDM Cars</h1>
-            <p>Discover the finest selection of Japanese Domestic Market (JDM) cars. From iconic classics to modern marvels, we've got it all.</p>
+                <h1>Welcome to JDM Cars</h1>
+                <p>Discover the finest selection of Japanese Domestic Market (JDM) cars. From iconic classics to modern marvels, we've got it all.</p>
             </div>
             <div class="home-button">
-            <a href="home.html" class="btn">?</a>
+                <a href="home.html" class="btn">?</a>
             </div>
         </div>
     </div>
+    <button id="toggle-sound"><i class="fas fa-volume-mute"></i></button>
+    <script src="js/toggle-sound.js"></script>
 </body>
 </html>

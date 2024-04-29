@@ -14,16 +14,22 @@ exports.handler = async function (event) {
 
   // Construct the email body with order details
   let emailBody = `Here are your order details:\n\
+  
+Contact Details:
+  - ${fullName}
+  - ${senderEmail}
+  - ${mobileNumber}\n
     
-  Delivery Address:\n
-  ${deliveryAddress}
-  ${deliveryAddress2}
-  ${cityTown}
-  ${zipPostcode}\n\n
-  Cart Items:\n`;
+Delivery Address:
+  - ${deliveryAddress}
+  - ${deliveryAddress2}
+  - ${cityTown}
+  - ${zipPostcode}\n
+  
+Cart Items:\n`;
 
   cart.forEach(item => {
-    emailBody += `- (${item.quantity}x) ${item.name}: ${item.price}\n`;
+    emailBody += `  - (${item.quantity}x) ${item.name}: ${item.price}\n`;
   });
 
   emailBody += `\nTotal: £${totalPrice.toLocaleString(undefined, { maximumFractionDigits: 2 })}`;
