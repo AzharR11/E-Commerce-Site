@@ -633,7 +633,7 @@ footer {
     }
   }
 
-.home-button{
+.intro-button{
     animation: FadeIn 1s ease-in-out forwards;
     opacity: 0; /* Add a delay of 1 second */
     animation-delay: 1.5s;
@@ -723,7 +723,8 @@ footer {
     resize: vertical;
 }
 
-.btn,
+.intro-button,
+.home-button,
 .cars-button,
 .add-to-cart-btn,
 #contact-form button,
@@ -741,7 +742,8 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.btn:hover,
+.intro-button:hover,
+.home-button:hover,
 .cars-button:hover,
 .add-to-cart-btn:hover,
 #contact-form button:hover,
@@ -750,7 +752,8 @@ footer {
     background-color: #555;
 }
 
-.btn:focus,
+.intro-button:focus,
+.home-button:focus,
 .cars-button:focus,
 .add-to-cart-btn:focus,
 #contact-form button:focus,
@@ -1016,7 +1019,8 @@ footer {
 }
 
 .about-container,
-.home-container {
+.home-container,
+.dashboard-container {
     margin-top: 20px;
     padding: 20px;
     text-align: center;
@@ -1031,7 +1035,8 @@ footer {
 .intro-content,
 .soon-content,
 .feature,
-.review-content {
+.review-content,
+.dashboard-content {
     position: relative;
     max-width: 90%; 
     margin: 0 auto;
