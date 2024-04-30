@@ -71,6 +71,6 @@ document.getElementById('signup-form').addEventListener('submit', function(event
         }
         const cognitoUser = result.user;
         // Handle successful signup, e.g., redirect to login page
-        window.location.href = 'login.html';
+        window.location.href = 'account.html';
     });
 });
