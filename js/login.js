@@ -19,8 +19,8 @@ function toggleForm() {
 
 AWS.config.region = 'us-east-1'; // Specify your AWS region
 const poolData = {
-    UserPoolId: 'us-east-1_OH7w0M2xo',
-    ClientId: '1nm0gc9gh4jpp0i9fvn59638gh'
+    UserPoolId: 'us-east-1_6hR3Lo6y7',
+    ClientId: '181981noi1gk52l48teadesv98'
 };
 const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
@@ -28,6 +28,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     event.preventDefault();
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
+    
     const authenticationData = {
         Username: email,
         Password: password
@@ -52,5 +53,24 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
 document.getElementById('signup-form').addEventListener('submit', function(event) {
     event.preventDefault();
-    // Similar logic as login for user registration
+    const email = document.getElementById('signup-email').value;
+    const password = document.getElementById('signup-password').value;
+
+    const attributeList = [
+        new AmazonCognitoIdentity.CognitoUserAttribute({
+            Name: 'email',
+            Value: email
+        })
+        // Add more attributes if needed
+    ];
+
+    userPool.signUp(email, password, attributeList, null, function(err, result) {
+        if (err) {
+            alert(err.message || JSON.stringify(err));
+            return;
+        }
+        const cognitoUser = result.user;
+        // Handle successful signup, e.g., redirect to login page
+        window.location.href = 'login.html';
+    });
 });

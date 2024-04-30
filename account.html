@@ -14,34 +14,34 @@
         <a href="index.html"><img src="images/logo.png" class ="header-logo2"></a>
         </div>
     </header>
-    <main>
-        <div class="fade-animation">
+<main>
+    <div class="fade-animation">
         <div class="account-form-container">
             <h2>Welcome Back!</h2>
             <form id="login-form" class="account-form">
                 <h3>Login</h3>
-                <label for="email">Email</label>
-                <input type="email" class="account-form-input" name="email" required><br><br>
-                <label for="email">Password</label>
-                <input type="text" class="account-form-input" name="password" required><br><br>
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" class="account-form-input" name="email" required><br><br>
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" class="account-form-input" name="password" required><br><br>
                 <button type="submit" class="account-form-submit">Login</button>
             </form>
             <form id="signup-form" class="account-form" style="display: none;">
                 <h3>Sign Up</h3>
-                <label for="name">Full Name</label>
-                <input type="text" class="account-form-input" name="name" required><br><br>
-                <label for="email">Email</label>
-                <input type="email" class="account-form-input" name="email" required><br><br>
-                <label for="email">Password</label>
-                <input type="text" class="account-form-input" name="password" required><br><br>
+                <label for="signup-name">Full Name</label>
+                <input type="text" id="signup-name" class="account-form-input" name="name" required><br><br>
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" class="account-form-input" name="email" required><br><br>
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" class="account-form-input" name="password" required><br><br>
                 <button type="submit" class="account-form-submit" >Sign Up</button>
             </form>
             <div class="toggle-form">
                 <p><a href="#" onclick="toggleForm()">New to JDM Cars? Sign up here</a></p>
             </div>
         </div>
-        </div>
-    </main>
+    </div>
+</main>
     <footer>
         <div class="footer-overlay"></div>
         <div class="footer-content">
@@ -100,7 +100,7 @@
         <p>&copy; 2024 JDM Cars. Azhar Rashid.</p>
     </div>
     </footer>
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.978.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.1119.0/aws-sdk.min.js"></script>
     <script src="js/login.js"></script>
 </body>
 </html>
