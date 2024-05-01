@@ -16,16 +16,6 @@ header {
     overflow: hidden; /* Ensure the overlay covers the entire header */
 }
 
-.header-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.450); /* Semi-transparent black */
-    z-index: 0; /* Ensure the overlay is behind the text */
-}
-
 .header-content {
     position: relative;
     display: flex;
@@ -40,6 +30,7 @@ header {
     align-items: center;
     justify-content:center; /* Center horizontally */
     position: relative;
+    margin-bottom: 20px;
 }
 
 .search-bar input[type="text"] {
@@ -71,12 +62,12 @@ header {
         max-width:150px;
         height: auto;
         position: static;
-        margin-bottom: 10px;
+        margin-bottom: 3px;
     }
 
     .search-bar {
         justify-content: center;
-        margin-bottom: 10px; 
+        margin-bottom: 17px; 
         width: 100%;/* Align items to the start for smaller screens */
     }
 
@@ -108,7 +99,7 @@ header {
         max-width:120px;
         height: auto;
         position: static;
-        margin-bottom: 10px;
+        top: 10px;
     }
 
     .search-bar {
@@ -118,7 +109,7 @@ header {
     }
 
     .search-bar input[type="text"] {
-        max-width: 130px;
+        max-width: 120px;
     }
 
     #account-icon,
@@ -176,7 +167,7 @@ header {
     height: auto; /* Maintain aspect ratio */
     position: absolute; /* Position absolutely */
     left: 10px; /* Adjust the left position to your preference */
-    top: 10px; /* Adjust the top position to your preference */
+    bottom: 2px; /* Adjust the top position to your preference */
     z-index: 1; /* Ensure it stays above other elements */
 }
 
@@ -198,6 +189,10 @@ header {
     height: auto; /* Allow the header height to adjust based on its content */
 }
 
+.line {
+    border-top: 1px solid #ffffff; /* Adjust the color and thickness of the line */
+}
+
 nav {
     position: relative; /* Ensure that nav is positioned relative */
     z-index: 1; /* Set a z-index value for the nav */
@@ -208,6 +203,8 @@ nav ul {
     padding: 0;
     z-index: 1000;
     position: relative;
+    margin-top: 8px;
+    margin-bottom: 8px/* Adjust the margin-bottom value to reduce spacing */
 }
 
 nav ul li {
@@ -255,6 +252,7 @@ nav ul li a:hover:after {
 
 #account-icon {
     font-size: 20px; /* Increase the font size */
+    margin-bottom: 10px;
     right: 80px; /* Distance from the right edge */ /* Add some space to the right */
     cursor: pointer; /* Add cursor pointer to indicate interactivity */
     float: right; /* Align to the right */
@@ -263,6 +261,7 @@ nav ul li a:hover:after {
 
 #cart-icon {
     font-size: 20px; /* Increase the font size */
+    margin-bottom: 10px;
     right: 10px; /* Distance from the right edge */ /* Add some space to the right */
     cursor: pointer; /* Add cursor pointer to indicate interactivity */
     float: right; /* Align to the right */
@@ -283,16 +282,6 @@ footer {
     padding: 10px;
     text-align: center;
     overflow: hidden; /* Ensure the overlay covers the entire header */
-}
-
-.footer-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.450); /* Semi-transparent black */
-    z-index: 0; /* Ensure the overlay is behind the text */
 }
 
 .footer-content {
@@ -1020,6 +1009,7 @@ footer {
 
 .about-container,
 .home-container,
+.home-container1,
 .dashboard-container {
     margin-top: 20px;
     padding: 20px;
@@ -1027,14 +1017,12 @@ footer {
     margin-bottom: 20px; /* Add margin to the bottom of each product */
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #bbb;
     overflow: hidden;
 }
 
 .about-content,
 .commitment-section,
-.intro-content,
-.soon-content,
-.feature,
 .review-content,
 .dashboard-content {
     position: relative;
@@ -1043,12 +1031,92 @@ footer {
     margin-top: 50px;
 }
 
+.features {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: calc(100vw + 40px); /* Calculate width including padding */
+    margin-left: -20px; /* Compensate for negative margin */
+    margin-right: -20px; /* Compensate for negative margin */
+}
+
+.feature-box {
+    flex: 1;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.feature-box div {
+    flex-grow: 1; /* Fill remaining space */
+    text-align: center;
+}
+
+.feature-box h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 16px; /* Adjust font size */
+}
+
+.feature-box p {
+    margin: 0;
+    font-size: 14px; /* Adjust font size */
+}
+
+.home-container1 {
+    display: flex;
+    width: calc(100vw + 40px); /* Calculate width including padding */
+    margin-top: 10px;
+    margin-left: -20px; /* Compensate for negative margin */
+    margin-right: -20px; /* Compensate for negative margin */
+}
+
+.coming-soon {
+    flex: 1;
+    display: flex; /* Use flexbox */
+    max-width: 90%; 
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center the text content horizontally */
+    padding-right: 20px; /* Optional: Add spacing between sections */
+}
+
 .slideshow-container {
     position: relative;
     max-width: 90%; /* Adjust the width as needed */
     margin: 0 auto; /* Center the slideshow horizontally */
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slideshow-container1 {
+   position: relative;
+    width: 50%; /* Adjust width of slideshow container */
+    margin: 0 auto; /* Center the slideshow horizontally */
+    overflow: hidden;
+}
+
+.slideshow1 {
+    position: relative; /* Ensure position context for absolute positioning */
+}
+
+.slideshow1 .image-container {
+    position: relative; /* Ensure position context for absolute positioning */
+}
+
+.slideshow1 .textbox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%; /* Adjust width of text box */
+    height: 100%; /* Make text box take up full height of slideshow */
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: Add background color with transparency */
+    padding: 20px; /* Optional: Add padding for spacing */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
 }
 
 .image-container {
@@ -1112,6 +1180,45 @@ footer {
     background-color: #3CB3F5;
 }
 
+.home-content {
+    position: relative;
+    width: calc(100% + 40px); /* Calculate width including padding */
+    margin-left: -20px; /* Compensate for negative margin */
+    margin-right: -20px; /* Compensate for negative margin */
+    height: auto; /* Adjust as needed */
+    padding: 0; /* Remove padding */
+    margin-top: -20px;
+}
 
+.image-container-home {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Fill the entire viewport height */
+    overflow: hidden; /* Hide overflow */
+}
 
+.image-container-home img {
+    width: 100%;
+    height: 100%; /* Ensure the image fills the container */
+    object-fit: cover;
+}
 
+.text-container-home {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; /* Adjust text color as needed */
+}
+
+.text-container-home h2 {
+    font-size: 32px; /* Adjust font size as needed */
+    font-weight: bold; /* Specify the font weight */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-container-home p {
+    font-size: 18px; /* Adjust font size as needed */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}

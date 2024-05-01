@@ -9,7 +9,6 @@
 </head>
 <body>
     <header>
-        <div class="header-overlay"></div>
         <div class="header-content">
         <a href="index.html"><img src="images/logo.png" class ="header-logo"></a>
         <div class="search-bar">
@@ -20,6 +19,7 @@
             <i class="fas fa-user icon" id="account-icon" onclick="redirectToAccountPage()"></i>
             <i class="fas fa-shopping-cart icon" id="cart-icon" onclick="redirectToCheckout()"></i>
        </div>
+       <div class="line"></div>
         <nav>
             <ul>
                 <li><a href="home.html">Home</a></li>
@@ -30,24 +30,52 @@
         </nav>
     </header>
     <main>
+
         <div class="fade-animation">
-        <div class="home-container">
-        <section class="intro">
-            <div class="intro-content">
+        <section class="home-content">
+            <div class="image-container-home">
+                <img src="images/-garage-scaled.avif" alt="Image">
+            </div>
+            
+            <div class="text-container-home">
                 <h2>Explore our wide range of cars!</h2>
                 <p>Get ready to be amazed by our upcoming products. Stay tuned for the latest updates and exclusive previews.</p>
                 <a href="cars.html" class="cars-button">Explore Now</a>
-                
             </div>
         </section>
+
+        <section class="features">
+            <div class="feature-box">
+                <div>
+                    <h3><i class="fas fa-shipping-fast"></i> Express Shipping</h3>
+                    <p>Choose express shipping for speedy delivery.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <div>
+                    <h3><i class="fas fa-star"></i> Customer Reviews</h3>
+                    <p>Explore reviews from satisfied customers.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <div>
+                    <h3><i class="fas fa-headset"></i> 24/7 Support</h3>
+                    <p>Our support team is available around the clock to assist you.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="home-container1">
+
         <section class="coming-soon">
             <div class="soon-content">
                 <h2>Coming Soon...</h2>
                 <p>Be the first to experience our latest additions! Our team is working tirelessly to bring you a range of innovative cars that will elevate your experience. From cutting-edge technology to stylish designs, we have something special in store for you. Keep an eye out for updates as we prepare to unveil these exciting new arrivals.</p>
             </div>
         </section>
+        
 
-        <div class="slideshow-container">
+        <div class="slideshow-container1">
             <div class="image-container" id="slideshow1">
                 <img src="images/SupraMK5.jpg" alt="Toyota GR Supra GT4 [100 Edition] ">
                 <img src="images/R32.jpg" alt="Nissan Skyline GT-R [Nismo Edition] (R32)">
@@ -58,23 +86,15 @@
             <div class="textbox" id="textbox1"></div>
             <a class="prev" onclick="plusSlides(-1, 'slideshow1')">&#10094;</a>
             <a class="next" onclick="plusSlides(1, 'slideshow1')">&#10095;</a>
+            <div class="dot-container" id="dot-container1"></div>
         </div>
-        <div class="dot-container" id="dot-container1"></div>
+        </div>
 
-        <section class="features">
-            <div class="feature">
-                <h2>Why Choose Us?</h2>
-                <h3>Fast Shipping</h3>
-                <p>With our express shipping options, you'll receive your order in no time.</p>
-                <h3>24/7 Customer Support</h3>
-                <p>Our dedicated support team is available around the clock to assist you with any queries or concerns.</p>
-            </div>
-        </section>
+        <div class="home-container">
 
         <section class="reviews">
             <div class="review-content">
-                <h2>Still not convinced?</h2>
-                <p>Check out our reviews</p>
+                <h2>Reviews</h2>
             </div>
         </section>
 
