@@ -1246,25 +1246,18 @@ footer {
     font-weight: bold; /* Specify the font weight */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     opacity: 0;
-    animation-name: slideInText;
-    animation-duration: 1s; /* Adjust animation duration as needed */
-    animation-fill-mode: forwards; /* Maintain the end state after animation */
-}
+    animation: slideInText 1s ease-in-out forwards;}
 
 .text-container-home p {
     font-size: 18px; /* Adjust font size as needed */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     opacity: 0;
-    animation-name: slideInText;
-    animation-duration: 1s; /* Adjust animation duration as needed */
-    animation-fill-mode: forwards; /* Maintain the end state after animation */
+    animation: slideInText 1s ease-in-out forwards;
 }
 
 .cars-button {
     opacity: 0;
-    animation-name: slideInText;
-    animation-duration: 1s; /* Adjust animation duration as needed */
-    animation-fill-mode: forwards; /* Maintain the end state after animation */
+    animation: slideInText 1s ease-in-out forwards; /* Maintain the end state after animation */
     animation-delay: 1s;
 }
 
