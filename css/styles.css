@@ -203,8 +203,8 @@ nav ul {
     padding: 0;
     z-index: 1000;
     position: relative;
-    margin-top: 8px;
-    margin-bottom: 8px/* Adjust the margin-bottom value to reduce spacing */
+    margin-top: 10px;
+    margin-bottom: 0px/* Adjust the margin-bottom value to reduce spacing */
 }
 
 nav ul li {
@@ -1034,8 +1034,7 @@ footer {
 .features {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
-    width: calc(100vw + 40px); /* Calculate width including padding */
+    width: calc(100% + 40px); /* Calculate width including padding */
     margin-left: -20px; /* Compensate for negative margin */
     margin-right: -20px; /* Compensate for negative margin */
 }
@@ -1068,7 +1067,7 @@ footer {
 
 .home-container1 {
     display: flex;
-    width: calc(100vw + 40px); /* Calculate width including padding */
+    width: 100%; /* Calculate width including padding */
     margin-top: 10px;
     margin-left: -20px; /* Compensate for negative margin */
     margin-right: -20px; /* Compensate for negative margin */
@@ -1099,6 +1098,26 @@ footer {
     overflow: hidden;
 }
 
+
+@media only screen and (max-width: 768px),
+       only screen and (max-width: 500px) {
+    .home-container1 {
+        /* Adjust layout for smaller screens */
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .coming-soon {
+        /* Adjust layout for smaller screens */
+        width: 100% /* Center the content horizontally */
+    }
+
+    .slideshow-container1 {
+        /* Adjust layout for smaller screens */
+        width: 100% ; /* Adjust the width as needed */
+    }
+}
+
 .slideshow1 {
     position: relative; /* Ensure position context for absolute positioning */
 }
@@ -1123,6 +1142,16 @@ footer {
     display: flex;
     flex-wrap: wrap; /* Allow images to wrap within the container */
     justify-content: center; /* Center the images horizontally */
+}
+
+.overlay2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25); /* Adjust the opacity as needed */
+    pointer-events: none; /* Allow clicks to pass through the overlay */
 }
 
 .image-container img {
@@ -1205,7 +1234,7 @@ footer {
 
 .text-container-home {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -1216,9 +1245,37 @@ footer {
     font-size: 32px; /* Adjust font size as needed */
     font-weight: bold; /* Specify the font weight */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation-name: slideInText;
+    animation-duration: 1s; /* Adjust animation duration as needed */
+    animation-fill-mode: forwards; /* Maintain the end state after animation */
 }
 
 .text-container-home p {
     font-size: 18px; /* Adjust font size as needed */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation-name: slideInText;
+    animation-duration: 1s; /* Adjust animation duration as needed */
+    animation-fill-mode: forwards; /* Maintain the end state after animation */
 }
+
+.cars-button {
+    opacity: 0;
+    animation-name: slideInText;
+    animation-duration: 1s; /* Adjust animation duration as needed */
+    animation-fill-mode: forwards; /* Maintain the end state after animation */
+    animation-delay: 1s;
+}
+
+@keyframes slideInText {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
