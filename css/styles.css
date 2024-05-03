@@ -1112,7 +1112,6 @@ footer {
 .home-container1 {
     display: flex;
     width: 100%; /* Calculate width including padding */
-    margin-top: 20px;
     margin-left: -20px; /* Compensate for negative margin */
     margin-right: -20px; /* Compensate for negative margin */
 }
