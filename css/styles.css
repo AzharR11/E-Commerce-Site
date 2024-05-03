@@ -673,7 +673,7 @@ footer {
     }
 
     .company-address h3 {
-        margin-top: 15px !important;
+        margin-top: 10px !important;
     }
 
     .company-address p {
@@ -1329,7 +1329,7 @@ footer {
 
 .cars-button {
     /* Your existing styles for the cars button */
-    margin-bottom: 100px; /* Add some spacing between buttons */
+    margin-bottom: 60px; /* Add some spacing between buttons */
 }
 
 .scroll-button {
