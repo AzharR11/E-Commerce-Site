@@ -1,3 +1,7 @@
+html {
+    scroll-behavior:smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
@@ -429,11 +433,34 @@ footer {
     position: relative;
 }
 
-.dropdown-label {
-    flex: 1; /* Take up remaining space */
-    text-align: center; /* Center the text */
-    font-size: 30px;
-    font-weight: bold;
+.body-header {
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-between;
+    align-items: center; /* Center items vertically */
+}
+
+.page-numbers ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.page-numbers li {
+    display: inline;
+    margin-right: -5px;
+}
+
+.page-numbers a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px; /* Adjust padding to add spacing around the text */
+    background-color: white;
+}
+
+.page-numbers a:hover {
+    text-decoration: underline;
+    background-color: #3CB3F5;
+    border: none;
 }
 
 .fade-animation {
@@ -635,6 +662,25 @@ footer {
     margin: 0 auto; /* Center the container horizontally */
 }
 
+@media only screen and (max-width: 500px) {
+    .contact-container {
+        flex-direction: column; /* Maintain row layout on smaller screens */
+    }
+
+    .company-address,
+    #form-container {
+        max-width: 100%; /* Full width for each item on smaller screens */
+    }
+
+    .company-address h3 {
+        margin-top: 15px !important;
+    }
+
+    .company-address p {
+        margin-bottom: 0; /* Remove bottom margin for the paragraph */
+    }
+}
+
 .company-address {
     flex: 1;
     background-image: url('../images/form.avif');
@@ -752,11 +798,10 @@ footer {
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Add blue border on focus */
 }
 
-.container {
+.checkout-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 10px;
 }
 
 .order-summary {
@@ -1028,7 +1073,6 @@ footer {
     position: relative;
     max-width: 90%; 
     margin: 0 auto;
-    margin-top: 50px;
 }
 
 .features {
@@ -1234,7 +1278,7 @@ footer {
 
 .text-container-home {
     position: absolute;
-    top: 45%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -1271,4 +1315,24 @@ footer {
       transform: translateY(0);
     }
   }
-  
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.cars-button {
+    /* Your existing styles for the cars button */
+    margin-bottom: 100px; /* Add some spacing between buttons */
+}
+
+.scroll-button {
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: slideInText 1s ease-in-out forwards; /* Maintain the end state after animation */
+    animation-delay: 1.5s;
+}
+
