@@ -14,5 +14,4 @@ The primary goal of this project was to develop a static e-commerce website host
 
 ---
 ## AWS Architecture
-
-[undefined.pdf](https://github.com/AzharR11/E-Commerce-Site/files/15241141/undefined.pdf)
+![undefined](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/7cdfea03-ada6-44a2-9338-b5d9002f0b49)
