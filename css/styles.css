@@ -132,16 +132,30 @@ header {
 
 
 .search-results {
-    position: absolute;
-    top: calc(100% + 10px); /* Position below the search input */ /* Position at the left edge of the viewport */
+    position: fixed;
+    top: 80px;
+    left: 0;
     width: 100%;
-    max-width: 500px; /* Take up full width */
-    background-color: #fff; /* Background color */
-    border: 1px solid #ccc; /* Border */
-    border-top: none; /* Remove top border to avoid double border */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    display: none; /* Hide initially */
-    z-index:9999;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for a floating effect */
+    z-index: 999; /* Ensure it's above other content */
+}
+
+@media screen and (max-width: 768px) {
+    .search-results {
+        top: 75px; /* Adjust top position for smaller screens */
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .search-results {
+        top: 67px; /* Adjust top position for smaller screens */
+    }
+}
+
+.highlight {
+    background-color: yellow;
+    /* Add other styles to customize the appearance of the highlighted text */
 }
 
 .search-item {
@@ -205,10 +219,15 @@ nav {
 nav ul {
     list-style-type: none;
     padding: 0;
-    z-index: 1000;
+    z-index: 998;
     position: relative;
     margin-top: 10px;
     margin-bottom: 0px/* Adjust the margin-bottom value to reduce spacing */
+}
+
+nav.hidden ul {
+    opacity: 0;
+    pointer-events: none; /* Disable pointer events */
 }
 
 nav ul li {
@@ -517,7 +536,7 @@ footer {
 .product-container {
     display: flex;
     margin-top: 20px;
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 20px; /* Add margin to the bottom of each product */
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
