@@ -8,6 +8,9 @@ The primary goal of this project was to develop a static e-commerce website host
 
 ### Technologies
 #### Website
+The e-commerce website is carefully crafted using HTML, CSS, and JavaScript to offer users a seamless and immersive shopping experience. HTML serves as the backbone, structuring the website's layout and content with precision and clarity, while CSS steps in to stylize every element, ensuring a visually appealing presentation.
+
+JavaScript enhances the user experience by powering dynamic functionalities such as scroll effects, slideshow transitions, search functionality, product rendering, user account management, checkout processes, basket rendering, and the contact form. Together, these technologies create a modern, user-centric e-commerce platform that captivates users and delivers a smooth and engaging browsing experience.
 
 #### AWS
 
@@ -15,3 +18,4 @@ The primary goal of this project was to develop a static e-commerce website host
 ---
 ## AWS Architecture
 ![E-Commerce-Site](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f192b6e8-53db-484f-86b8-618f9f7add9e)
+
