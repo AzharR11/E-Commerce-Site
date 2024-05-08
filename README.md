@@ -27,3 +27,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 ## AWS Architecture
 ![E-Commerce-Site](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f192b6e8-53db-484f-86b8-618f9f7add9e)
 
+---
+## Deployment 
+* The first step is to create a CloudFormation stack utilising the created YAML template, this will create and configure the necessary resources.
+
