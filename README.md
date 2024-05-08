@@ -22,6 +22,7 @@ During development, I observed the need for manual invalidations in CloudFront t
 Moreover, I implemented interactive forms on the website, including a user-friendly contact form. SES played a pivotal role in managing email communication, complemented by Lambda functions that processed form data and initiated appropriate actions based on the input received. API Gateway facilitated seamless communication between the forms and Lambda functions, ensuring efficient data exchange and task execution.
 
 For user authentication and management, I seamlessly integrated Cognito, enabling users to navigate the website securely through hassle-free sign-in and sign-up processes. Each Lambda function was meticulously assigned suitable IAM roles, ensuring secure execution and data protection throughout the platform's operation.
+
 ---
 ## AWS Architecture
 ![E-Commerce-Site](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f192b6e8-53db-484f-86b8-618f9f7add9e)
