@@ -1159,6 +1159,14 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.slideshow-container-review {
+    position: relative;
+    max-width: 50%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the slideshow horizontally */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .slideshow-container1 {
    position: relative;
     width: 50%; /* Adjust width of slideshow container */
@@ -1206,7 +1214,8 @@ footer {
     overflow-y: auto; /* Enable vertical scrolling if content overflows */
 }
 
-.image-container {
+.image-container,
+.image-container-review {
     display: flex;
     flex-wrap: wrap; /* Allow images to wrap within the container */
     justify-content: center; /* Center the images horizontally */
@@ -1222,7 +1231,8 @@ footer {
     pointer-events: none; /* Allow clicks to pass through the overlay */
 }
 
-.image-container img {
+.image-container img,
+.image-container-review img {
     width: 100%;
 }
 
