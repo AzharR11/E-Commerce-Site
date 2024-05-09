@@ -26,9 +26,9 @@ Moreover, I implemented interactive forms on the website, including a user-frien
 For user authentication and management, I seamlessly integrated Cognito, enabling users to navigate the website securely through hassle-free sign-in and sign-up processes. Each Lambda function was meticulously assigned suitable IAM roles, ensuring secure execution and data protection throughout the platform's operation.
 
 ---
-## AWS Architecture![Uploading E-Commerce-Site.png…]()
+## AWS Architecture
 
-![E-Commerce-Site](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f192b6e8-53db-484f-86b8-618f9f7add9e)
+![Image Alt text](https://github.com/AzharR11/E-Commerce-Site/blob/main/README%20files/E-Commerce-Site.png?raw=true)
 
 ---
 ## Deployment 
