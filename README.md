@@ -1,7 +1,7 @@
 # E-Commerce-Site
 [Link to Website](https://azr11.com/)
 
-![Image Alt text]https://github.com/AzharR11/E-Commerce-Site/blob/main/README%20files/mockup2.png?raw=true
+![Image Alt text](https://github.com/AzharR11/E-Commerce-Site/blob/main/README%20files/mockup2.png?raw=true)
 
 ---
 ## Description 
