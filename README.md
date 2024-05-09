@@ -1,6 +1,9 @@
 # E-Commerce-Site
 [Link to Website](https://azr11.com/)
 
+[image].E-Commerce-Site/README files
+/mockup2.png
+
 ---
 ## Description 
 ### Purpose 
@@ -24,7 +27,8 @@ Moreover, I implemented interactive forms on the website, including a user-frien
 For user authentication and management, I seamlessly integrated Cognito, enabling users to navigate the website securely through hassle-free sign-in and sign-up processes. Each Lambda function was meticulously assigned suitable IAM roles, ensuring secure execution and data protection throughout the platform's operation.
 
 ---
-## AWS Architecture
+## AWS Architecture![Uploading E-Commerce-Site.png…]()
+
 ![E-Commerce-Site](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f192b6e8-53db-484f-86b8-618f9f7add9e)
 
 ---
