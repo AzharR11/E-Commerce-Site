@@ -1,7 +1,10 @@
+// Function to handle sorting products based on selected attribute
 function handleSorting() {
+    // Get the selected sorting attribute from the dropdown
     const selectedAttribute = document.getElementById('sort-by').value;
 
     let sortedProducts;
+    // Sort the products based on the selected attribute
     if (selectedAttribute === 'price-low-to-high') {
         sortedProducts = products.slice().sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     } else if (selectedAttribute === 'price-high-to-low') {
@@ -11,12 +14,14 @@ function handleSorting() {
     } else if (selectedAttribute === 'mileage-high-to-low') {
         sortedProducts = products.slice().sort((a, b) => parseFloat(b.mileage) - parseFloat(a.mileage));
     } else {
-        // Default sorting option or invalid selection
+        // Default sorting option or invalid selection, maintain the original order
         sortedProducts = products.slice();
     }
 
+    // Render the sorted product listings
     renderProductListings(sortedProducts);
 }
+// Function to render initial product listings on page load
 document.addEventListener("DOMContentLoaded", function() {
     renderProductListings(products); // Initial rendering of product listings
 
@@ -24,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.getElementById('sort-by').addEventListener('change', handleSorting);
 });
 
+// Array of product objects
 const products = [
     { id: 1, name: "Nissan Skyline GT-R (R34)", price: "£150,000", mileage: "43,253 miles" ,  image: "R34.webp" },
     { id: 2, name: "Nissan 400Z Veilside", price: "£65,000", mileage: "3,680 miles" ,  image: "400Z.jpg" },
@@ -36,10 +42,12 @@ const products = [
     { id: 9, name: "Mitsubishi Lancer EVO X", price: "£50,000", mileage: "80,239 miles" ,  image: "EVO.avif" }
 ];
 
+// Array to store items in the cart
 const cart = [];
 
 // Function to generate HTML for product listings
 function generateProductHTML(product) {
+    // HTML template for a product listing
     return `
     <div class="product">
         <img src="images/${product.image}" alt="${product.name}">
@@ -52,6 +60,7 @@ function generateProductHTML(product) {
     </div>`;
 }
 
+// Function to fetch product details by ID
 function generateProductHTML(product) {
     return `
     <div class="product">
@@ -98,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Function to fetch product details by ID (replace this with your actual data source)
 function getProductById(productId) {
-    // Example: Fetch product details from an array of products
+    // Fetch product details from an array of products
     const products = [
         { id: 1, name: "Nissan Skyline GT-R (R34)", price: "£150,000", mileage: "43,253 miles" ,  image: "R34.webp", description: "The R34 Skyline GT-R was introduced in January 1999, featuring several improvements over its predecessor. Notably, it was shorter and had a reduced front overhang. The valve covers were painted glossy red, distinguishing it from previous models. One significant addition to the R34 GT-R was the inclusion of a 5.8 LCD multifunction display on the dashboard, providing various live readings of engine and vehicle statistics. The V·Spec model expanded on this with additional features like intake and exhaust gas temperatures. Responding to customer feedback about the R33's size, Nissan made the R34 GT-R shorter. Both the V·Spec and standard models came equipped with the ATTESA E-TS Pro system and an Active LSD at the rear, with the V·Spec boasting firmer suspension and lower ground clearance. Similar to previous generations, Nissan introduced an R34 V·Spec N1 model, a homologation special sold without certain amenities like air conditioning and audio equipment. A limited number were produced, primarily for racing teams and tuning garages. In October 2000, Nissan unveiled the V·Spec II, offering increased suspension stiffness and larger rear brake rotors. The V·Spec II N1 variant featured similar enhancements, along with a carbon fiber bonnet. In May 2001, the M·Spec variant debuted, featuring Ripple control dampers, revised suspension, and a leather interior with heated front seats. In February 2002, Nissan released the final production models of the R34 GT-R: the Skyline GT-R V·Spec II Nür and the Skyline GT-R M·Spec Nür, named after the Nürburgring racetrack. These models featured an improved RB26DETT engine, upgraded turbochargers, and distinctive interior trim. Overall, the R34 Skyline GT-R represented a culmination of Nissan's engineering prowess, delivering enhanced performance and driving experience compared to its predecessors." },
         { id: 2, name: "Nissan 400Z Veilside", price: "£65,000", mileage: "3,680 miles" ,  image: "400Z.jpg", description: "Officially called the FFZ400 and lovingly dubbed “Han’s 400Z”, the custom Z shares many similarities to VeilSide’s FD Mazda RX-7 driven by Han in the third Fast and Furious film. The iconic orange and black color scheme returns, and it’s even paired with the same VeilSide Andrew Forged wheels, this time in 20-inch diameter. The whole thing also rides on adjustable air suspension, ensuring the car has perpetually perfect fitment.\nLooking at the body kit itself, the Z’s sheet metal has been modified significantly to give it a distinct, aggressive look. This includes new bumpers, a new diffuser, and a host of black aero bits in the form of front air curtains, fender vents, and side skirts that extend up into the rear quarter panel. There’s also a light widening applied to the car’s body, which features faux rivets and panel gaps to give the look of bolt-on over-fenders. Other nice details include fluted exhaust tips, a drag-style lip spoiler with endplates, a black hood accent similar to Nissan’s Z Customized Proto concept, and a wavy texture on the window trim inspired by the forging pattern of a katana.\nInside, the cabin features custom suede Bride seats, suede upholstery on the door cards, and a textured suede horn button on the steering wheel, all in black. There’s no word on how much power the Z makes, but we do know there will be a new exhaust and an ECU tune, which should help to boost the stock 400 hp (406 PS / 298 kW) and 350 lb-ft (475 Nm) of torque by a noticeable amount."},
@@ -125,18 +134,19 @@ function getProductById(productId) {
 // Function to render product listings on the page
 function renderProductListings() {
     const productContainer = document.getElementById("product-listings");
-    productContainer.innerHTML = '';
+    productContainer.innerHTML = ''; // Clear previous product listings
+
     // Iterate over products in groups of 3
     for (let i = 0; i < products.length; i += 3) {
-        // Create a div for each row
+        // Create a div for each row of products
         const row = document.createElement("div");
         row.classList.add("product-row");
 
-        // Add three products to the row
+        // Add up to 3 products to the row
         for (let j = i; j < i + 3 && j < products.length; j++) {
             const product = products[j];
-            const productHTML = generateProductHTML(product);
-            row.innerHTML += productHTML;
+            const productHTML = generateProductHTML(product); // Generate HTML for the product
+            row.innerHTML += productHTML; // Append product HTML to row
         }
 
         // Append the row to the product container
@@ -144,7 +154,7 @@ function renderProductListings() {
     }
 }
 
-// Function to handle adding product to cart (to be implemented)
+// Function to handle adding a product to the car
 function addToCart(productId) {
     // Find the product by ID
     const product = products.find(p => p.id === productId);
@@ -156,7 +166,7 @@ function addToCart(productId) {
     for (let i = 0; i < quantity; i++) {
         cart.push({ ...product, quantity: 1 });
     }
-    saveCartToLocalStorage();
+    saveCartToLocalStorage(); // Save cart data to local storage
 
     // Update the UI to reflect the changes in the cart
     updateCartUI();
@@ -164,6 +174,8 @@ function addToCart(productId) {
     // Show an alert indicating the product has been added to cart
     alert(`${product.name} (${quantity}x) has been added to cart`);
 }
+
+// Function to save cart data to local storage
 function saveCartToLocalStorage() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
@@ -180,7 +192,7 @@ function loadCartFromLocalStorage() {
 function updateCartUI() {
     // Get the cart icon element
     const cartIcon = document.getElementById('cart-icon');
-    // Update the number of items in the cart
+    // Update the cart icon with the number of items in the cart
     cartIcon.innerText = ` ${cart.length}`;
     updateOrderSummary();
     updateTotalPrice();
@@ -189,6 +201,8 @@ document.addEventListener("DOMContentLoaded", function() {
     loadCartFromLocalStorage();
     updateCartUI();
 })
+
+// Function to display cart items in the order summary
 function displayCartItems() {
     // Retrieve cart data from localStorage
     const storedCart = JSON.parse(localStorage.getItem('cart'));
@@ -233,7 +247,9 @@ document.addEventListener("DOMContentLoaded", function() {
     displayCartItems();
 });
 
+// Function to remove an item from the cart
 function removeItem(itemName) {
+    // Remove the item from the cart in local storage
     const storedCart = JSON.parse(localStorage.getItem('cart'));
     const updatedCart = storedCart.filter(item => item.name !== itemName);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
@@ -242,6 +258,7 @@ function removeItem(itemName) {
 
 // Function to update item quantity in cart
 function updateItemQuantity(itemName, newQuantity) {
+    // Update item quantity in the cart in local storage
     const storedCart = JSON.parse(localStorage.getItem('cart'));
     const updatedCart = storedCart.map(item => {
         if (item.name === itemName) {
@@ -262,18 +279,24 @@ document.addEventListener('input', function(event) {
 
 // Function to redirect to the checkout page
 function redirectToCheckout() {
+    // Redirect to the checkout page with total price as query parameter
     const totalPrice = calculateTotalPrice();
     window.location.href = `checkout.html?total=${totalPrice}`; // Redirect to checkout page with total price as query parameter
 }
+
+// Function to calculate the total price of items in the cart
 function calculateTotalPrice() {
+    // Calculate total price of items in the cart
     let totalPrice = 0;
     for (const product of cart) {
         totalPrice += parseFloat(product.price.replace('£', '').replace(',', ''));
-        // Assuming the price is in the format '£X,XXX.XX', so we remove the pound sign and comma, then parse it as a float
     }
     return totalPrice.toFixed(2); // Round to 2 decimal places
 }
+
+// Function to update the total price displayed on the page
 function updateTotalPrice() {
+    // Update the total price displayed on the page
     const totalPriceElement = document.getElementById('totalPrice');
     if (totalPriceElement) {
         totalPriceElement.textContent = `£${calculateTotalPrice()}`; // Update the content of the total price element
@@ -281,7 +304,8 @@ function updateTotalPrice() {
 }
 
 function redirectToAccountPage() {
-    window.location.href = "account.html"; // Replace "login.html" with the path to your login/signup page
+    // Redirect to the account page
+    window.location.href = "account.html"; 
 }
 
 

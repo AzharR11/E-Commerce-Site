@@ -1,15 +1,18 @@
+// Select the contact form
 const form1 = document.querySelector("#contact-form");
+// Listen for the form submission event
 form1.addEventListener("submit", function  (event) {
   // prevent the form submit from refreshing the page
   event.preventDefault();
 
+  // Destructure form fields from the event target
   const { name, email, message } = event.target;
 
-	// Use your API endpoint URL you copied from the previous step
+	// Define the API endpoint URL
   const endpoint =
     "https://he3lqre0n0.execute-api.us-east-1.amazonaws.com/default/send-contact-email";
-  // We use JSON.stringify here so the data can be sent as a string via HTTP
-	const body = JSON.stringify({
+
+  const body = JSON.stringify({
     senderName: name.value,
     senderEmail: email.value,
     message: message.value
@@ -19,6 +22,7 @@ form1.addEventListener("submit", function  (event) {
     body
   };
 
+  // Send data to the API endpoint
   fetch(endpoint, requestOptions)
     .then((response) => {
       if (!response.ok) throw new Error("Error in fetch");

@@ -1,4 +1,6 @@
+// Select the checkout form
 const form1 = document.querySelector("#checkout-form"); // Update the selector to target the correct form ID
+// Listen for the form submission event
 form1.addEventListener("submit", function (event) {
   // prevent the form submit from refreshing the page
   event.preventDefault();
@@ -13,10 +15,10 @@ form1.addEventListener("submit", function (event) {
   const postcode = document.getElementById("postcode").value;
   const cartItems = cart;
   
-  // Use your API endpoint URL you copied from the previous step
+  // Define the API endpoint URL
   const endpoint =
     "https://6fno0qpx3d.execute-api.us-east-1.amazonaws.com/default/checkout-email";
-  // We use JSON.stringify here so the data can be sent as a string via HTTP
+
   const body = JSON.stringify({
     fullName: name,
     senderEmail: email,
@@ -48,7 +50,9 @@ form1.addEventListener("submit", function (event) {
     });
 });
 
+// Event listener for form field validation
 document.addEventListener("DOMContentLoaded", function() {
+  // Select form fields
   const cvvInput = document.getElementById("cvv");
   const expiryDateInput = document.getElementById("expiry-date");
   const cardNumberInput = document.getElementById("card-number");
