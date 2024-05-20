@@ -57,7 +57,7 @@ header {
 }
 
 /* Media query for smaller screens */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
     .header-content {
         flex-direction: column;
     }
