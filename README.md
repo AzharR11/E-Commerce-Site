@@ -39,6 +39,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/14bac0ba-26c2-4a9f-a088-b718de38fc89)
 
+---
 ## Website Hosting Creation
 
 * The first step is to create a CloudFormation stack utilising the created YAML template, this will create and configure the necessary resources.
@@ -89,7 +90,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/8b5f695e-99ae-4a0b-b58f-313340b7b215)
 
-
+---
 ## CodePipeline Creation
 
 The connection to the GitHub account and repo needs to be authorised before use.
