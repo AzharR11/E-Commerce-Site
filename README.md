@@ -32,11 +32,14 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ---
 
+---
 Repo has been created on github now it needs to be cloned on the local system.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/2ea3ce71-4301-4f3a-b794-05970a4aca9f)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/14bac0ba-26c2-4a9f-a088-b718de38fc89)
+
+---
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/db304ac8-bb46-4f1d-bcfe-fa2ad8e00cf8)
 
