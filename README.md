@@ -49,7 +49,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/6513b187-a2d7-402e-9216-28ad236ceaef)
 
-* Once the stack has been created the CNAME's from the created SSL certificate need to be added msnuslly into the created hosted zone in order to verify and issue the certificate.
+* Once the stack has been created the CNAME's from the created SSL certificate need to be added manually into the created hosted zone in order to verify and issue the certificate.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/1f179bf1-1d74-4187-926c-36a7acb39105)
 
@@ -58,6 +58,8 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/d79b013c-94fd-4f04-ad6d-a6743c43ff31)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/7fc52497-11c7-4d76-8300-9c6225b1b698)
+
+* The registered domain name must also hve the same NS as the ones in the created hosted zone.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/5dc63023-55b7-474a-bcc1-b1a055bedbd3)
 
