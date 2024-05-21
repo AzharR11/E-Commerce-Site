@@ -32,7 +32,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ---
 
-GitHub repo is created in github and the repo needs to be cloned on local system.
+Repo has been created on github now it needs to be cloned on the local system.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/2ea3ce71-4301-4f3a-b794-05970a4aca9f)
 
