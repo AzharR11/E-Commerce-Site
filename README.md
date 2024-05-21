@@ -73,22 +73,24 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a55108f2-841f-47c4-9107-4cec20d1da62)
 
-* The S3 bucket has also been created and we can see that it has been configured correctly ith the S3 bucket policy.
+* The S3 bucket has also been created and we can see that it has been configured correctly with the S3 bucket policy.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/1e535230-813e-4dc8-9160-a457242a77e1)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/7a2408c1-526d-4fa7-985a-be32aa67d8c7)
 
-* Now the CloudFormation stack has been created successfully along with all the specified resources.
+* Now the CloudFormation stack creation has completed successfully along with the creation of all the specified resources.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a1c7e83a-6ecd-480c-ac63-582c0a3f7b98)
+
+* The CloudFront distribution has also been configured correctly to point to  the created S3 bucket, utilise the custom domian names and the created SSL certificate.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/e37576a9-7866-4ddd-aa9c-00d3063e585e)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/8b5f695e-99ae-4a0b-b58f-313340b7b215)
 
 
-Pipeline Creation
+## Pipeline Creation
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/56fa02e0-6d91-4dc9-ac6f-68b3fa3f843a)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/80c34671-abd8-4953-a7a0-ebc1d78f5d74)
