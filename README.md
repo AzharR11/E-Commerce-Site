@@ -91,13 +91,17 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 
 ## Pipeline Creation
+
 The connection to the github account and repo needs to be authorised before use.
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/56fa02e0-6d91-4dc9-ac6f-68b3fa3f843a)
+
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/80c34671-abd8-4953-a7a0-ebc1d78f5d74)
 
 * Once this is done another CloudFormation stack is created to provision the pipeline that will be used as part of the site development.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/65799c53-50b3-468f-a95f-cbb8221abf5e)
+
+* The stack has been successfully completed, as a result the pipeline has been created with the correct confiugration using the repo as part of the source stage and the previously provisioned S3 bucket as part of the deployment. stage
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ebdd8b45-1a52-4b8c-a516-a7b4b865a575)
 
