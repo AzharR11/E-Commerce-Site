@@ -31,7 +31,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 ![Image Alt text](https://github.com/AzharR11/E-Commerce-Site/blob/main/README%20files/E-Commerce-Site.png?raw=true)
 
 ---
-## Deployment
+## GitHub setup
 
 * Repo has been created on github now it needs to be cloned on the local system.
 
@@ -39,7 +39,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/14bac0ba-26c2-4a9f-a088-b718de38fc89)
 
---
+## Deployment
 
 * The first step is to create a CloudFormation stack utilising the created YAML template, this will create and configure the necessary resources.
 
