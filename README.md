@@ -45,9 +45,11 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/db304ac8-bb46-4f1d-bcfe-fa2ad8e00cf8)
 
+* The name of the bucket can be configured at the time of stack creation, this was made possible because of the parameters section added in the YAML template.
+
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/6513b187-a2d7-402e-9216-28ad236ceaef)
 
-* The name of the bucket can be configured at the time of stack creation, this was made possible because of the parameters section added in the YAML template.
+* Once the stack has been created the CNAME's from the created SSL certificate need to be added msnuslly into the created hosted zone in order to verify and issue the certificate.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/1f179bf1-1d74-4187-926c-36a7acb39105)
 
