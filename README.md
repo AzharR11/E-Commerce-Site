@@ -73,9 +73,13 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a55108f2-841f-47c4-9107-4cec20d1da62)
 
+* The S3 bucket has also been created and we can see that it has been configured correctly ith the S3 bucket policy.
+
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/1e535230-813e-4dc8-9160-a457242a77e1)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/7a2408c1-526d-4fa7-985a-be32aa67d8c7)
+
+
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/db343709-f179-4e74-bc9e-da7f35abfeaa)
 
