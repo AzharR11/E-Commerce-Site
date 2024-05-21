@@ -63,13 +63,13 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/5dc63023-55b7-474a-bcc1-b1a055bedbd3)
 
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/6aa67a84-5110-437e-8917-fc93fd95d360)
+## change screenshot
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/64beabec-ce7b-4af0-89a3-1a5c9687a54b)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ec80af5d-b68c-423b-8546-40443f093597)
 
-* Once this step is done the ertificate should be issued for use.
+* Once this step is done the certificate should be issued for use.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a55108f2-841f-47c4-9107-4cec20d1da62)
 
