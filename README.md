@@ -31,6 +31,62 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 ![Image Alt text](https://github.com/AzharR11/E-Commerce-Site/blob/main/README%20files/E-Commerce-Site.png?raw=true)
 
 ---
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/2ea3ce71-4301-4f3a-b794-05970a4aca9f)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/14bac0ba-26c2-4a9f-a088-b718de38fc89)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/db304ac8-bb46-4f1d-bcfe-fa2ad8e00cf8)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/6513b187-a2d7-402e-9216-28ad236ceaef)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/1f179bf1-1d74-4187-926c-36a7acb39105)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/28457a4c-c6dd-48f0-a28b-cd9e290d0dd5)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/d79b013c-94fd-4f04-ad6d-a6743c43ff31)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/7fc52497-11c7-4d76-8300-9c6225b1b698)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/5dc63023-55b7-474a-bcc1-b1a055bedbd3)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/6aa67a84-5110-437e-8917-fc93fd95d360)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/64beabec-ce7b-4af0-89a3-1a5c9687a54b)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ec80af5d-b68c-423b-8546-40443f093597)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a55108f2-841f-47c4-9107-4cec20d1da62)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/1e535230-813e-4dc8-9160-a457242a77e1)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/7a2408c1-526d-4fa7-985a-be32aa67d8c7)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/db343709-f179-4e74-bc9e-da7f35abfeaa)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ac1cd2ff-f22c-42b3-9d34-b2ff5cb4ba94)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/56fa02e0-6d91-4dc9-ac6f-68b3fa3f843a)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/80c34671-abd8-4953-a7a0-ebc1d78f5d74)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a1c7e83a-6ecd-480c-ac63-582c0a3f7b98)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/e37576a9-7866-4ddd-aa9c-00d3063e585e)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/8b5f695e-99ae-4a0b-b58f-313340b7b215)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/c7a6c0a8-651e-4e15-87b9-2ed8ef988611)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/65799c53-50b3-468f-a95f-cbb8221abf5e)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ebdd8b45-1a52-4b8c-a516-a7b4b865a575)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/2bfbe778-1c91-404d-956e-89a69e11fe68)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/105280d7-7bf5-4215-abc1-2e007157ebfa)
+
+
 ## Deployment 
 * The first step is to create a CloudFormation stack utilising the created YAML template, this will create and configure the necessary resources.
 
