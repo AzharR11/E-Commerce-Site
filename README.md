@@ -39,7 +39,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/14bac0ba-26c2-4a9f-a088-b718de38fc89)
 
-## Deployment
+## Resource deployment for site hosting
 
 * The first step is to create a CloudFormation stack utilising the created YAML template, this will create and configure the necessary resources.
 
@@ -68,6 +68,8 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/64beabec-ce7b-4af0-89a3-1a5c9687a54b)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ec80af5d-b68c-423b-8546-40443f093597)
+
+* Once this step is done the ertificate should be issued for use.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a55108f2-841f-47c4-9107-4cec20d1da62)
 
