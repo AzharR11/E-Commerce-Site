@@ -91,16 +91,11 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 
 ## Pipeline Creation
+The connection to the github account and repo needs to be authorised before use.
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/56fa02e0-6d91-4dc9-ac6f-68b3fa3f843a)
-
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/80c34671-abd8-4953-a7a0-ebc1d78f5d74)
 
-
-
-
-
-
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/c7a6c0a8-651e-4e15-87b9-2ed8ef988611)
+* Once this is done another CloudFormation stack is created to provision the pipeline that will be used as part of the site development.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/65799c53-50b3-468f-a95f-cbb8221abf5e)
 
