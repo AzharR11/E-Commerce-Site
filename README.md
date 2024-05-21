@@ -47,6 +47,8 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/6513b187-a2d7-402e-9216-28ad236ceaef)
 
+* The name of the bucket can be configured at the time of stack creation, this was made possible because of the parameters section added in the YAML template.
+
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/1f179bf1-1d74-4187-926c-36a7acb39105)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/28457a4c-c6dd-48f0-a28b-cd9e290d0dd5)
