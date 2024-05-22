@@ -60,7 +60,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/7fc52497-11c7-4d76-8300-9c6225b1b698)
 
-* The registered domain name must also hve the same NS as the ones in the created hosted zone.
+* The registered domain name must also have the same NS as the ones in the created hosted zone.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/5dc63023-55b7-474a-bcc1-b1a055bedbd3)
 
@@ -80,11 +80,11 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/7a2408c1-526d-4fa7-985a-be32aa67d8c7)
 
-* Now the CloudFormation stack creation has completed successfully along with the creation of all the specified resources.
+* Now the CloudFormation stack creation has been completed successfully along with the creation of all the specified resources.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a1c7e83a-6ecd-480c-ac63-582c0a3f7b98)
 
-* The CloudFront distribution has also been configured correctly to point to  the created S3 bucket, utilise the custom domian names and the created SSL certificate.
+* The CloudFront distribution has also been configured correctly to point to the created S3 bucket, utilising the custom domain names and the created SSL certificate.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/e37576a9-7866-4ddd-aa9c-00d3063e585e)
 
@@ -103,13 +103,13 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/65799c53-50b3-468f-a95f-cbb8221abf5e)
 
-* The stack has successfully completed, as a result, the CodePipeline has been created with the correct confiugration, using the repo as part of the source stage and the previously provisioned S3 bucket as part of the deployment stage.
+* The stack has successfully been completed, as a result, the CodePipeline has been created with the correct configuration, using the repo as part of the source stage and the previously provisioned S3 bucket as part of the deployment stage.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ebdd8b45-1a52-4b8c-a516-a7b4b865a575)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/2bfbe778-1c91-404d-956e-89a69e11fe68)
 
-* The content which is pushed from the local system to github is automatically deployed to the specified S3 Bucket.
+* The content which is pushed from the local system to GitHub is automatically deployed to the specified S3 Bucket.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/105280d7-7bf5-4215-abc1-2e007157ebfa)
 
