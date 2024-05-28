@@ -10,7 +10,8 @@
     1. [Purpose](#Purpose)
     2. [Technologies](#Technologies)
 2. [AWS Architecture](#AWS-Architecture)
-3. [Third Example](#third-example)
+3. [Documentation](#Documentation)
+    1. [GitHub Config](#GitHub-Config)
 4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
 
 ---
@@ -43,7 +44,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 ---
 ## Documentation
 
-### GitHub setup
+### GitHub Config
 
 * Repo has been created on GitHub now it needs to be cloned on the local system.
 
@@ -52,7 +53,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/14bac0ba-26c2-4a9f-a088-b718de38fc89)
 
 ---
-## Website Hosting Creation
+### Website Hosting Creation
 
 * The first step is to create a CloudFormation stack utilising the created YAML template, this will create and configure the necessary resources.
 
@@ -101,7 +102,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/8b5f695e-99ae-4a0b-b58f-313340b7b215)
 
 ---
-## CodePipeline Creation
+### CodePipeline Creation
 
 The connection to the GitHub account and repo needs to be authorised before use.
 
@@ -127,7 +128,7 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ---
 
-## IAM Setup
+### IAM Setup
 
 * Before the forms can work properly, an IAM Policy and Role will need to be created.
 * The policy will define the appropriate permissions
@@ -144,7 +145,7 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ---
 
-## SES Setup
+### SES Setup
 
 * For the forms on the site to work, SES will need to be set up. The custom domain name and the company's email address have been verified.
 
@@ -152,9 +153,9 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ---
 
-## Lambda Creation
+### Lambda Creation
 
-### CloudFront Invalidations
+#### CloudFront Invalidations
 
 * To eliminate the need for manual invalidations each time changes are deployed to the site, a Lambda function will be used.
 
@@ -166,7 +167,7 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f55dc9f0-0294-4a94-8c15-60270833f22d)
 
-### Contact Form
+#### Contact Form
 
 * This function is used to send a contact email containing the user's input to the company's email address.
 
@@ -178,7 +179,7 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/33c95744-e803-4cab-8dc4-5c131e72f5a5)
 
-### Checkout Form
+#### Checkout Form
 
 * This function handles the checkout receipt and confirmation for the end user, containing their inputted information as well as their order summary.
 
