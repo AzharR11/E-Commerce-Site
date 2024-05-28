@@ -101,6 +101,8 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/65799c53-50b3-468f-a95f-cbb8221abf5e)
 
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/cddb31fa-dac8-49f8-a4e7-249b78e67f66)
+
 * The stack has successfully been completed, as a result, the CodePipeline has been created with the correct configuration, using the repo as part of the source stage and the previously provisioned S3 bucket as part of the deployment stage.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ebdd8b45-1a52-4b8c-a516-a7b4b865a575)
