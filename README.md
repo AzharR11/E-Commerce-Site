@@ -114,4 +114,24 @@ The connection to the GitHub account and repo needs to be authorised before use.
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/105280d7-7bf5-4215-abc1-2e007157ebfa)
 
 ---
+
+## Setup SES
+
+For the forms on the site to work, SES will need to setup.
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f0c22993-5d24-4c48-a2ab-63777eae07be)
+
+---
+
 ## Lambda Creation
+
+To eliminate the need for manual invalidations each time changes are deployed to the site, a Lambda function will be used.
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/da5a99fe-c7fd-49a5-93f1-117ba3d70bec)
+
+By creating an S3 event notification as a trigger, each time the S3 bucket detects new content, the Lambda function will automatically be run.
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a581c7ce-ff99-4903-acf1-309fac1458dc)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ad3063b5-42ad-4702-bc84-e85707f2fdf5)
+
