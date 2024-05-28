@@ -41,7 +41,9 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 ![Image Alt text](https://github.com/AzharR11/E-Commerce-Site/blob/main/README%20files/E-Commerce-Site.png?raw=true)
 
 ---
-## GitHub setup
+## Documentation
+
+### GitHub setup
 
 * Repo has been created on GitHub now it needs to be cloned on the local system.
 
