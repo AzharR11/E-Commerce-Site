@@ -125,7 +125,7 @@ For the forms on the site to work, SES will need to be setup. The custom domain 
 
 ### CloudFront Invalidations
 
-To eliminate the need for manual invalidations each time changes are deployed to the site, a Lambda function will be run.
+To eliminate the need for manual invalidations each time changes are deployed to the site, a Lambda function will be used.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/da5a99fe-c7fd-49a5-93f1-117ba3d70bec)
 
