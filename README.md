@@ -12,6 +12,10 @@
 2. [AWS Architecture](#AWS-Architecture)
 3. [Documentation](#Documentation)
     1. [GitHub Config](#GitHub-Config)
+    2. [Website Hosting Creation](#Website-Hosting-Creation)
+    3. [CodePipeline Creation](#CodePipeline-Creation)
+    4. [IAM Setup](#IAM-Setup)
+    5. [SES Setup](#SES-Setup)
 4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
 
 ---
