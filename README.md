@@ -113,9 +113,26 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ---
 
-## Setup SES
+## IAM Setup
 
-For the forms on the site to work, SES will need to be setup. The custom domain name and the company's email address have been verified.
+* Before the forms can work properly, an IAM Policy and Role will need to be created.
+* The policy will define the appropriate permissions
+  
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/083532e9-116e-4e4a-9163-e811c1a6bb49)
+
+* Once the policy has been created it will need to be added to a new role
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/1cbc31cc-422b-43af-a524-5fee57978847)
+
+* This will allow SES to work alongside the Lambda functions
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a290bba6-26b4-42fc-88d7-c269dd312220)
+
+---
+
+## SES Setup
+
+* For the forms on the site to work, SES will need to be set up. The custom domain name and the company's email address have been verified.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f0c22993-5d24-4c48-a2ab-63777eae07be)
 
@@ -125,37 +142,36 @@ For the forms on the site to work, SES will need to be setup. The custom domain 
 
 ### CloudFront Invalidations
 
-To eliminate the need for manual invalidations each time changes are deployed to the site, a Lambda function will be used.
+* To eliminate the need for manual invalidations each time changes are deployed to the site, a Lambda function will be used.
 
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/da5a99fe-c7fd-49a5-93f1-117ba3d70bec)
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/fb0230f8-085a-4b97-84cb-f2b2d6d8a127)
 
-By creating an S3 event notification as a trigger, each time the S3 bucket detects new content, the Lambda function will automatically be run.
+* By creating an S3 event notification as a trigger, each time the S3 bucket detects new content, the Lambda function will automatically be run.
 
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a581c7ce-ff99-4903-acf1-309fac1458dc)
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/66a3c9d6-23b1-45ff-9de8-a719859d26a4)
 
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ad3063b5-42ad-4702-bc84-e85707f2fdf5)
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f55dc9f0-0294-4a94-8c15-60270833f22d)
 
 ### Contact Form
 
-This function is used to send a contact email containing the user's input to the company's email address.
+* This function is used to send a contact email containing the user's input to the company's email address.
 
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/0198f76d-50e4-4f27-8450-502919ff747b)
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/bb9f9028-74a8-43e9-a955-e3e7d9eb8173)
 
-API gateway is used as a trigger so that the content captured within the site's form can interact with the Lambda function which will handle the emails.
+* API gateway is used as a trigger so that the content captured within the site's form can interact with the Lambda function which will handle the emails.
 
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/2cd37ebe-013c-4cf0-afb3-c2074e9969b4)
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/542e73bd-f5eb-4c4e-b0cb-8917a308884c)
 
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/d03990d6-b526-4371-baf5-53f0d8fffb95)
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/33c95744-e803-4cab-8dc4-5c131e72f5a5)
 
 ### Checkout Form
 
-This function handles the checkout receipt and confirmation for the end user, containing their inputted information as well as their order summary.
+* This function handles the checkout receipt and confirmation for the end user, containing their inputted information as well as their order summary.
 
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/0f72fa3c-78ad-49f9-93d8-bc416b236843)
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/01eda6a4-3292-4d73-b37a-2ce293518cdc)
 
-API gateway is used as a trigger so that the content captured within the site's form can interact with the Lambda function which will handle the emails.
+* API gateway is used as a trigger so that the content captured within the site's form can interact with the Lambda function which will handle the emails.
 
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/45102787-e797-4be0-9a36-266df1d2842b)
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f2e223e2-445e-48f5-af62-9dd6af56b2ed)
 
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/096c7248-5757-4004-8d0f-761b83f7ea50)
-
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/5aa5e9c1-a9d1-49c1-9d7c-5cbbe96e85e3)
