@@ -4,7 +4,11 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-image: url('../images/background.jpg');
+    background-size: cover; /* Makes the background image cover the entire page */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-position: center; /* Centers the background image */
+    background-attachment: fixed; /* Keeps the background image fixed in place when scrolling */
     margin: 0;
     padding: 0;
 }
@@ -508,7 +512,8 @@ footer {
     padding: 20px;
     text-align: center;
     margin-bottom: 20px; /* Add margin to the bottom of each product */
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.500);
+    color:white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -540,7 +545,7 @@ footer {
     padding: 10px;
     margin-bottom: 20px; /* Add margin to the bottom of each product */
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     overflow: hidden;
 }
 
@@ -710,7 +715,7 @@ footer {
     background-position: center; 
     color: #fff; /* Text color */
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     text-decoration: none;
 }
 
@@ -730,7 +735,7 @@ footer {
 #contact-form {
     flex: 1;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     padding: 20px;
     max-width: 500px;
     margin: 0 auto;
@@ -828,7 +833,7 @@ footer {
     background-color: #f9f9f9;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     gap: 20px; /* Add some spacing between the sections */
@@ -941,7 +946,7 @@ footer {
 .checkout-form {
     background-color: #f9f9f9;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
 }
@@ -1012,7 +1017,7 @@ footer {
 
 .account-form-container {
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     padding: 20px;
     max-width: 500px;
     margin: 0 auto;
@@ -1080,10 +1085,10 @@ footer {
     padding: 20px;
     text-align: center;
     margin-bottom: 20px; /* Add margin to the bottom of each product */
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #bbb;
+    background-color: rgba(0, 0, 0, 0.500);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     overflow: hidden;
+    color: #fff;
 }
 
 .about-content,
@@ -1157,7 +1162,7 @@ footer {
     max-width: 90%; /* Adjust the width as needed */
     margin: 0 auto; /* Center the slideshow horizontally */
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 .slideshow-container-review {
@@ -1165,7 +1170,7 @@ footer {
     max-width: 50%; /* Adjust the width as needed */
     margin: 0 auto; /* Center the slideshow horizontally */
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 @media only screen and (max-width: 500px) {
