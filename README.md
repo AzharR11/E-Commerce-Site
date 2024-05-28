@@ -7,7 +7,7 @@
 
 # Table of Contents
 1. [Description](#Description)
-2. [AWS Architecture](#AWS_Architecture)
+2. [AWS Architecture](#AWS-Architecture)
 3. [Third Example](#third-example)
 4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
 
