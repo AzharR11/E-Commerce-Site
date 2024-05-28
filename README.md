@@ -7,6 +7,7 @@
 
 # Table of Contents
 1. [Description](#Description)
+    1. [Purpose](#Purpose)
 2. [AWS Architecture](#AWS-Architecture)
 3. [Third Example](#third-example)
 4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
