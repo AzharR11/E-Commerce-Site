@@ -4,14 +4,11 @@
 ![Image Alt text](https://github.com/AzharR11/E-Commerce-Site/blob/main/README%20files/E-Commerce-Mockup.jpg?raw=true)
 
 ---
-
 # Table of Contents
 1. [Description](#Description)
     1. [Purpose](#Purpose)
     2. [Technologies](#Technologies)
-
 2. [AWS Architecture](#AWS-Architecture)
-
 3. [Documentation](#Documentation)
     1. [GitHub Config](#GitHub-Config)
     2. [Website Hosting Creation](#Website-Hosting-Creation)
@@ -19,7 +16,6 @@
     4. [IAM Setup](#IAM-Setup)
     5. [SES Setup](#SES-Setup)
     6. [Lambda Creation](Lambda-Creation)
-
 4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
 
 ---
@@ -51,7 +47,6 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ---
 ## Documentation
-
 ### GitHub Config
 
 * Repo has been created on GitHub now it needs to be cloned on the local system.
@@ -135,7 +130,6 @@ The connection to the GitHub account and repo needs to be authorised before use.
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/105280d7-7bf5-4215-abc1-2e007157ebfa)
 
 ---
-
 ### IAM Setup
 
 * Before the forms can work properly, an IAM Policy and Role will need to be created.
@@ -152,7 +146,6 @@ The connection to the GitHub account and repo needs to be authorised before use.
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a290bba6-26b4-42fc-88d7-c269dd312220)
 
 ---
-
 ### SES Setup
 
 * For the forms on the site to work, SES will need to be set up. The custom domain name and the company's email address have been verified.
@@ -160,9 +153,7 @@ The connection to the GitHub account and repo needs to be authorised before use.
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f0c22993-5d24-4c48-a2ab-63777eae07be)
 
 ---
-
 ### Lambda Creation
-
 #### CloudFront Invalidations
 
 * To eliminate the need for manual invalidations each time changes are deployed to the site, a Lambda function will be used.
