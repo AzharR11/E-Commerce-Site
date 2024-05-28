@@ -4,6 +4,14 @@
 ![Image Alt text](https://github.com/AzharR11/E-Commerce-Site/blob/main/README%20files/E-Commerce-Mockup.jpg?raw=true)
 
 ---
+
+# Table of Contents
+1. [Example](#example)
+2. [Example2](#example2)
+3. [Third Example](#third-example)
+4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+
+---
 ## Description 
 ### Purpose 
 The primary goal of this project was to develop a static e-commerce website hosted entirely on AWS, offering users a comprehensive shopping experience. The website allows users to browse products, search for items, view individual product pages, add items to their cart, and securely complete their purchases through a streamlined checkout process. Additionally, users have the option to create accounts and log in securely. For any inquiries or requests, users can conveniently contact the store via a contact form integrated into the website.
