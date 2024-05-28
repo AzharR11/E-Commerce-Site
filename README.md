@@ -4,6 +4,21 @@
 ![Image Alt text](https://github.com/AzharR11/E-Commerce-Site/blob/main/README%20files/E-Commerce-Mockup.jpg?raw=true)
 
 ---
+# Table of Contents
+1. [Description](#Description)
+    1. [Purpose](#Purpose)
+    2. [Technologies](#Technologies)
+2. [AWS Architecture](#AWS-Architecture)
+3. [Documentation](#Documentation)
+    1. [GitHub Config](#GitHub-Config)
+    2. [Website Hosting Creation](#Website-Hosting-Creation)
+    3. [CodePipeline Creation](#CodePipeline-Creation)
+    4. [IAM Setup](#IAM-Setup)
+    5. [SES Setup](#SES-Setup)
+    6. [Lambda Creation](Lambda-Creation)
+4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+
+---
 ## Description 
 ### Purpose 
 The primary goal of this project was to develop a static e-commerce website hosted entirely on AWS, offering users a comprehensive shopping experience. The website allows users to browse products, search for items, view individual product pages, add items to their cart, and securely complete their purchases through a streamlined checkout process. Additionally, users have the option to create accounts and log in securely. For any inquiries or requests, users can conveniently contact the store via a contact form integrated into the website.
@@ -31,7 +46,8 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 ![Image Alt text](https://github.com/AzharR11/E-Commerce-Site/blob/main/README%20files/E-Commerce-Site.png?raw=true)
 
 ---
-## GitHub setup
+## Documentation
+### GitHub Config
 
 * Repo has been created on GitHub now it needs to be cloned on the local system.
 
@@ -40,7 +56,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/14bac0ba-26c2-4a9f-a088-b718de38fc89)
 
 ---
-## Website Hosting Creation
+### Website Hosting Creation
 
 * The first step is to create a CloudFormation stack utilising the created YAML template, this will create and configure the necessary resources.
 
@@ -89,7 +105,7 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/8b5f695e-99ae-4a0b-b58f-313340b7b215)
 
 ---
-## CodePipeline Creation
+### CodePipeline Creation
 
 The connection to the GitHub account and repo needs to be authorised before use.
 
@@ -114,8 +130,7 @@ The connection to the GitHub account and repo needs to be authorised before use.
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/105280d7-7bf5-4215-abc1-2e007157ebfa)
 
 ---
-
-## IAM Setup
+### IAM Setup
 
 * Before the forms can work properly, an IAM Policy and Role will need to be created.
 * The policy will define the appropriate permissions
@@ -131,18 +146,15 @@ The connection to the GitHub account and repo needs to be authorised before use.
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a290bba6-26b4-42fc-88d7-c269dd312220)
 
 ---
+### SES Setup
 
-## SES Setup
+* For the forms on the site to work, SES will need to be set up. The company's email address has been verified.
 
-* For the forms on the site to work, SES will need to be set up. The custom domain name and the company's email address have been verified.
-
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f0c22993-5d24-4c48-a2ab-63777eae07be)
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/87044434-073c-4ef2-a154-99c26ed9e61b)
 
 ---
-
-## Lambda Creation
-
-### CloudFront Invalidations
+### Lambda Creation
+#### CloudFront Invalidations
 
 * To eliminate the need for manual invalidations each time changes are deployed to the site, a Lambda function will be used.
 
@@ -154,7 +166,7 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f55dc9f0-0294-4a94-8c15-60270833f22d)
 
-### Contact Form
+#### Contact Form
 
 * This function is used to send a contact email containing the user's input to the company's email address.
 
@@ -166,7 +178,7 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/33c95744-e803-4cab-8dc4-5c131e72f5a5)
 
-### Checkout Form
+#### Checkout Form
 
 * This function handles the checkout receipt and confirmation for the end user, containing their inputted information as well as their order summary.
 
