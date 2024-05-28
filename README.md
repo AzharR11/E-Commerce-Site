@@ -115,13 +115,15 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ## Setup SES
 
-For the forms on the site to work, SES will need to setup.
+For the forms on the site to work, SES will need to be setup. The custom domain name and the company's email address have been verified.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f0c22993-5d24-4c48-a2ab-63777eae07be)
 
 ---
 
 ## Lambda Creation
+
+### CloudFront Invalidations
 
 To eliminate the need for manual invalidations each time changes are deployed to the site, a Lambda function will be run.
 
@@ -133,6 +135,8 @@ By creating an S3 event notification as a trigger, each time the S3 bucket detec
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ad3063b5-42ad-4702-bc84-e85707f2fdf5)
 
+### Contact Form
+
 This function is used to send a contact email containing the user's input to the company's email address.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/0198f76d-50e4-4f27-8450-502919ff747b)
@@ -142,6 +146,8 @@ API gateway is used as a trigger so that the content captured within the site's 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/2cd37ebe-013c-4cf0-afb3-c2074e9969b4)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/d03990d6-b526-4371-baf5-53f0d8fffb95)
+
+### Checkout Form
 
 This function handles the checkout receipt and confirmation for the end user, containing their inputted information as well as their order summary.
 
