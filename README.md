@@ -64,8 +64,6 @@ For user authentication and management, I seamlessly integrated Cognito, enablin
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/5dc63023-55b7-474a-bcc1-b1a055bedbd3)
 
-## change screenshot
-
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/64beabec-ce7b-4af0-89a3-1a5c9687a54b)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ec80af5d-b68c-423b-8546-40443f093597)
@@ -125,7 +123,7 @@ For the forms on the site to work, SES will need to setup.
 
 ## Lambda Creation
 
-To eliminate the need for manual invalidations each time changes are deployed to the site, a Lambda function will be used.
+To eliminate the need for manual invalidations each time changes are deployed to the site, a Lambda function will be run.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/da5a99fe-c7fd-49a5-93f1-117ba3d70bec)
 
@@ -134,4 +132,24 @@ By creating an S3 event notification as a trigger, each time the S3 bucket detec
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/a581c7ce-ff99-4903-acf1-309fac1458dc)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/ad3063b5-42ad-4702-bc84-e85707f2fdf5)
+
+This function is used to send a contact email containing the user's input to the company's email address.
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/0198f76d-50e4-4f27-8450-502919ff747b)
+
+API gateway is used as a trigger so that the content captured within the site's form can interact with the Lambda function which will handle the emails.
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/2cd37ebe-013c-4cf0-afb3-c2074e9969b4)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/d03990d6-b526-4371-baf5-53f0d8fffb95)
+
+This function handles the checkout receipt and confirmation for the end user, containing their inputted information as well as their order summary.
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/0f72fa3c-78ad-49f9-93d8-bc416b236843)
+
+API gateway is used as a trigger so that the content captured within the site's form can interact with the Lambda function which will handle the emails.
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/45102787-e797-4be0-9a36-266df1d2842b)
+
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/096c7248-5757-4004-8d0f-761b83f7ea50)
 
