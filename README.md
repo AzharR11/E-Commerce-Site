@@ -148,9 +148,9 @@ The connection to the GitHub account and repo needs to be authorised before use.
 ---
 ### SES Setup
 
-* For the forms on the site to work, SES will need to be set up. The custom domain name and the company's email address have been verified.
+* For the forms on the site to work, SES will need to be set up. The company's email address has been verified.
 
-![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f0c22993-5d24-4c48-a2ab-63777eae07be)
+![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/87044434-073c-4ef2-a154-99c26ed9e61b)
 
 ---
 ### Lambda Creation
