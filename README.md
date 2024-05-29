@@ -190,4 +190,5 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/5aa5e9c1-a9d1-49c1-9d7c-5cbbe96e85e3)
 
+---
 ## Resources
