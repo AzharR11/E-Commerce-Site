@@ -16,7 +16,7 @@
     4. [IAM Setup](#IAM-Setup)
     5. [SES Setup](#SES-Setup)
     6. [Lambda Creation](Lambda-Creation)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+4. [Resources](#Resources)
 
 ---
 ## Description 
@@ -189,3 +189,5 @@ The connection to the GitHub account and repo needs to be authorised before use.
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/f2e223e2-445e-48f5-af62-9dd6af56b2ed)
 
 ![image](https://github.com/AzharR11/E-Commerce-Site/assets/51958831/5aa5e9c1-a9d1-49c1-9d7c-5cbbe96e85e3)
+
+## Resources
