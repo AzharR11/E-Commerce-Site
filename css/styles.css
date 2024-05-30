@@ -724,7 +724,6 @@ footer {
     background-position: center; 
     color: #fff; /* Text color */
     padding: 20px;
-    box-shadow: 0 3px 0 white;
     text-decoration: none;
 }
 
@@ -744,7 +743,6 @@ footer {
 #contact-form {
     flex: 1;
     background-color: #fff;
-    box-shadow: 0 3px 0 white;
     padding: 20px;
     max-width: 500px;
     margin: 0 auto;
@@ -842,7 +840,6 @@ footer {
     background-color: #f9f9f9;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 3px 0 white;
     display: flex;
     flex-direction: column;
     gap: 20px; /* Add some spacing between the sections */
@@ -956,7 +953,6 @@ footer {
 .checkout-form {
     background-color: #f9f9f9;
     padding: 20px;
-    box-shadow: 0 3px 0 white;
     display: flex;
     flex-direction: column;
 }
@@ -1027,7 +1023,6 @@ footer {
 
 .account-form-container {
     background-color: #fff;
-    box-shadow: 0 3px 0 white;
     padding: 20px;
     max-width: 500px;
     margin: 0 auto;
@@ -1129,7 +1124,7 @@ footer {
 
 .feature-box {
     flex: 1;
-    padding: 10px;
+    padding: 7px;
     background-color: white;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -1153,6 +1148,17 @@ footer {
     font-size: 14px; /* Adjust font size */
 }
 
+@media screen and (max-width: 500px) {
+    .feature-box h3 {
+        font-size: 15px; 
+    }
+
+    .feature-box p {
+        font-size: 13px; /* Adjust font size */
+    }    
+}
+
+
 .home-container1,
 .home-container,
 .about-container,
@@ -1169,13 +1175,30 @@ footer {
 
 .coming-soon,
 .reviews,
-.about-section {
+.about-section,
+.commitment-section{
     flex: 1;
     display: flex; /* Use flexbox */
     max-width: 90%; 
     flex-direction: column; /* Arrange items vertically */
-        text-align: center; /* Center the text content horizontally */
+    text-align: center; /* Center the text content horizontally */
     padding-right: 20px; /* Optional: Add spacing between sections */
+}
+
+.coming-soon h2,
+.reviews h2,
+.about-section h2 {
+    align-self: flex-start; /* Align header to the start of the container */
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+/* Center the paragraph */
+.coming-soon p,
+.reviews p,
+.about-section p,
+.commitment-section p{
+    justify-content: center;
 }
 
 .slideshow-container,
@@ -1240,7 +1263,7 @@ footer {
     right: 0;
     width: 50%; /* Adjust width of text box */
     height: 100%; /* Make text box take up full height of slideshow */
-    background-color: rgba(255, 255, 255, 0.8); /* Optional: Add background color with transparency */
+     /* Optional: Add background color with transparency */
     padding: 20px; /* Optional: Add padding for spacing */
     box-sizing: border-box; /* Ensure padding is included in width */
     overflow-y: auto; /* Enable vertical scrolling if content overflows */
@@ -1265,13 +1288,14 @@ footer {
 
 .image-container img {
     width: 100%;
+    box-shadow: 0 3px 0 #3CB3F5;;
 }
 
 .image-container-review img {
     width: 60%;
 }
 .textbox {
-    border: 1px solid #bbb;
+    background-color: rgba(233, 231, 231, 0.204);
     padding: 10px;
     margin-top: 5px;
     font-size: 15px;
@@ -1409,6 +1433,16 @@ footer {
     animation: slideInText 1s ease-in-out forwards;
 }
 
+@media screen and (max-width: 500px) {
+    .text-container-home h2 {
+        font-size: 28px;
+    }
+
+    .text-container-home p {
+        font-size: 17px;
+    }
+}
+
 .cars-button {
     opacity: 0;
     animation: slideInText 1s ease-in-out forwards; /* Maintain the end state after animation */
@@ -1444,5 +1478,10 @@ footer {
     opacity: 0;
     animation: slideInText 1s ease-in-out forwards; /* Maintain the end state after animation */
     animation-delay: 1.5s;
+}
+
+.scroll-button:hover {
+    color: #3CB3F5;
+    transition: color 0.3s ease;
 }
 
