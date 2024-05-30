@@ -455,7 +455,6 @@ footer {
     justify-content: flex-end;
     font-size: 22px; /* Increase the font size */
     position: relative;
-    background-color: rgba(0, 0, 0, 0.500);
 }
 
 .body-header {
@@ -1102,6 +1101,15 @@ footer {
     color: #fff;
 }
 
+.about-container{
+    margin-top: -20px;
+}
+
+.home-container,
+.commitment-container{
+    margin-bottom: -15px
+}
+
 .about-content,
 .commitment-section,
 .review-content,
@@ -1388,14 +1396,14 @@ footer {
 }
 
 .text-container-home h2 {
-    font-size: 32px; /* Adjust font size as needed */
+    font-size: 36px; /* Adjust font size as needed */
     font-weight: bold; /* Specify the font weight */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     opacity: 0;
     animation: slideInText 1s ease-in-out forwards;}
 
 .text-container-home p {
-    font-size: 18px; /* Adjust font size as needed */
+    font-size: 20px; /* Adjust font size as needed */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     opacity: 0;
     animation: slideInText 1s ease-in-out forwards;
