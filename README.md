@@ -192,3 +192,5 @@ The connection to the GitHub account and repo needs to be authorised before use.
 
 ---
 ## Resources
+
+(https://www.freecodecamp.org/news/how-to-receive-emails-via-your-sites-contact-us-form-with-aws-ses-lambda-api-gateway/)
