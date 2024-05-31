@@ -13,13 +13,6 @@ body {
     padding: 0;
 }
 
-@media (max-width: 768px) {
-    body {
-        background-size: auto; /* Adjust the background size for smaller screens */
-        background-position: top center; /* Adjust the background position for smaller screens */
-    }
-}
-
 /* Media query for very small screens */
 @media (max-width: 500px) {
     body {
@@ -1243,21 +1236,39 @@ footer {
 
 .coming-soon,
 .reviews,
-.about-section,
-.commitment-section{
+.about-section{
     flex: 1;
     display: flex; /* Use flexbox */
-    max-width: 90%; 
+    max-width: 100%; 
     flex-direction: column; /* Arrange items vertically */
     text-align: center; /* Center the text content horizontally */
     padding-right: 20px; /* Optional: Add spacing between sections */
+}
+
+.commitment-section{
+    flex: 1;
+    display: flex; /* Use flexbox */
+    max-width: 100%; 
+    flex-direction: column; /* Arrange items vertically */
+    text-align: center; /* Center the text content horizontally */
+    padding-left: 20px; /* Optional: Add spacing between sections */
+}
+
+@media (max-width: 768px) {
+    .coming-soon,
+    .reviews,
+    .about-section,
+    .commitment-section{
+       padding-left: 0;
+       padding-right: 0;
+
+}
 }
 
 .coming-soon h2,
 .reviews h2,
 .about-section h2
 .commitment-section h2 {
-    align-self: flex-start; /* Align header to the start of the container */
     font-size: 30px;
     margin-bottom: 50px;
 }
