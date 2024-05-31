@@ -13,6 +13,23 @@ body {
     padding: 0;
 }
 
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* Removes the fixed background attachment */
+    }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+    body {
+        background-image: url('../images/background1.jpg'); /* Use the same high-resolution image */
+        background-size: cover; /* Ensure the background covers the entire page */
+        background-position: center; /* Center the background image */
+        background-attachment: scroll; /* Ensures the background scrolls with the content */
+    }
+}
+
 header {
     position: relative;
     background-color: #000;
