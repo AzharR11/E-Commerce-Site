@@ -487,7 +487,7 @@ footer {
 
 .page-numbers li {
     display: inline;
-    margin-right: -5px;
+    margin-right: -3px;
 }
 
 .page-numbers a {
@@ -495,7 +495,7 @@ footer {
     padding: 5px 10px; /* Adjust padding to add spacing around the text */
     background-color: rgba(0, 0, 0, 0.500);
     color:white;
-    box-shadow: 0 3px 0 #ffffff;
+    box-shadow: 0 3px 0 white;
 }
 
 .page-numbers a:hover {
@@ -1225,10 +1225,6 @@ footer {
     margin-right: -20px; /* Compensate for negative margin */
 }
 
-.soon-content p {
-    justify-content: center;
-}
-
 .coming-soon,
 .reviews,
 .about-section,
@@ -1248,14 +1244,6 @@ footer {
     align-self: flex-start; /* Align header to the start of the container */
     font-size: 30px;
     margin-bottom: 50px;
-}
-
-/* Center the paragraph */
-.coming-soon p,
-.reviews p,
-.about-section p,
-.commitment-section p{
-    justify-content: center;
 }
 
 .slideshow-container,
