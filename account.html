@@ -16,28 +16,33 @@
 <main>
     <div class="fade-animation">
         <div class="account-form-container">
-            <h2>Welcome Back!</h2>
+                <div class="login">
+                    <h2>Welcome Back!</h2>
+                </div>
+
+        <section id="forms">
             <form id="login-form" class="account-form">
-                <h3>Login</h3>
-                <label for="login-email">Email</label>
-                <input type="email" id="login-email" class="account-form-input" name="email" required><br><br>
-                <label for="login-password">Password</label>
-                <input type="password" id="login-password" class="account-form-input" name="password" required><br><br>
+                <h2>Login</h2>
+                <label for="login-email">Email *</label>
+                <input placeholder="Enter your Email" type="email" id="login-email" class="account-form-input" name="email" required><br><br>
+                <label for="login-password">Password *</label>
+                <input placeholder="Enter your Password" type="password" id="login-password" class="account-form-input" name="password" required><br><br>
                 <button type="submit" class="account-form-submit">Login</button>
             </form>
             <form id="signup-form" class="account-form" style="display: none;">
-                <h3>Sign Up</h3>
-                <label for="signup-name">Full Name</label>
-                <input type="text" id="signup-name" class="account-form-input" name="name" required><br><br>
-                <label for="signup-email">Email</label>
-                <input type="email" id="signup-email" class="account-form-input" name="email" required><br><br>
-                <label for="signup-password">Password</label>
-                <input type="password" id="signup-password" class="account-form-input" name="password" required><br><br>
+                <h2>Sign Up</h2>
+                <label for="signup-name">Full Name *</label>
+                <input placeholder="Enter your Full Name" type="text" id="signup-name" class="account-form-input" name="name" required><br><br>
+                <label for="signup-email">Email *</label>
+                <input placeholder="Enter your Email" type="email" id="signup-email" class="account-form-input" name="email" required><br><br>
+                <label for="signup-password">Password *</label>
+                <input placeholder="Enter your Password" type="password" id="signup-password" class="account-form-input" name="password" required><br><br>
                 <button type="submit" class="account-form-submit" >Sign Up</button>
             </form>
             <div class="toggle-form">
                 <p><a href="#" onclick="toggleForm()">New to JDM Cars? Sign up here</a></p>
             </div>
+        </section>
         </div>
     </div>
 </main>

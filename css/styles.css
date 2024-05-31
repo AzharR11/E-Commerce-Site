@@ -4,7 +4,7 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    background-image: url('../images/background.jpg');
+    background-image: url('../images/background1.jpg');
     background-size: cover; /* Makes the background image cover the entire page */
     background-repeat: no-repeat; /* Prevents the background image from repeating */
     background-position: center; /* Centers the background image */
@@ -453,8 +453,24 @@ footer {
     display: flex;
     align-items: center; 
     justify-content: flex-end;
-    font-size: 22px; /* Increase the font size */
+    font-size: 14px; /* Increase the font size */
     position: relative;
+}
+
+.sort-dropdown select {
+    color: white;
+    font-size: inherit; /* Inherit font size from the parent */
+    padding: 5px; /* Adjust padding as needed */
+    background-color: rgba(0, 0, 0, 0.500);
+    border: #000;
+    box-shadow: 0 3px 0 rgb(255, 255, 255); /* Add box shadow */
+    cursor: pointer; /* Change cursor on hover */
+    transition: box-shadow 0.3s; /* Add transition */
+}
+
+.sort-dropdown select:hover {
+    box-shadow: 0 3px 0 #3CB3F5; /* Change border color on hover */
+    transition: color 0.3s ease;
 }
 
 .body-header {
@@ -479,14 +495,16 @@ footer {
     padding: 5px 10px; /* Adjust padding to add spacing around the text */
     background-color: rgba(0, 0, 0, 0.500);
     color:white;
+    box-shadow: 0 3px 0 #ffffff;
 }
 
 .page-numbers a:hover {
     text-decoration: underline;
-    background-color: rgba(0, 0, 0, 0.200);
+    background-color: #555;
     border: none;
     color: #3CB3F5;
     transition: color 0.3s ease;
+    box-shadow: 0 3px 0 #3CB3F5;
 }
 
 .fade-animation {
@@ -694,6 +712,7 @@ footer {
     justify-content: center; /* Center the items horizontally */
     max-width: 1100px; /* Set the maximum width of the container */
     margin: 0 auto; /* Center the container horizontally */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
 
 @media only screen and (max-width: 500px) {
@@ -764,6 +783,7 @@ footer {
     font-weight: bold;
     margin-bottom: 5px;
     text-align: left;
+    color: #555;
 }
 
 #contact-form input[type="text"],
@@ -797,7 +817,7 @@ footer {
 #contact-form button,
 .checkout-form button,
 .account-form-submit {
-    background-color: #333; /* Blue background */
+    background-color: #333; 
     color: #fff; /* White text */
     border: none;
     border-radius: 5px; /* Rounded corners */
@@ -827,7 +847,7 @@ footer {
 .checkout-form button:focus,
 .account-form-submit:focus {
     outline: none; /* Remove default focus outline */
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Add blue border on focus */
+    box-shadow: 0 0 0 2px #3CB3F5; /* Add blue border on focus */
 }
 
 .checkout-container {
@@ -843,6 +863,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 20px; /* Add some spacing between the sections */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
 
 .order-summary h2 {
@@ -955,6 +976,7 @@ footer {
     padding: 20px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
 .checkout-section {
     display: flex; /* Use flexbox */
@@ -1022,29 +1044,69 @@ footer {
 }
 
 .account-form-container {
-    background-color: #fff;
-    padding: 20px;
-    max-width: 500px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    max-width: 800px; /* Set the maximum width of the container */
+    margin: 0 auto; /* Center the container horizontally */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
 
-.account-form-container h2 {
+@media only screen and (max-width: 500px) {
+    .account-form-container {
+        flex-direction: column; /* Maintain row layout on smaller screens */
+    }
+
+    .login,
+    #forms {
+        max-width: 100%; /* Full width for each item on smaller screens */
+    }
+}
+
+.login {
+    flex: 1;
+    background-image: url('../images/login-form.avif');
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (alpha) to control darkness */
+    background-blend-mode: overlay; 
+    background-size: cover; /* Cover the entire background */
+    background-position: center; 
+    color: #fff; /* Text color */
+    padding: 20px;
+    text-decoration: none;
+}
+
+
+.login h2 {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Add a black outline */
+}
+
+#forms{
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+}
+
+#forms h2 {
     color: #333;
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-.account-form-container label {
+#forms form {
+    display: flex;
+    flex-direction: column;
+}
+
+#forms label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
     text-align: left;
+    color: #555;
 }
 
-.account-form-container input[type="text"],
-.account-form-container input[type="email"],
-.account-form-container input[type="password"],
-.account-form-container textarea {
+#forms input[type="text"],
+#forms input[type="email"],
+#forms input[type="password"]{
     width: calc(100% - 22px);
     padding: 10px;
     margin-bottom: 20px;
@@ -1054,17 +1116,11 @@ footer {
     transition: border-bottom-color 0.3s ease;
     border-radius: 0;
 }
-.account-form-container input[type="text"]:focus,
-.account-form-container input[type="email"]:focus,
-.account-form-container input[type="password"]:focus,
-.account-form-container textarea:focus {
+#forms input[type="text"]:focus,
+#forms input[type="email"]:focus,
+#forms input[type="password"]:focus{
     outline: none;
     border-color: #3CB3F5; /* Change border color on focus */
-}
-
-.account-form-container textarea {
-    height: 100px;
-    resize: vertical;
 }
 
 /* Form toggle link */
@@ -1089,7 +1145,7 @@ footer {
 .dashboard-container {
     padding: 20px;
     text-align: center;
-    margin-bottom: 5px; /* Add margin to the bottom of each product */
+    margin-bottom: 4px; /* Add margin to the bottom of each product */
     background-color: rgba(0, 0, 0, 0.500);
     box-shadow: 0 3px 0 white;
     overflow: hidden;
@@ -1187,7 +1243,8 @@ footer {
 
 .coming-soon h2,
 .reviews h2,
-.about-section h2 {
+.about-section h2
+.commitment-section h2 {
     align-self: flex-start; /* Align header to the start of the container */
     font-size: 30px;
     margin-bottom: 50px;
@@ -1202,7 +1259,8 @@ footer {
 }
 
 .slideshow-container,
-.slideshow-container1 {
+.slideshow-container1,
+.commitment-image-container {
     position: relative;
     width: 50%; /* Adjust the width as needed */
     margin: 0 auto; /* Center the slideshow horizontally */
@@ -1225,7 +1283,8 @@ footer {
        only screen and (max-width: 500px) {
     .home-container1,
     .home-container,
-    .about-container {
+    .about-container,
+    .commitment-container {
         /* Adjust layout for smaller screens */
         flex-direction: column; /* Stack items vertically */
         align-items: center; /* Center items horizontally */
@@ -1233,13 +1292,15 @@ footer {
 
     .coming-soon,
     .reviews,
-    .about-section {
+    .about-section,
+    .commitment-section {
         /* Adjust layout for smaller screens */
         width: 100% /* Center the content horizontally */
     }
 
     .slideshow-container,
-    .slideshow-container1{
+    .slideshow-container1,
+    .commitment-image-container{
         /* Adjust layout for smaller screens */
         width: 100% ; /* Adjust the width as needed */
     }
@@ -1270,7 +1331,8 @@ footer {
 }
 
 .image-container,
-.image-container-review {
+.image-container-review,
+.commitment-image-container {
     display: flex;
     flex-wrap: wrap; /* Allow images to wrap within the container */
     justify-content: center; /* Center the images horizontally */
@@ -1294,6 +1356,11 @@ footer {
 .image-container-review img {
     width: 60%;
 }
+
+.commitment-image-container img{
+    width:100%;
+}
+
 .textbox {
     background-color: rgba(233, 231, 231, 0.204);
     padding: 10px;
@@ -1412,7 +1479,7 @@ footer {
 
 .text-container-home {
     position: absolute;
-    top: 52%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -1434,6 +1501,10 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
+    .text-container-home{
+        top:40%;
+    }
+
     .text-container-home h2 {
         font-size: 28px;
     }
