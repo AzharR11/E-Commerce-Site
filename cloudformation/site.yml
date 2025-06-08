@@ -1,0 +1,504 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'S3 bucket configured for site hosting, with CloudFront distribution and automated ACM DNS validation via Lambda-backed custom resource'
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: 'Please provide the bucket name'
+  DomainName:
+    Type: String
+    Description: 'Root domain name (e.g. azr11.com)'
+  WwwDomainName:
+    Type: String
+    Description: 'WWW subdomain name (e.g. www.azr11.com)'
+
+Resources:
+  HostedZone:
+    Type: 'AWS::Route53::HostedZone'
+    Properties:
+      Name: !Ref DomainName
+
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Ref BucketName
+      VersioningConfiguration:
+        Status: Enabled
+      WebsiteConfiguration:
+        IndexDocument: index.html
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+
+  S3BucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      Bucket: !Ref S3Bucket
+      PolicyDocument:
+        Id: Mypolicy
+        Version: '2012-10-17'
+        Statement:
+          - Sid: PublicReadGetObject
+            Action: 's3:GetObject'
+            Effect: Allow
+            Principal: '*'
+            Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
+
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: LambdaACMRoute53Policy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - acm:*
+                  - route53:*
+                  - logs:*
+                  - s3:GetObject
+                  - s3:PutBucketNotification
+                  - cloudfront:CreateInvalidation
+                  - lambda:InvokeFunction
+                  - ses:SendEmail
+                Resource: '*'
+
+  CertificateValidatorFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Runtime: python3.9
+      Handler: index.lambda_handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 900
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+          import time
+          import cfnresponse
+
+          acm = boto3.client('acm', region_name='us-east-1')
+          route53 = boto3.client('route53')
+
+          def lambda_handler(event, context):
+              try:
+                  domain = event['ResourceProperties']['DomainName']
+                  alt_names = event['ResourceProperties']['SubjectAlternativeNames']
+                  hosted_zone_id = event['ResourceProperties']['HostedZoneId']
+
+                  if event['RequestType'] == 'Delete':
+                      cfnresponse.send(event, context, cfnresponse.SUCCESS, {})
+                      return
+
+                  cert_arn = get_or_request_certificate(domain, alt_names)
+                  validation_options = wait_for_validation_options(cert_arn)
+                  create_route53_records(validation_options, hosted_zone_id)
+                  wait_for_certificate_issued(cert_arn)
+                  cfnresponse.send(event, context, cfnresponse.SUCCESS, {'CertificateArn': cert_arn})
+
+              except Exception as e:
+                  cfnresponse.send(event, context, cfnresponse.FAILED, {'Message': str(e)})
+
+          def get_or_request_certificate(domain, alt_names):
+              response = acm.request_certificate(
+                  DomainName=domain,
+                  ValidationMethod='DNS',
+                  SubjectAlternativeNames=alt_names,
+                  Options={'CertificateTransparencyLoggingPreference': 'ENABLED'}
+              )
+              return response['CertificateArn']
+
+          def wait_for_validation_options(cert_arn):
+              for _ in range(20):
+                  cert = acm.describe_certificate(CertificateArn=cert_arn)['Certificate']
+                  options = cert.get('DomainValidationOptions', [])
+                  if options and 'ResourceRecord' in options[0]:
+                      return options
+                  time.sleep(15)
+              raise Exception('Timed out waiting for DomainValidationOptions')
+
+          def create_route53_records(validation_options, hosted_zone_id):
+              changes = []
+              for option in validation_options:
+                  rr = option['ResourceRecord']
+                  changes.append({
+                      'Action': 'UPSERT',
+                      'ResourceRecordSet': {
+                          'Name': rr['Name'],
+                          'Type': rr['Type'],
+                          'TTL': 300,
+                          'ResourceRecords': [{'Value': rr['Value']}]
+                      }
+                  })
+              route53.change_resource_record_sets(
+                  HostedZoneId=hosted_zone_id,
+                  ChangeBatch={'Changes': changes}
+              )
+
+          def wait_for_certificate_issued(cert_arn):
+              for _ in range(40):
+                  cert = acm.describe_certificate(CertificateArn=cert_arn)['Certificate']
+                  if cert['Status'] == 'ISSUED':
+                      return
+                  elif cert['Status'] == 'FAILED':
+                      raise Exception('Certificate validation failed')
+                  time.sleep(15)
+
+  CertificateCustomResource:
+    Type: Custom::CertificateValidator
+    Properties:
+      ServiceToken: !GetAtt CertificateValidatorFunction.Arn
+      DomainName: !Ref DomainName
+      SubjectAlternativeNames:
+        - !Ref WwwDomainName
+      HostedZoneId: !Ref HostedZone
+
+  CloudFrontDistribution:
+    Type: 'AWS::CloudFront::Distribution'
+    DependsOn: S3Bucket
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        DefaultRootObject: index.html
+        Aliases:
+          - !Ref DomainName
+          - !Ref WwwDomainName
+        Origins:
+          - DomainName: !Sub '${BucketName}.s3-website-${AWS::Region}.amazonaws.com'
+            Id: S3Origin
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: http-only
+            OriginPath: ''
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ForwardedValues:
+            QueryString: false
+          ViewerProtocolPolicy: redirect-to-https
+        ViewerCertificate:
+          AcmCertificateArn: !GetAtt CertificateCustomResource.CertificateArn
+          SslSupportMethod: sni-only
+
+  MainDomainRecord:
+    Type: 'AWS::Route53::RecordSet'
+    Properties:
+      HostedZoneId: !Ref HostedZone
+      Name: !Ref DomainName
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+
+  WWWSubDomainRecord:
+    Type: 'AWS::Route53::RecordSet'
+    Properties:
+      HostedZoneId: !Ref HostedZone
+      Name: !Ref WwwDomainName
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+
+  OrderEmailLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: SendOrderEmailFunction
+      Runtime: python3.9
+      Handler: index.handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 10
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+
+          ses = boto3.client('ses', region_name='eu-west-1')
+
+          def handler(event, context):
+              body = json.loads(event['body'])
+
+              full_name = body.get('fullName')
+              sender_email = body.get('senderEmail')
+              mobile_number = body.get('mobileNumber')
+              delivery_address = body.get('deliveryAddress')
+              delivery_address2 = body.get('deliveryAddress2')
+              city_town = body.get('cityTown')
+              zip_postcode = body.get('zipPostcode')
+              cart = body.get('cart', [])
+
+              total = sum(
+                  float(item['price'].replace('£', '').replace(',', '')) * item['quantity']
+                  for item in cart
+              )
+
+              message_lines = [
+                  f"Order details:",
+                  f"Name: {full_name}",
+                  f"Email: {sender_email}",
+                  f"Phone: {mobile_number}",
+                  f"Address: {delivery_address}, {delivery_address2}, {city_town}, {zip_postcode}",
+                  "Cart:"
+              ]
+
+              for item in cart:
+                  message_lines.append(f"- {item['quantity']}x {item['name']}: {item['price']}")
+
+              message_lines.append(f"\nTotal: £{total:.2f}")
+              email_body = "\n".join(message_lines)
+
+              params = {
+                  'Source': 'jdmcarscontact11@gmail.com',
+                  'Destination': {
+                      'ToAddresses': ['jdmcarscontact11@gmail.com']
+                  },
+                  'Message': {
+                      'Subject': {'Data': f'Order Details for {full_name}'},
+                      'Body': {
+                          'Text': {
+                              'Data': email_body
+                          }
+                      }
+                  }
+              }
+
+              ses.send_email(**params)
+
+              return {
+                  'statusCode': 200,
+                  'body': json.dumps({'message': 'Order email sent'})
+              }
+
+  ContactMessageLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: SendContactMessageFunction
+      Runtime: python3.9
+      Handler: index.handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 10
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+
+          ses = boto3.client('ses', region_name='eu-west-1')
+
+          def handler(event, context):
+              body = json.loads(event['body'])
+              sender_email = body.get('senderEmail')
+              sender_name = body.get('senderName')
+              message = body.get('message')
+
+              email_params = {
+                  'Source': 'jdmcarscontact11@gmail.com',
+                  'Destination': {
+                      'ToAddresses': ['jdmcarscontact11@gmail.com']
+                  },
+                  'Message': {
+                      'Subject': {
+                          'Data': f'Message from {sender_name}'
+                      },
+                      'Body': {
+                          'Text': {
+                              'Data': f'From {sender_name} <{sender_email}>:\n\n{message}'
+                          }
+                      }
+                  }
+              }
+
+              ses.send_email(**email_params)
+              return {
+                  'statusCode': 200,
+                  'body': json.dumps({'message': 'Contact email sent'})
+              }
+
+  InvalidateCloudFrontLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: InvalidateCloudFrontOnUpload
+      Runtime: python3.9
+      Handler: index.invalidate_cloudfront_cache
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 10
+      Environment:
+        Variables:
+          DISTRIBUTION_ID: !Ref CloudFrontDistribution
+      Code:
+        ZipFile: |
+          import boto3
+          import os
+
+          def invalidate_cloudfront_cache(event, context):
+              # Get the bucket name and object key from the S3 event
+              bucket_name = event['Records'][0]['s3']['bucket']['name']
+              object_key = event['Records'][0]['s3']['object']['key']
+
+              # Use environment variable for CloudFront distribution ID
+              cloudfront_distribution_id = os.environ.get('DISTRIBUTION_ID')
+
+              if not cloudfront_distribution_id:
+                  raise ValueError("Missing DISTRIBUTION_ID environment variable")
+
+              # Create a CloudFront client
+              cloudfront_client = boto3.client('cloudfront')
+
+              # Create an invalidation batch
+              invalidation_paths = {
+                  'Quantity': 1,
+                  'Items': [
+                      f'/{object_key}'  # Invalidate the specific object
+                  ]
+              }
+
+              # Invalidate the CloudFront cache
+              response = cloudfront_client.create_invalidation(
+                  DistributionId=cloudfront_distribution_id,
+                  InvalidationBatch={
+                      'Paths': invalidation_paths,
+                      'CallerReference': f'lambda-invalidation-{object_key}'
+                  }
+              )
+
+              print("Invalidation response:", response)
+
+              return {
+                  'statusCode': 200,
+                  'body': f'Cache invalidation triggered for CloudFront distribution: {cloudfront_distribution_id}'
+              }
+
+  LambdaInvokePermissionForS3:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref InvalidateCloudFrontLambda
+      Principal: s3.amazonaws.com
+      SourceArn: !Sub arn:aws:s3:::${BucketName}
+
+  # API Gateway and routes
+  OrderApi:
+    Type: AWS::ApiGatewayV2::Api
+    Properties:
+      Name: MultiFunctionApi
+      ProtocolType: HTTP
+      CorsConfiguration:
+        AllowOrigins: ['*']
+        AllowMethods: ['POST']
+        AllowHeaders: ['Content-Type']
+
+  ApiStage:
+    Type: AWS::ApiGatewayV2::Stage
+    Properties:
+      ApiId: !Ref OrderApi
+      StageName: default
+      AutoDeploy: true
+
+  OrderIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId: !Ref OrderApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${OrderEmailLambda.Arn}/invocations
+      PayloadFormatVersion: '2.0'
+
+  OrderRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref OrderApi
+      RouteKey: 'POST /order'
+      Target: !Sub integrations/${OrderIntegration}
+
+  OrderPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref OrderEmailLambda
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${OrderApi}/*/*/order
+
+  ContactIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId: !Ref OrderApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactMessageLambda.Arn}/invocations
+      PayloadFormatVersion: '2.0'
+
+  ContactRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref OrderApi
+      RouteKey: 'POST /contact'
+      Target: !Sub integrations/${ContactIntegration}
+
+  ContactPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ContactMessageLambda
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${OrderApi}/*/*/contact
+
+  BucketNotificationLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: ConfigureS3BucketNotification
+      Runtime: python3.9
+      Handler: index.handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 30
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+          import cfnresponse
+
+          s3 = boto3.client('s3')
+
+          def handler(event, context):
+              try:
+                  props = event['ResourceProperties']
+                  bucket = props['BucketName']
+                  lambda_arn = props['LambdaArn']
+
+                  if event['RequestType'] in ['Create', 'Update']:
+                      response = s3.put_bucket_notification_configuration(
+                          Bucket=bucket,
+                          NotificationConfiguration={
+                              'LambdaFunctionConfigurations': [
+                                  {
+                                      'LambdaFunctionArn': lambda_arn,
+                                      'Events': ['s3:ObjectCreated:Put']
+                                  }
+                              ]
+                          }
+                      )
+                  elif event['RequestType'] == 'Delete':
+                      # Clean up
+                      s3.put_bucket_notification_configuration(
+                          Bucket=bucket,
+                          NotificationConfiguration={}
+                      )
+
+                  cfnresponse.send(event, context, cfnresponse.SUCCESS, {})
+              except Exception as e:
+                  print('Error:', str(e))
+                  cfnresponse.send(event, context, cfnresponse.FAILED, {'Message': str(e)})
+
+  S3NotificationCustomResource:
+    Type: Custom::S3BucketNotification
+    DependsOn: LambdaInvokePermissionForS3
+    Properties:
+      ServiceToken: !GetAtt BucketNotificationLambda.Arn
+      BucketName: !Ref S3Bucket
+      LambdaArn: !GetAtt InvalidateCloudFrontLambda.Arn

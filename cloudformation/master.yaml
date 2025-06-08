@@ -1,0 +1,56 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Master stack for static site + CodePipeline
+
+Parameters:
+  GitHubOAuthToken:
+    Type: String
+    NoEcho: true
+    Description: GitHub OAuth token for accessing the repository
+  GitHubOwner:
+    Type: String
+    Description: Owner of the GitHub repository
+  GitHubRepo:
+    Type: String
+    Description: Name of the GitHub repository
+  GitHubBranch:
+    Type: String
+    Description: Branch of the GitHub repository
+  PipelineName:
+    Type: String
+    Description: Name of the CodePipeline
+  ArtifactBucketName:
+    Type: String
+    Description: Name of the  S3 bucket where artifacts will be stored
+  WebsiteBucketName:
+    Type: String
+    Description: Name of the target S3 bucket where files will be deployed
+  DomainName:
+    Type: String
+    Description: 'Root domain name (e.g. azr11.com)'
+  WwwDomainName:
+    Type: String
+    Description: 'WWW subdomain name (e.g. www.azr11.com)'
+
+Resources:
+  SiteStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://s3.amazonaws.com/my-cloudformation-templates-azr/site.yml
+      Parameters:
+        BucketName: !Ref WebsiteBucketName
+        DomainName: !Ref DomainName
+        WwwDomainName: !Ref WwwDomainName
+        
+  PipelineStack:
+    Type: AWS::CloudFormation::Stack
+    DependsOn: SiteStack
+    Properties:
+      TemplateURL: https://s3.amazonaws.com/my-cloudformation-templates-azr/pipeline.yml
+      Parameters:
+        GitHubOAuthToken: !Ref GitHubOAuthToken
+        GitHubOwner: !Ref GitHubOwner
+        GitHubRepo: !Ref GitHubRepo
+        GitHubBranch: !Ref GitHubBranch
+        PipelineName: !Ref PipelineName
+        ArtifactBucketName: !Ref ArtifactBucketName
+        WebsiteBucketName: !Ref WebsiteBucketName
