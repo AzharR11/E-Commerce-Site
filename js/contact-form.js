@@ -10,7 +10,7 @@ form1.addEventListener("submit", function  (event) {
 
 	// Define the API endpoint URL
   const endpoint =
-    "https://spyg6fykki.execute-api.us-east-1.amazonaws.com/default/send-contact-email";
+    "https://d8cosi9k6d.execute-api.eu-west-1.amazonaws.com/default/contact";
 
   const body = JSON.stringify({
     senderName: name.value,

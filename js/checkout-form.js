@@ -17,7 +17,7 @@ form1.addEventListener("submit", function (event) {
   
   // Define the API endpoint URL
   const endpoint =
-    "https://eb00cwvas5.execute-api.us-east-1.amazonaws.com/default/checkout-email";
+    "https://d8cosi9k6d.execute-api.eu-west-1.amazonaws.com/default/order";
 
   const body = JSON.stringify({
     fullName: name,
